@@ -58,7 +58,10 @@ body{
     linear-gradient(180deg, var(--void) 0%, var(--void-2) 55%, var(--void) 100%);
 }
 #stars{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.9}
-@media (prefers-reduced-motion:reduce){#stars{opacity:.55}}
+@media (prefers-reduced-motion:reduce){
+  #stars{opacity:.55}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
 
 a{color:var(--aether);text-decoration:none}
 a:hover{text-decoration:underline}
@@ -116,7 +119,7 @@ html[dir="rtl"] .lang{padding:7px 12px 7px 28px;background-position:left 8px cen
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .menu.open{display:block;animation:pop .12s ease}
 @keyframes pop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
-.menu button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;
+.menu button{display:flex;align-items:center;gap:10px;width:100%;text-align:start;
   padding:9px 11px;border:0;border-radius:9px;background:transparent;color:var(--ink-dim);font-size:13.5px}
 .menu button:hover{background:rgba(255,255,255,.05);color:var(--ink)}
 .menu button svg{width:15px;height:15px;color:var(--muted);flex:none}
@@ -134,13 +137,13 @@ aside.side{align-self:start;position:sticky;top:84px}
   margin:0 0 10px;font-weight:700;display:flex;align-items:center;gap:8px}
 .facet h3::after{content:"";flex:1;height:1px;background:var(--line)}
 .chips{display:flex;flex-direction:column;gap:3px}
-.chip{display:flex;align-items:center;gap:9px;width:100%;text-align:left;
+.chip{display:flex;align-items:center;gap:9px;width:100%;text-align:start;
   padding:8px 10px;border:0;border-radius:9px;background:transparent;color:var(--ink-dim);
   font-size:13.5px;transition:background .12s,color .12s}
 .chip:hover{background:rgba(255,255,255,.04);color:var(--ink)}
 .chip.on{background:rgba(116,214,224,.12);color:var(--ink)}
 .chip .dot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--muted)}
-.chip .n{margin-left:auto;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.chip .n{margin-inline-start:auto;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
 .chip.on .n{color:var(--aether)}
 .tagcloud{display:flex;flex-wrap:wrap;gap:6px}
 .tg{padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:transparent;
@@ -151,7 +154,7 @@ aside.side{align-self:start;position:sticky;top:84px}
 .sidecard{border:1px solid var(--line);border-radius:var(--r);padding:14px;background:var(--panel);margin-top:6px}
 .sidecard .row{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-dim);padding:3px 0}
 .sidecard .row b{font-variant-numeric:tabular-nums;color:var(--ink)}
-.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ok);margin-right:7px;
+.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ok);margin-inline-end:7px;
   box-shadow:0 0 0 0 rgba(127,214,163,.6);animation:p 2.6s infinite}
 @keyframes p{0%{box-shadow:0 0 0 0 rgba(127,214,163,.5)}70%{box-shadow:0 0 0 7px rgba(127,214,163,0)}100%{box-shadow:0 0 0 0 rgba(127,214,163,0)}}
 
@@ -208,7 +211,7 @@ html[dir="rtl"] .scrim.show .panel{transform:none}
 .phead h2{font-family:var(--serif);font-size:21px;margin:0;flex:1}
 .pbody{padding:22px;overflow:auto;flex:1}
 .pfoot{padding:16px 22px;border-top:1px solid var(--line);display:flex;gap:10px;align-items:center;flex:none}
-.x{margin-left:auto}
+.x{margin-inline-start:auto}
 
 /* form */
 .field{margin-bottom:16px}
@@ -237,7 +240,7 @@ html[dir="rtl"] .scrim.show .panel{transform:none}
 .rendered h1,.rendered h2,.rendered h3{font-family:var(--serif);line-height:1.3;margin:1.2em 0 .5em}
 .rendered h1{font-size:23px}.rendered h2{font-size:20px}.rendered h3{font-size:17px}
 .rendered p{margin:.7em 0}
-.rendered ul{margin:.6em 0;padding-left:1.3em}
+.rendered ul{margin:.6em 0;padding-inline-start:1.3em}
 .rendered li{margin:.25em 0}
 .rendered code{font-family:var(--mono);font-size:.88em;background:rgba(116,214,224,.1);
   padding:.12em .4em;border-radius:5px;color:#bfeef4}
@@ -273,7 +276,7 @@ html[dir="rtl"] .scrim.show .panel{transform:none}
 .barrow .nm .dot{width:8px;height:8px;border-radius:50%}
 .track{height:7px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden}
 .track i{display:block;height:100%;border-radius:99px;background:var(--gold)}
-.barrow .vv{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums;font-size:12px}
+.barrow .vv{text-align:end;color:var(--muted);font-variant-numeric:tabular-nums;font-size:12px}
 
 .about p{color:var(--ink-dim);font-size:14px}
 .about h3{font-family:var(--serif);color:var(--ink);margin:1.3em 0 .4em;font-size:18px}
@@ -299,7 +302,12 @@ html[dir="rtl"] .scrim.show .panel{transform:none}
   animation:tin .25s ease;max-width:92vw}
 .toast svg{width:16px;height:16px;flex:none}
 .toast.ok svg{color:var(--ok)} .toast.warn svg{color:var(--warn)} .toast.gold svg{color:var(--gold)}
+.toast-act{margin-inline-start:6px;background:transparent;border:1px solid currentColor;color:inherit;
+  border-radius:999px;padding:3px 12px;font:inherit;font-size:12px;cursor:pointer;opacity:.85;flex:none}
+.toast-act:hover{opacity:1;background:rgba(255,255,255,.08)}
 @keyframes tin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes akpulse{0%,100%{transform:scale(1)}30%{transform:scale(1.07)}}
+.pulsing{animation:akpulse .34s ease}
 
 .btn-danger{color:var(--rose);border-color:rgba(224,138,160,.35)}
 .btn-danger:hover{background:rgba(224,138,160,.1);border-color:var(--rose)}
@@ -337,7 +345,7 @@ footer.foot .seal{font-family:var(--serif);color:var(--gold)}
       </button>
       <select class="lang" id="langSel" aria-label="Limbă"></select>
       <div class="menu-wrap">
-        <button class="btn icon ghost" id="menuBtn" aria-label="Meniu" aria-haspopup="true">
+        <button class="btn icon ghost" id="menuBtn" aria-label="Menu" aria-haspopup="true" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>
         </button>
         <div class="menu" id="menu">
@@ -419,9 +427,9 @@ footer.foot .seal{font-family:var(--serif);color:var(--gold)}
 <!-- ====== Înregistrări încorporate (single source of truth) ====== -->
 <script id="akasha-records" type="application/json">
 {"version":1,"meta":{"created":"2026-06-20","stars":true},"records":[
-{"id":"seed-1","title":"Ce este Akasha","cat":"cunoastere","res":4,"tags":["akasha","concept"],"created":"2026-06-20T08:00:00.000Z","updated":"2026-06-20T08:00:00.000Z","seed":true,"body":"În tradițiile teosofice, **Akasha** (din sanscrită *ākāśa*, „eter”) este registrul fiecărui eveniment, gând și intenție.\n\nAici e personal: un singur fișier care își ține propriile înregistrări în interior și se poate reproduce. Șterge aceste trei exemple când vrei să începi curat."},
-{"id":"seed-2","title":"Quine: registrul care se reîncarnează","cat":"cunoastere","res":5,"tags":["quine","architecture"],"created":"2026-06-20T08:05:00.000Z","updated":"2026-06-20T08:05:00.000Z","seed":true,"body":"Un **quine** este un program care își produce propriul cod sursă.\n\nLa **Reîncarnează**, Akasha scrie un nou `akasha.html` cu toate înregistrările încorporate — noul fișier *este* aplicația plus cunoașterea ta. A reexporta un fișier exportat produce octeți identici."},
-{"id":"seed-3","title":"Prima inscripție","cat":"gand","res":2,"tags":["start"],"created":"2026-06-20T08:10:00.000Z","updated":"2026-06-20T08:10:00.000Z","seed":true,"body":"Apasă **Inscripționează** ca să adaugi un gând, un eveniment, o viziune.\n\nFolosești `**aldine**`, `*cursive*`, `` `cod` ``, liste cu `-` și titluri cu `#`. Căutarea ignoră diacriticele. Când termini, **Reîncarnează** ca să salvezi totul într-un fișier nou."}
+{"id":"seed-1","title":"What is Akasha","cat":"cunoastere","res":4,"tags":["akasha","concept"],"created":"2026-06-20T08:00:00.000Z","updated":"2026-06-20T08:00:00.000Z","seed":true,"body":"In theosophy, **Akasha** (Sanskrit *ākāśa*, ‘aether’) is the record of every event, thought and intention.\n\nHere it is personal: a single file that keeps its own records inside and can reproduce itself. Delete these three examples whenever you want to start clean."},
+{"id":"seed-2","title":"Quine: the record that reincarnates","cat":"cunoastere","res":5,"tags":["quine","architecture"],"created":"2026-06-20T08:05:00.000Z","updated":"2026-06-20T08:05:00.000Z","seed":true,"body":"A **quine** is a program that outputs its own source.\n\nOn **Reincarnate**, Akasha writes a fresh `akasha.html` with every record embedded — the new file *is* the app plus your knowledge. Re-exporting an exported file yields identical bytes."},
+{"id":"seed-3","title":"First inscription","cat":"gand","res":2,"tags":["start"],"created":"2026-06-20T08:10:00.000Z","updated":"2026-06-20T08:10:00.000Z","seed":true,"body":"Press **Inscribe** to add a thought, an event, a vision.\n\nUse `**bold**`, `*italic*`, `` `code` ``, `-` lists and `#` headings. Search ignores diacritics. When you are done, **Reincarnate** to save everything into a new file."}
 ]}
 </script>
 
@@ -454,7 +462,7 @@ if(!state.meta) state.meta = {stars:true};
 if(typeof state.meta.stars!=="boolean") state.meta.stars = true;
 
 var dirty = false;
-var ui = {lang:"ro", q:"", cat:null, tag:null, sort:"updated"};
+var ui = {lang:"en", q:"", cat:null, tag:null, sort:"updated"};
 
 /* ── categories (Akashic taxonomy) ── */
 var CATS = [
@@ -470,16 +478,18 @@ function catName(id){ return t("cat_"+id); }
 
 /* ── i18n ── */
 var LANGS = [
-  ["ro","Română"],["en","English"],["es","Español"],["fr","Français"],["de","Deutsch"],
-  ["it","Italiano"],["pt","Português"],["ca","Català"],["nl","Nederlands"],["sv","Svenska"],
-  ["da","Dansk"],["nb","Norsk"],["fi","Suomi"],["et","Eesti"],["lv","Latviešu"],
-  ["lt","Lietuvių"],["pl","Polski"],["cs","Čeština"],["sk","Slovenčina"],["sl","Slovenščina"],
-  ["hr","Hrvatski"],["sr","Српски"],["bg","Български"],["uk","Українська"],["be","Беларуская"],
-  ["ru","Русский"],["el","Ελληνικά"],["hu","Magyar"],["sq","Shqip"],["tr","Türkçe"],
-  ["af","Afrikaans"],["sw","Kiswahili"],["ar","العربية"],["he","עברית"],["fa","فارسی"],
-  ["ur","اردو"],["hi","हिन्दी"],["bn","বাংলা"],["zh","中文"],["ja","日本語"],
-  ["ko","한국어"],["vi","Tiếng Việt"],["th","ไทย"],["id","Bahasa Indonesia"],["ms","Bahasa Melayu"],
-  ["tl","Filipino"]
+  ["en","English"],
+  ["es","Español"],["pt","Português"],["fr","Français"],["it","Italiano"],["ro","Română"],["ca","Català"],
+  ["de","Deutsch"],["nl","Nederlands"],["af","Afrikaans"],["sv","Svenska"],["da","Dansk"],["nb","Norsk"],
+  ["fi","Suomi"],["et","Eesti"],["lv","Latviešu"],["lt","Lietuvių"],
+  ["pl","Polski"],["cs","Čeština"],["sk","Slovenčina"],["sl","Slovenščina"],["hr","Hrvatski"],["sr","Српски"],["bg","Български"],["uk","Українська"],["be","Беларуская"],["ru","Русский"],
+  ["el","Ελληνικά"],["hu","Magyar"],["sq","Shqip"],["tr","Türkçe"],
+  ["ar","العربية"],["he","עברית"],["fa","فارسی"],["ur","اردو"],
+  ["hi","हिन्दी"],["pa","ਪੰਜਾਬੀ"],["mr","मराठी"],["gu","ગુજરાતી"],["bn","বাংলা"],
+  ["ta","தமிழ்"],["te","తెలుగు"],["kn","ಕನ್ನಡ"],["ml","മലയാളം"],
+  ["sw","Kiswahili"],["am","አማርኛ"],["ha","Hausa"],["yo","Yorùbá"],
+  ["zh","中文"],["ja","日本語"],["ko","한국어"],
+  ["vi","Tiếng Việt"],["th","ไทย"],["id","Bahasa Indonesia"],["ms","Bahasa Melayu"],["jv","Basa Jawa"],["my","မြန်မာ"],["tl","Filipino"]
 ];
 
 var RTL = ["ar","he","fa","ur"];
@@ -2248,7 +2258,417 @@ DICT.tl = {
   ab_h_principles:"Mga prinsipyo",
   ab_p_principles:"Isang file · purong JS · zero dependensiya · zero telemetriya · tumatakbo mula sa file:// nang walang server."
 };
+/* ── additional major world languages (best-effort, native-unverified) ── */
+DICT.pa = {
+  tagline:"ਆਕਾਸ਼ਿਕ ਰਿਕਾਰਡ", search:"ਰਿਕਾਰਡ ਖੋਜੋ…", inscribe:"ਉੱਕਰੋ", reincarnate:"ਪੁਨਰ-ਜਨਮ",
+  f_categories:"ਸ਼੍ਰੇਣੀਆਂ", f_tags:"ਟੈਗ", all:"ਸਾਰੇ",
+  s_offline:"ਆਫਲਾਈਨ", s_yes:"ਚਾਲੂ", s_telemetry:"ਟੈਲੀਮੈਟਰੀ", s_deps:"ਨਿਰਭਰਤਾਵਾਂ", s_records:"ਰਿਕਾਰਡ", c_records:"ਰਿਕਾਰਡ", c_record:"ਰਿਕਾਰਡ",
+  sort_by:"ਕ੍ਰਮ", sort_updated:"ਹਾਲ ਹੀ ਵਿੱਚ ਬਦਲੇ", sort_created:"ਹਾਲ ਹੀ ਵਿੱਚ ਬਣੇ", sort_res:"ਗੂੰਜ", sort_title:"ਵਰਣਮਾਲਾ ਅਨੁਸਾਰ",
+  m_quine:"Quine", m_source:"ਆਪਣਾ ਸਰੋਤ ਵੇਖੋ", m_verify:"ਅਖੰਡਤਾ ਜਾਂਚੋ", m_archive:"ਪੁਰਾਲੇਖ", m_stats:"ਅੰਕੜੇ",
+  m_exportJson:"JSON ਨਿਰਯਾਤ", m_importJson:"ਆਯਾਤ (JSON / .html)", m_stars_on:"ਤਾਰੇ: ਚਾਲੂ", m_stars_off:"ਤਾਰੇ: ਬੰਦ", m_about:"ਆਕਾਸ਼ਾ ਬਾਰੇ",
+  empty_title:"ਰਿਕਾਰਡ ਖਾਲੀ ਹੈ", empty_body:"ਅਜੇ ਤੱਕ ਆਕਾਸ਼ ਵਿੱਚ ਕੁਝ ਨਹੀਂ ਉੱਕਰਿਆ ਗਿਆ।", empty_cta:"ਪਹਿਲਾ ਰਿਕਾਰਡ ਉੱਕਰੋ",
+  noresults_title:"ਕੋਈ ਮੇਲ ਨਹੀਂ", noresults_body:"ਆਕਾਸ਼ ਦਾ ਕੋਈ ਟੁਕੜਾ ਫਿਲਟਰ ਨਾਲ ਮੇਲ ਨਹੀਂ ਖਾਂਦਾ।", noresults_cta:"ਫਿਲਟਰ ਸਾਫ਼ ਕਰੋ",
+  ed_new:"ਨਵੀਂ ਉੱਕਰਾਈ", ed_edit:"ਉੱਕਰਾਈ ਸੋਧੋ", ed_title:"ਸਿਰਲੇਖ", ed_title_ph:"ਇਸ ਰਿਕਾਰਡ ਨੂੰ ਨਾਮ ਦਿਓ…",
+  ed_cat:"ਸ਼੍ਰੇਣੀ", ed_res:"ਗੂੰਜ", ed_tags:"ਟੈਗ", ed_tags_ph:"ਕਾਮੇ ਜਾਂ ਖਾਲੀ ਥਾਂ ਨਾਲ ਵੱਖ",
+  ed_body:"ਸਮੱਗਰੀ", ed_body_ph:"ਆਕਾਸ਼ ਵਿੱਚ ਉੱਕਰੋ… (**ਮੋਟਾ**, *ਤਿਰਛਾ*, `ਕੋਡ`, - ਸੂਚੀਆਂ, # ਸਿਰਲੇਖ)",
+  save:"ਸੰਭਾਲੋ", cancel:"ਰੱਦ ਕਰੋ", delete:"ਮਿਟਾਓ", duplicate:"ਨਕਲ", edit:"ਸੋਧੋ", close:"ਬੰਦ ਕਰੋ", confirm_del:"ਇਹ ਰਿਕਾਰਡ ਪੱਕੇ ਤੌਰ 'ਤੇ ਮਿਟਾਉਣਾ ਹੈ?",
+  src_title:"ਆਪਣਾ ਸਰੋਤ ਕੋਡ", src_note:"ਇਹ ਪੂਰਾ ਸਰੋਤ ਹੈ ਜੋ ਆਕਾਸ਼ਾ ਪੁਨਰ-ਜਨਮ ਵੇਲੇ ਲਿਖਦਾ ਹੈ — ਐਪ ਅਤੇ ਸਾਰੇ ਮੌਜੂਦਾ ਰਿਕਾਰਡ, ਜੜੇ ਹੋਏ।", src_copy:"ਸਰੋਤ ਨਕਲ ਕਰੋ", src_download:"ਫਾਈਲ ਡਾਊਨਲੋਡ",
+  copied:"ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਨਕਲ", ver_title:"Quine ਅਖੰਡਤਾ", ver_fix:"ਸਥਿਰ ਬਿੰਦੂ", ver_fix_ok:"ਮੁੜ-ਨਿਰਯਾਤ ਇੱਕੋ ਜਿਹੇ ਬਾਈਟ ਦਿੰਦਾ ਹੈ", ver_fix_bad:"ਮੁੜ-ਨਿਰਯਾਤ ਵੱਖਰਾ ਹੈ",
+  ver_block:"ਡਾਟਾ ਬਲਾਕ", ver_block_ok:"ਠੀਕ ਇੱਕ ਵਾਰ ਮਿਲਿਆ", ver_block_bad:"ਅਨੋਖਾ ਨਹੀਂ ਮਿਲਿਆ", ver_round:"ਡਾਟਾ ਰਾਊਂਡ-ਟ੍ਰਿਪ", ver_round_ok:"ਸਾਰੇ ਰਿਕਾਰਡ ਮੁੜ ਲੋਡ", ver_round_bad:"ਡਾਟਾ ਨੁਕਸਾਨ", ver_size:"ਆਕਾਰ",
+  st_title:"ਅੰਕੜੇ", st_total:"ਰਿਕਾਰਡ", st_words:"ਸ਼ਬਦ", st_tags:"ਅਨੋਖੇ ਟੈਗ", st_span:"ਫੈਲੇ ਦਿਨ", st_bycat:"ਸ਼੍ਰੇਣੀ ਅਨੁਸਾਰ", ab_title:"ਆਕਾਸ਼ਾ ਬਾਰੇ",
+  t_saved:"ਉੱਕਰਾਈ ਸੰਭਾਲੀ ਗਈ", t_deleted:"ਰਿਕਾਰਡ ਮਿਟਾਇਆ", t_dup:"ਰਿਕਾਰਡ ਦੀ ਨਕਲ ਬਣੀ", t_reincarnated:"ਆਕਾਸ਼ਾ ਪੁਨਰ-ਜਨਮਿਆ → akasha.html", t_exported:"JSON ਨਿਰਯਾਤ ਹੋਇਆ", t_imported:"ਆਯਾਤ: ",
+  t_import_err:"ਅਵੈਧ ਫਾਈਲ", t_nothing:"ਸੰਭਾਲਣ ਲਈ ਕੁਝ ਨਹੀਂ — ਸਿਰਲੇਖ ਜੋੜੋ", unsaved:"ਤੁਹਾਡੇ ਕੋਲ ਅਣਸੰਭਾਲੇ ਬਦਲਾਅ ਹਨ। ਉਹਨਾਂ ਨੂੰ ਰੱਖਣ ਲਈ ਪੁਨਰ-ਜਨਮ (Ctrl/⌘+S) ਕਰੋ।",
+  restore_q:"ਇਸ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਹੋਰ ਤਾਜ਼ਾ ਅਣਸੰਭਾਲੇ ਬਦਲਾਅ ਹਨ।", restore_yes:"ਬਹਾਲ ਕਰੋ", restore_no:"ਖਾਰਜ ਕਰੋ",
+  foot_quine:"ਇੱਕ-ਫਾਈਲ ਆਫਲਾਈਨ quine", foot_priv:"ਜ਼ੀਰੋ ਟੈਲੀਮੈਟਰੀ · ਜ਼ੀਰੋ ਨਿਰਭਰਤਾਵਾਂ",
+  cat_gand:"ਵਿਚਾਰ", cat_eveniment:"ਘਟਨਾ", cat_cunoastere:"ਗਿਆਨ", cat_amintire:"ਯਾਦ", cat_viziune:"ਦਰਸ਼ਨ", cat_intrebare:"ਪ੍ਰਸ਼ਨ",
+  untitled:"ਬਿਨਾਂ ਸਿਰਲੇਖ", copy_suffix:" (ਨਕਲ)", t_restored:"ਬਦਲਾਅ ਬਹਾਲ ਹੋਏ", lang_label:"ਭਾਸ਼ਾ",
+  ab_lead:"ਆਕਾਸ਼ਾ ਇੱਕ ਹੀ HTML ਫਾਈਲ ਵਿੱਚ ਆਫਲਾਈਨ ਆਕਾਸ਼ਿਕ ਰਿਕਾਰਡ ਹੈ — ਇੱਕ quine ਜੋ ਪੁਨਰ-ਜਨਮ ਲੈਂਦਾ ਹੈ: ਪੁਨਰ-ਜਨਮ ਦਬਾਉਣ 'ਤੇ ਇਹ ਹਰ ਰਿਕਾਰਡ ਜੜ ਕੇ ਆਪਣੀ ਨਵੀਂ ਨਕਲ ਲਿਖਦਾ ਹੈ। ਨਵੀਂ ਫਾਈਲ ਐਪ ਅਤੇ ਤੁਹਾਡਾ ਗਿਆਨ ਹੈ।",
+  ab_h_data:"ਆਪਣਾ ਡਾਟਾ ਰੱਖਣਾ", ab_p_data:"ਸੱਚ ਦਾ ਸਰੋਤ ਫਾਈਲ ਦੇ ਅੰਦਰਲਾ ਡਾਟਾ ਬਲਾਕ ਹੈ। ਉੱਕਰਨ ਤੋਂ ਬਾਅਦ, ਨਵਾਂ akasha.html ਲਿਖਣ ਲਈ Ctrl/⌘+S (ਪੁਨਰ-ਜਨਮ) ਦਬਾਓ ਅਤੇ ਅਗਲੀ ਵਾਰ ਉਹ ਫਾਈਲ ਖੋਲ੍ਹੋ — ਇਹ ਸਭ ਕੁਝ ਲੈ ਜਾਂਦੀ ਹੈ। ਬਦਲਾਅ ਇਸ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਸੁਰੱਖਿਆ ਜਾਲ ਵਜੋਂ ਆਪੇ-ਸੰਭਾਲੇ ਜਾਂਦੇ ਹਨ।",
+  ab_h_fix:"ਸਥਿਰ-ਬਿੰਦੂ ਗੁਣ", ab_p_fix:"ਨਿਰਯਾਤ ਕੀਤੀ ਫਾਈਲ ਤੋਂ ਮੁੜ-ਨਿਰਯਾਤ ਇੱਕੋ ਜਿਹੇ ਬਾਈਟ ਦਿੰਦਾ ਹੈ। 'ਅਖੰਡਤਾ ਜਾਂਚੋ' ਇਹ ਅਤੇ ਇਹ ਕਿ ਕੋਈ ਰਿਕਾਰਡ ਨਹੀਂ ਗੁਆਚਦਾ, ਸਾਬਤ ਕਰਦਾ ਹੈ।",
+  ab_h_keys:"ਸ਼ਾਰਟਕੱਟ", kx_new:"ਨਵਾਂ", kx_search:"ਖੋਜ", kx_close:"ਬੰਦ", kx_reinc:"ਪੁਨਰ-ਜਨਮ",
+  ab_h_principles:"ਸਿਧਾਂਤ", ab_p_principles:"ਇੱਕ ਫਾਈਲ · ਸ਼ੁੱਧ JS · ਜ਼ੀਰੋ ਨਿਰਭਰਤਾਵਾਂ · ਜ਼ੀਰੋ ਟੈਲੀਮੈਟਰੀ · ਬਿਨਾਂ ਸਰਵਰ file:// ਤੋਂ ਚੱਲਦਾ ਹੈ।"
+};
+DICT.mr = {
+  tagline:"आकाशिक नोंद", search:"नोंद शोधा…", inscribe:"कोरा", reincarnate:"पुनर्जन्म",
+  f_categories:"श्रेणी", f_tags:"टॅग", all:"सर्व",
+  s_offline:"ऑफलाइन", s_yes:"चालू", s_telemetry:"टेलिमेट्री", s_deps:"अवलंबित्वे", s_records:"नोंदी", c_records:"नोंदी", c_record:"नोंद",
+  sort_by:"क्रम", sort_updated:"अलीकडे बदललेले", sort_created:"अलीकडे तयार केलेले", sort_res:"अनुनाद", sort_title:"वर्णानुक्रमे",
+  m_quine:"Quine", m_source:"स्वतःचा स्रोत पहा", m_verify:"अखंडता तपासा", m_archive:"संग्रह", m_stats:"आकडेवारी",
+  m_exportJson:"JSON निर्यात", m_importJson:"आयात (JSON / .html)", m_stars_on:"तारे: चालू", m_stars_off:"तारे: बंद", m_about:"आकाशाबद्दल",
+  empty_title:"नोंद रिकामी आहे", empty_body:"आकाशात अजून काहीही कोरलेले नाही.", empty_cta:"पहिली नोंद कोरा",
+  noresults_title:"जुळणी नाही", noresults_body:"आकाशाचा कोणताही तुकडा गाळणीशी जुळत नाही.", noresults_cta:"गाळण्या साफ करा",
+  ed_new:"नवीन कोरीव", ed_edit:"कोरीव संपादित करा", ed_title:"शीर्षक", ed_title_ph:"या नोंदीला नाव द्या…",
+  ed_cat:"श्रेणी", ed_res:"अनुनाद", ed_tags:"टॅग", ed_tags_ph:"स्वल्पविराम किंवा मोकळ्या जागेने वेगळे",
+  ed_body:"मजकूर", ed_body_ph:"आकाशात कोरा… (**ठळक**, *तिरपे*, `कोड`, - याद्या, # शीर्षके)",
+  save:"जतन करा", cancel:"रद्द करा", delete:"हटवा", duplicate:"प्रत", edit:"संपादित करा", close:"बंद करा", confirm_del:"ही नोंद कायमची हटवायची?",
+  src_title:"स्वतःचा स्रोत कोड", src_note:"हा संपूर्ण स्रोत आहे जो आकाशा पुनर्जन्म घेताना लिहितो — अॅप आणि सर्व सध्याच्या नोंदी, अंतर्भूत.", src_copy:"स्रोत प्रत करा", src_download:"फाइल डाउनलोड",
+  copied:"क्लिपबोर्डवर प्रत केली", ver_title:"Quine अखंडता", ver_fix:"स्थिर बिंदू", ver_fix_ok:"पुनर्निर्यात समान बाइट देतो", ver_fix_bad:"पुनर्निर्यात वेगळा आहे",
+  ver_block:"डेटा ब्लॉक", ver_block_ok:"नेमका एकदा सापडला", ver_block_bad:"अद्वितीय सापडला नाही", ver_round:"डेटा फेरफटका", ver_round_ok:"सर्व नोंदी पुन्हा लोड", ver_round_bad:"डेटा हानी", ver_size:"आकार",
+  st_title:"आकडेवारी", st_total:"नोंदी", st_words:"शब्द", st_tags:"अद्वितीय टॅग", st_span:"पसरलेले दिवस", st_bycat:"श्रेणीनुसार", ab_title:"आकाशाबद्दल",
+  t_saved:"कोरीव जतन झाले", t_deleted:"नोंद हटवली", t_dup:"नोंदीची प्रत झाली", t_reincarnated:"आकाशा पुनर्जन्मला → akasha.html", t_exported:"JSON निर्यात झाले", t_imported:"आयात: ",
+  t_import_err:"अवैध फाइल", t_nothing:"जतन करायला काही नाही — शीर्षक जोडा", unsaved:"तुमच्याकडे न जतन केलेले बदल आहेत. ते ठेवण्यासाठी पुनर्जन्म (Ctrl/⌘+S) करा.",
+  restore_q:"या ब्राउझरमध्ये अधिक अलीकडील न जतन केलेले बदल आहेत.", restore_yes:"पुनर्संचयित करा", restore_no:"डावला",
+  foot_quine:"एक-फाइल ऑफलाइन quine", foot_priv:"शून्य टेलिमेट्री · शून्य अवलंबित्वे",
+  cat_gand:"विचार", cat_eveniment:"घटना", cat_cunoastere:"ज्ञान", cat_amintire:"स्मृती", cat_viziune:"दृष्टी", cat_intrebare:"प्रश्न",
+  untitled:"शीर्षकविरहित", copy_suffix:" (प्रत)", t_restored:"बदल पुनर्संचयित", lang_label:"भाषा",
+  ab_lead:"आकाशा ही एकाच HTML फाइलमधील ऑफलाइन आकाशिक नोंद आहे — एक quine जो पुनर्जन्म घेतो: पुनर्जन्म दाबल्यावर तो प्रत्येक नोंद अंतर्भूत करून स्वतःची नवी प्रत लिहितो. नवी फाइल म्हणजे अॅप आणि तुमचे ज्ञान.",
+  ab_h_data:"तुमचा डेटा ठेवणे", ab_p_data:"सत्याचा स्रोत फाइलमधील डेटा ब्लॉक आहे. कोरल्यानंतर, नवीन akasha.html लिहिण्यासाठी Ctrl/⌘+S (पुनर्जन्म) दाबा आणि पुढच्या वेळी ती फाइल उघडा — ती सर्व काही सोबत नेते. बदल या ब्राउझरमध्ये सुरक्षा जाळे म्हणून आपोआप जतन होतात.",
+  ab_h_fix:"स्थिर-बिंदू गुणधर्म", ab_p_fix:"निर्यात केलेल्या फाइलमधून पुनर्निर्यात समान बाइट देतो. 'अखंडता तपासा' हे आणि कोणतीही नोंद हरवत नाही हे सिद्ध करते.",
+  ab_h_keys:"शॉर्टकट", kx_new:"नवीन", kx_search:"शोध", kx_close:"बंद", kx_reinc:"पुनर्जन्म",
+  ab_h_principles:"तत्त्वे", ab_p_principles:"एक फाइल · शुद्ध JS · शून्य अवलंबित्वे · शून्य टेलिमेट्री · सर्व्हरशिवाय file:// वरून चालते."
+};
+DICT.gu = {
+  tagline:"આકાશિક નોંધ", search:"નોંધ શોધો…", inscribe:"કોતરો", reincarnate:"પુનર્જન્મ",
+  f_categories:"શ્રેણીઓ", f_tags:"ટૅગ", all:"બધા",
+  s_offline:"ઑફલાઇન", s_yes:"ચાલુ", s_telemetry:"ટેલિમેટ્રી", s_deps:"નિર્ભરતાઓ", s_records:"નોંધો", c_records:"નોંધો", c_record:"નોંધ",
+  sort_by:"ક્રમ", sort_updated:"તાજેતરમાં બદલાયેલ", sort_created:"તાજેતરમાં બનાવેલ", sort_res:"પ્રતિધ્વનિ", sort_title:"મૂળાક્ષર પ્રમાણે",
+  m_quine:"Quine", m_source:"પોતાનો સ્રોત જુઓ", m_verify:"અખંડિતતા ચકાસો", m_archive:"સંગ્રહ", m_stats:"આંકડા",
+  m_exportJson:"JSON નિકાસ", m_importJson:"આયાત (JSON / .html)", m_stars_on:"તારા: ચાલુ", m_stars_off:"તારા: બંધ", m_about:"આકાશા વિશે",
+  empty_title:"નોંધ ખાલી છે", empty_body:"આકાશમાં હજુ સુધી કંઈ કોતરાયું નથી.", empty_cta:"પહેલી નોંધ કોતરો",
+  noresults_title:"કોઈ મેળ નથી", noresults_body:"આકાશનો કોઈ ટુકડો ગાળણ સાથે મેળ ખાતો નથી.", noresults_cta:"ગાળણ સાફ કરો",
+  ed_new:"નવી કોતરણી", ed_edit:"કોતરણી સંપાદિત કરો", ed_title:"શીર્ષક", ed_title_ph:"આ નોંધને નામ આપો…",
+  ed_cat:"શ્રેણી", ed_res:"પ્રતિધ્વનિ", ed_tags:"ટૅગ", ed_tags_ph:"અલ્પવિરામ કે ખાલી જગ્યાથી અલગ",
+  ed_body:"સામગ્રી", ed_body_ph:"આકાશમાં કોતરો… (**જાડું**, *ત્રાંસું*, `કોડ`, - યાદીઓ, # શીર્ષકો)",
+  save:"સાચવો", cancel:"રદ કરો", delete:"કાઢી નાખો", duplicate:"નકલ", edit:"સંપાદિત કરો", close:"બંધ કરો", confirm_del:"આ નોંધ કાયમ માટે કાઢી નાખવી?",
+  src_title:"પોતાનો સ્રોત કોડ", src_note:"આ સંપૂર્ણ સ્રોત છે જે આકાશા પુનર્જન્મ વખતે લખે છે — એપ અને બધી વર્તમાન નોંધો, જડેલી.", src_copy:"સ્રોત નકલ કરો", src_download:"ફાઇલ ડાઉનલોડ",
+  copied:"ક્લિપબોર્ડમાં નકલ", ver_title:"Quine અખંડિતતા", ver_fix:"સ્થિર બિંદુ", ver_fix_ok:"પુનઃનિકાસ સમાન બાઇટ આપે છે", ver_fix_bad:"પુનઃનિકાસ અલગ છે",
+  ver_block:"ડેટા બ્લોક", ver_block_ok:"બરાબર એક વાર મળ્યો", ver_block_bad:"અનન્ય મળ્યો નહીં", ver_round:"ડેટા રાઉન્ડ-ટ્રિપ", ver_round_ok:"બધી નોંધો ફરી લોડ", ver_round_bad:"ડેટા નુકસાન", ver_size:"કદ",
+  st_title:"આંકડા", st_total:"નોંધો", st_words:"શબ્દો", st_tags:"અનન્ય ટૅગ", st_span:"ફેલાયેલા દિવસો", st_bycat:"શ્રેણી પ્રમાણે", ab_title:"આકાશા વિશે",
+  t_saved:"કોતરણી સાચવાઈ", t_deleted:"નોંધ કાઢી નાખી", t_dup:"નોંધની નકલ થઈ", t_reincarnated:"આકાશા પુનર્જન્મ્યો → akasha.html", t_exported:"JSON નિકાસ થયો", t_imported:"આયાત: ",
+  t_import_err:"અમાન્ય ફાઇલ", t_nothing:"સાચવવા કંઈ નથી — શીર્ષક ઉમેરો", unsaved:"તમારી પાસે વણસાચવેલા ફેરફારો છે. તેમને રાખવા પુનર્જન્મ (Ctrl/⌘+S) કરો.",
+  restore_q:"આ બ્રાઉઝરમાં વધુ તાજેતરના વણસાચવેલા ફેરફારો છે.", restore_yes:"પુનઃસ્થાપિત કરો", restore_no:"કાઢી નાખો",
+  foot_quine:"એક-ફાઇલ ઑફલાઇન quine", foot_priv:"શૂન્ય ટેલિમેટ્રી · શૂન્ય નિર્ભરતાઓ",
+  cat_gand:"વિચાર", cat_eveniment:"ઘટના", cat_cunoastere:"જ્ઞાન", cat_amintire:"સ્મૃતિ", cat_viziune:"દર્શન", cat_intrebare:"પ્રશ્ન",
+  untitled:"શીર્ષક વિના", copy_suffix:" (નકલ)", t_restored:"ફેરફારો પુનઃસ્થાપિત", lang_label:"ભાષા",
+  ab_lead:"આકાશા એ એક જ HTML ફાઇલમાં ઑફલાઇન આકાશિક નોંધ છે — એક quine જે પુનર્જન્મ લે છે: પુનર્જન્મ દબાવતાં તે દરેક નોંધ જડીને પોતાની નવી નકલ લખે છે. નવી ફાઇલ એટલે એપ અને તમારું જ્ઞાન.",
+  ab_h_data:"તમારો ડેટા રાખવો", ab_p_data:"સત્યનો સ્રોત ફાઇલની અંદરનો ડેટા બ્લોક છે. કોતર્યા પછી, નવી akasha.html લખવા Ctrl/⌘+S (પુનર્જન્મ) દબાવો અને આગલી વાર તે ફાઇલ ખોલો — તે બધું સાથે લઈ જાય છે. ફેરફારો આ બ્રાઉઝરમાં સલામતી જાળ તરીકે આપમેળે સચવાય છે.",
+  ab_h_fix:"સ્થિર-બિંદુ ગુણધર્મ", ab_p_fix:"નિકાસ કરેલી ફાઇલમાંથી પુનઃનિકાસ સમાન બાઇટ આપે છે. 'અખંડિતતા ચકાસો' આ અને કોઈ નોંધ ખોવાતી નથી તે સાબિત કરે છે.",
+  ab_h_keys:"શૉર્ટકટ", kx_new:"નવું", kx_search:"શોધ", kx_close:"બંધ", kx_reinc:"પુનર્જન્મ",
+  ab_h_principles:"સિદ્ધાંતો", ab_p_principles:"એક ફાઇલ · શુદ્ધ JS · શૂન્ય નિર્ભરતાઓ · શૂન્ય ટેલિમેટ્રી · સર્વર વિના file:// થી ચાલે છે."
+};
+DICT.ta = {
+  tagline:"ஆகாஶிக் பதிவு", search:"பதிவைத் தேடு…", inscribe:"பொறி", reincarnate:"மறுபிறவி",
+  f_categories:"வகைகள்", f_tags:"குறிச்சொற்கள்", all:"அனைத்தும்",
+  s_offline:"ஆஃப்லைன்", s_yes:"இயக்கம்", s_telemetry:"தொலையளவீடு", s_deps:"சார்புகள்", s_records:"பதிவுகள்", c_records:"பதிவுகள்", c_record:"பதிவு",
+  sort_by:"வரிசை", sort_updated:"சமீபத்தில் மாற்றப்பட்டது", sort_created:"சமீபத்தில் உருவாக்கப்பட்டது", sort_res:"எதிரொலி", sort_title:"அகரவரிசை",
+  m_quine:"Quine", m_source:"சொந்த மூலத்தைப் பார்", m_verify:"ஒருமைப்பாட்டைச் சரிபார்", m_archive:"காப்பகம்", m_stats:"புள்ளிவிவரம்",
+  m_exportJson:"JSON ஏற்றுமதி", m_importJson:"இறக்குமதி (JSON / .html)", m_stars_on:"நட்சத்திரங்கள்: இயக்கம்", m_stars_off:"நட்சத்திரங்கள்: அணை", m_about:"ஆகாஶா பற்றி",
+  empty_title:"பதிவு காலியாக உள்ளது", empty_body:"ஆகாஶத்தில் இன்னும் எதுவும் பொறிக்கப்படவில்லை.", empty_cta:"முதல் பதிவைப் பொறி",
+  noresults_title:"பொருத்தம் இல்லை", noresults_body:"ஆகாஶத்தின் எந்தத் துண்டும் வடிப்பானுடன் பொருந்தவில்லை.", noresults_cta:"வடிப்பான்களை அழி",
+  ed_new:"புதிய பொறிப்பு", ed_edit:"பொறிப்பைத் திருத்து", ed_title:"தலைப்பு", ed_title_ph:"இந்தப் பதிவுக்குப் பெயரிடு…",
+  ed_cat:"வகை", ed_res:"எதிரொலி", ed_tags:"குறிச்சொற்கள்", ed_tags_ph:"கமா அல்லது இடைவெளியால் பிரிக்கப்பட்டது",
+  ed_body:"உள்ளடக்கம்", ed_body_ph:"ஆகாஶத்தில் பொறி… (**தடிமன்**, *சாய்வு*, `குறியீடு`, - பட்டியல்கள், # தலைப்புகள்)",
+  save:"சேமி", cancel:"ரத்து", delete:"நீக்கு", duplicate:"நகல்", edit:"திருத்து", close:"மூடு", confirm_del:"இந்தப் பதிவை நிரந்தரமாக நீக்கவா?",
+  src_title:"சொந்த மூலக் குறியீடு", src_note:"ஆகாஶா மறுபிறவி எடுக்கும்போது எழுதும் முழு மூலம் இது — செயலியும் அனைத்து தற்போதைய பதிவுகளும், உட்பொதிக்கப்பட்டவை.", src_copy:"மூலத்தை நகலெடு", src_download:"கோப்பைப் பதிவிறக்கு",
+  copied:"கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது", ver_title:"Quine ஒருமைப்பாடு", ver_fix:"நிலையான புள்ளி", ver_fix_ok:"மறு-ஏற்றுமதி ஒரே மாதிரியான பைட்டுகளைத் தரும்", ver_fix_bad:"மறு-ஏற்றுமதி வேறுபடுகிறது",
+  ver_block:"தரவுத் தொகுதி", ver_block_ok:"சரியாக ஒருமுறை கண்டறியப்பட்டது", ver_block_bad:"தனித்துவமாகக் கண்டறியப்படவில்லை", ver_round:"தரவு சுற்றுப்பயணம்", ver_round_ok:"அனைத்துப் பதிவுகளும் மீளேற்றம்", ver_round_bad:"தரவு இழப்பு", ver_size:"அளவு",
+  st_title:"புள்ளிவிவரம்", st_total:"பதிவுகள்", st_words:"சொற்கள்", st_tags:"தனித்துவக் குறிச்சொற்கள்", st_span:"பரந்த நாட்கள்", st_bycat:"வகை வாரியாக", ab_title:"ஆகாஶா பற்றி",
+  t_saved:"பொறிப்பு சேமிக்கப்பட்டது", t_deleted:"பதிவு நீக்கப்பட்டது", t_dup:"பதிவு நகலெடுக்கப்பட்டது", t_reincarnated:"ஆகாஶா மறுபிறவி எடுத்தது → akasha.html", t_exported:"JSON ஏற்றுமதி செய்யப்பட்டது", t_imported:"இறக்குமதி: ",
+  t_import_err:"செல்லாத கோப்பு", t_nothing:"சேமிக்க எதுவுமில்லை — ஒரு தலைப்பைச் சேர்", unsaved:"சேமிக்கப்படாத மாற்றங்கள் உள்ளன. அவற்றை வைத்திருக்க மறுபிறவி (Ctrl/⌘+S) எடு.",
+  restore_q:"இந்த உலாவியில் சமீபத்திய சேமிக்கப்படாத மாற்றங்கள் உள்ளன.", restore_yes:"மீட்டமை", restore_no:"நிராகரி",
+  foot_quine:"ஒற்றைக் கோப்பு ஆஃப்லைன் quine", foot_priv:"பூஜ்ஜியத் தொலையளவீடு · பூஜ்ஜியச் சார்புகள்",
+  cat_gand:"எண்ணம்", cat_eveniment:"நிகழ்வு", cat_cunoastere:"அறிவு", cat_amintire:"நினைவு", cat_viziune:"தரிசனம்", cat_intrebare:"கேள்வி",
+  untitled:"தலைப்பில்லாதது", copy_suffix:" (நகல்)", t_restored:"மாற்றங்கள் மீட்டமைக்கப்பட்டன", lang_label:"மொழி",
+  ab_lead:"ஆகாஶா என்பது ஒரே HTML கோப்பில் உள்ள ஆஃப்லைன் ஆகாஶிக் பதிவு — மறுபிறவி எடுக்கும் ஒரு quine: மறுபிறவியை அழுத்தினால் ஒவ்வொரு பதிவையும் உட்பொதித்து தன் புதிய நகலை எழுதும். புதிய கோப்பு என்பது செயலியும் உங்கள் அறிவும்.",
+  ab_h_data:"உங்கள் தரவைப் பாதுகாத்தல்", ab_p_data:"உண்மையின் மூலம் கோப்பினுள் உள்ள தரவுத் தொகுதி. பொறித்த பிறகு, புதிய akasha.html எழுத Ctrl/⌘+S (மறுபிறவி) அழுத்தி அடுத்த முறை அந்தக் கோப்பைத் திற — அது அனைத்தையும் கொண்டு செல்கிறது. மாற்றங்கள் இந்த உலாவியில் பாதுகாப்பு வலையாகத் தானாகச் சேமிக்கப்படுகின்றன.",
+  ab_h_fix:"நிலையான-புள்ளிப் பண்பு", ab_p_fix:"ஏற்றுமதி செய்த கோப்பிலிருந்து மறு-ஏற்றுமதி ஒரே மாதிரியான பைட்டுகளைத் தரும். 'ஒருமைப்பாட்டைச் சரிபார்' இதையும் எந்தப் பதிவும் இழக்கப்படவில்லை என்பதையும் நிரூபிக்கிறது.",
+  ab_h_keys:"குறுக்குவழிகள்", kx_new:"புதியது", kx_search:"தேடு", kx_close:"மூடு", kx_reinc:"மறுபிறவி",
+  ab_h_principles:"கொள்கைகள்", ab_p_principles:"ஒரு கோப்பு · வெற்று JS · பூஜ்ஜியச் சார்புகள் · பூஜ்ஜியத் தொலையளவீடு · சேவையகம் இன்றி file:// இலிருந்து இயங்கும்."
+};
+DICT.te = {
+  tagline:"ఆకాశిక్ రికార్డు", search:"రికార్డును వెతుకు…", inscribe:"చెక్కు", reincarnate:"పునర్జన్మ",
+  f_categories:"వర్గాలు", f_tags:"ట్యాగ్‌లు", all:"అన్నీ",
+  s_offline:"ఆఫ్‌లైన్", s_yes:"ఆన్", s_telemetry:"టెలిమెట్రీ", s_deps:"ఆధారాలు", s_records:"రికార్డులు", c_records:"రికార్డులు", c_record:"రికార్డు",
+  sort_by:"క్రమం", sort_updated:"ఇటీవల మార్చినవి", sort_created:"ఇటీవల సృష్టించినవి", sort_res:"ప్రతిధ్వని", sort_title:"అక్షర క్రమంలో",
+  m_quine:"Quine", m_source:"సొంత మూలాన్ని చూడు", m_verify:"సమగ్రతను తనిఖీ చేయి", m_archive:"ఆర్కైవ్", m_stats:"గణాంకాలు",
+  m_exportJson:"JSON ఎగుమతి", m_importJson:"దిగుమతి (JSON / .html)", m_stars_on:"నక్షత్రాలు: ఆన్", m_stars_off:"నక్షత్రాలు: ఆఫ్", m_about:"ఆకాశా గురించి",
+  empty_title:"రికార్డు ఖాళీగా ఉంది", empty_body:"ఆకాశంలో ఇంకా ఏదీ చెక్కబడలేదు.", empty_cta:"మొదటి రికార్డును చెక్కు",
+  noresults_title:"సరిపోలికలు లేవు", noresults_body:"ఆకాశంలోని ఏ ముక్కా వడపోతతో సరిపోలడం లేదు.", noresults_cta:"వడపోతలను తొలగించు",
+  ed_new:"కొత్త చెక్కడం", ed_edit:"చెక్కడాన్ని సవరించు", ed_title:"శీర్షిక", ed_title_ph:"ఈ రికార్డుకు పేరు పెట్టు…",
+  ed_cat:"వర్గం", ed_res:"ప్రతిధ్వని", ed_tags:"ట్యాగ్‌లు", ed_tags_ph:"కామా లేదా ఖాళీతో వేరు చేయబడినవి",
+  ed_body:"విషయం", ed_body_ph:"ఆకాశంలో చెక్కు… (**బొద్దు**, *వాలు*, `కోడ్`, - జాబితాలు, # శీర్షికలు)",
+  save:"సేవ్", cancel:"రద్దు", delete:"తొలగించు", duplicate:"నకలు", edit:"సవరించు", close:"మూసివేయి", confirm_del:"ఈ రికార్డును శాశ్వతంగా తొలగించాలా?",
+  src_title:"సొంత మూల కోడ్", src_note:"ఆకాశా పునర్జన్మ తీసుకునేటప్పుడు రాసే పూర్తి మూలం ఇది — యాప్ మరియు అన్ని ప్రస్తుత రికార్డులు, పొందుపరచబడినవి.", src_copy:"మూలాన్ని కాపీ చేయి", src_download:"ఫైల్ డౌన్‌లోడ్",
+  copied:"క్లిప్‌బోర్డుకు కాపీ చేయబడింది", ver_title:"Quine సమగ్రత", ver_fix:"స్థిర బిందువు", ver_fix_ok:"తిరిగి-ఎగుమతి ఒకే బైట్‌లను ఇస్తుంది", ver_fix_bad:"తిరిగి-ఎగుమతి భిన్నంగా ఉంది",
+  ver_block:"డేటా బ్లాక్", ver_block_ok:"సరిగ్గా ఒకసారి కనుగొనబడింది", ver_block_bad:"ప్రత్యేకంగా కనుగొనబడలేదు", ver_round:"డేటా రౌండ్-ట్రిప్", ver_round_ok:"అన్ని రికార్డులు మళ్లీ లోడ్", ver_round_bad:"డేటా నష్టం", ver_size:"పరిమాణం",
+  st_title:"గణాంకాలు", st_total:"రికార్డులు", st_words:"పదాలు", st_tags:"ప్రత్యేక ట్యాగ్‌లు", st_span:"విస్తరించిన రోజులు", st_bycat:"వర్గం వారీగా", ab_title:"ఆకాశా గురించి",
+  t_saved:"చెక్కడం సేవ్ అయింది", t_deleted:"రికార్డు తొలగించబడింది", t_dup:"రికార్డు నకలు చేయబడింది", t_reincarnated:"ఆకాశా పునర్జన్మ తీసుకుంది → akasha.html", t_exported:"JSON ఎగుమతి అయింది", t_imported:"దిగుమతి: ",
+  t_import_err:"చెల్లని ఫైల్", t_nothing:"సేవ్ చేయడానికి ఏమీ లేదు — ఒక శీర్షికను జోడించు", unsaved:"మీకు సేవ్ చేయని మార్పులు ఉన్నాయి. వాటిని ఉంచడానికి పునర్జన్మ (Ctrl/⌘+S) తీసుకో.",
+  restore_q:"ఈ బ్రౌజర్‌లో మరింత ఇటీవలి సేవ్ చేయని మార్పులు ఉన్నాయి.", restore_yes:"పునరుద్ధరించు", restore_no:"తిరస్కరించు",
+  foot_quine:"ఒకే-ఫైల్ ఆఫ్‌లైన్ quine", foot_priv:"సున్నా టెలిమెట్రీ · సున్నా ఆధారాలు",
+  cat_gand:"ఆలోచన", cat_eveniment:"సంఘటన", cat_cunoastere:"జ్ఞానం", cat_amintire:"జ్ఞాపకం", cat_viziune:"దృష్టి", cat_intrebare:"ప్రశ్న",
+  untitled:"శీర్షిక లేనిది", copy_suffix:" (నకలు)", t_restored:"మార్పులు పునరుద్ధరించబడ్డాయి", lang_label:"భాష",
+  ab_lead:"ఆకాశా అనేది ఒకే HTML ఫైల్‌లో ఆఫ్‌లైన్ ఆకాశిక్ రికార్డు — పునర్జన్మ తీసుకునే ఒక quine: పునర్జన్మ నొక్కితే ప్రతి రికార్డును పొందుపరిచి తన కొత్త నకలును రాస్తుంది. కొత్త ఫైల్ అంటే యాప్ మరియు మీ జ్ఞానం.",
+  ab_h_data:"మీ డేటాను ఉంచడం", ab_p_data:"సత్యం యొక్క మూలం ఫైల్‌లోని డేటా బ్లాక్. చెక్కిన తర్వాత, కొత్త akasha.html రాయడానికి Ctrl/⌘+S (పునర్జన్మ) నొక్కి తదుపరిసారి ఆ ఫైల్‌ను తెరువు — అది అన్నింటినీ తీసుకువెళుతుంది. మార్పులు ఈ బ్రౌజర్‌లో భద్రతా వలగా స్వయంచాలకంగా సేవ్ అవుతాయి.",
+  ab_h_fix:"స్థిర-బిందువు లక్షణం", ab_p_fix:"ఎగుమతి చేసిన ఫైల్ నుండి తిరిగి-ఎగుమతి ఒకే బైట్‌లను ఇస్తుంది. 'సమగ్రతను తనిఖీ చేయి' దీన్ని మరియు ఏ రికార్డూ కోల్పోబడలేదని నిరూపిస్తుంది.",
+  ab_h_keys:"షార్ట్‌కట్‌లు", kx_new:"కొత్తది", kx_search:"వెతుకు", kx_close:"మూసివేయి", kx_reinc:"పునర్జన్మ",
+  ab_h_principles:"సూత్రాలు", ab_p_principles:"ఒక ఫైల్ · స్వచ్ఛమైన JS · సున్నా ఆధారాలు · సున్నా టెలిమెట్రీ · సర్వర్ లేకుండా file:// నుండి నడుస్తుంది."
+};
+DICT.kn = {
+  tagline:"ಆಕಾಶಿಕ ದಾಖಲೆ", search:"ದಾಖಲೆಯನ್ನು ಹುಡುಕಿ…", inscribe:"ಕೆತ್ತಿ", reincarnate:"ಪುನರ್ಜನ್ಮ",
+  f_categories:"ವರ್ಗಗಳು", f_tags:"ಟ್ಯಾಗ್‌ಗಳು", all:"ಎಲ್ಲಾ",
+  s_offline:"ಆಫ್‌ಲೈನ್", s_yes:"ಆನ್", s_telemetry:"ಟೆಲಿಮೆಟ್ರಿ", s_deps:"ಅವಲಂಬನೆಗಳು", s_records:"ದಾಖಲೆಗಳು", c_records:"ದಾಖಲೆಗಳು", c_record:"ದಾಖಲೆ",
+  sort_by:"ಕ್ರಮ", sort_updated:"ಇತ್ತೀಚೆಗೆ ಬದಲಾದವು", sort_created:"ಇತ್ತೀಚೆಗೆ ರಚಿಸಿದವು", sort_res:"ಪ್ರತಿಧ್ವನಿ", sort_title:"ಅಕ್ಷರಾನುಕ್ರಮ",
+  m_quine:"Quine", m_source:"ಸ್ವಂತ ಮೂಲ ನೋಡಿ", m_verify:"ಸಮಗ್ರತೆ ಪರಿಶೀಲಿಸಿ", m_archive:"ಆರ್ಕೈವ್", m_stats:"ಅಂಕಿಅಂಶ",
+  m_exportJson:"JSON ರಫ್ತು", m_importJson:"ಆಮದು (JSON / .html)", m_stars_on:"ನಕ್ಷತ್ರಗಳು: ಆನ್", m_stars_off:"ನಕ್ಷತ್ರಗಳು: ಆಫ್", m_about:"ಆಕಾಶಾ ಬಗ್ಗೆ",
+  empty_title:"ದಾಖಲೆ ಖಾಲಿ ಇದೆ", empty_body:"ಆಕಾಶದಲ್ಲಿ ಇನ್ನೂ ಏನೂ ಕೆತ್ತಲಾಗಿಲ್ಲ.", empty_cta:"ಮೊದಲ ದಾಖಲೆ ಕೆತ್ತಿ",
+  noresults_title:"ಹೊಂದಿಕೆ ಇಲ್ಲ", noresults_body:"ಆಕಾಶದ ಯಾವ ತುಣುಕೂ ಫಿಲ್ಟರ್‌ಗೆ ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ.", noresults_cta:"ಫಿಲ್ಟರ್‌ಗಳನ್ನು ತೆರವುಗೊಳಿಸಿ",
+  ed_new:"ಹೊಸ ಕೆತ್ತನೆ", ed_edit:"ಕೆತ್ತನೆ ಸಂಪಾದಿಸಿ", ed_title:"ಶೀರ್ಷಿಕೆ", ed_title_ph:"ಈ ದಾಖಲೆಗೆ ಹೆಸರಿಡಿ…",
+  ed_cat:"ವರ್ಗ", ed_res:"ಪ್ರತಿಧ್ವನಿ", ed_tags:"ಟ್ಯಾಗ್‌ಗಳು", ed_tags_ph:"ಅಲ್ಪವಿರಾಮ ಅಥವಾ ಖಾಲಿ ಜಾಗದಿಂದ ಬೇರ್ಪಡಿಸಿ",
+  ed_body:"ವಿಷಯ", ed_body_ph:"ಆಕಾಶದಲ್ಲಿ ಕೆತ್ತಿ… (**ದಪ್ಪ**, *ಓರೆ*, `ಕೋಡ್`, - ಪಟ್ಟಿಗಳು, # ಶೀರ್ಷಿಕೆಗಳು)",
+  save:"ಉಳಿಸಿ", cancel:"ರದ್ದು", delete:"ಅಳಿಸಿ", duplicate:"ನಕಲು", edit:"ಸಂಪಾದಿಸಿ", close:"ಮುಚ್ಚಿ", confirm_del:"ಈ ದಾಖಲೆಯನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಬೇಕೇ?",
+  src_title:"ಸ್ವಂತ ಮೂಲ ಕೋಡ್", src_note:"ಆಕಾಶಾ ಪುನರ್ಜನ್ಮ ತಾಳುವಾಗ ಬರೆಯುವ ಸಂಪೂರ್ಣ ಮೂಲ ಇದು — ಆ್ಯಪ್ ಮತ್ತು ಎಲ್ಲಾ ಪ್ರಸ್ತುತ ದಾಖಲೆಗಳು, ಹುದುಗಿಸಿದವು.", src_copy:"ಮೂಲ ನಕಲಿಸಿ", src_download:"ಫೈಲ್ ಡೌನ್‌ಲೋಡ್",
+  copied:"ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಾಗಿದೆ", ver_title:"Quine ಸಮಗ್ರತೆ", ver_fix:"ಸ್ಥಿರ ಬಿಂದು", ver_fix_ok:"ಮರು-ರಫ್ತು ಒಂದೇ ಬೈಟ್‌ಗಳನ್ನು ನೀಡುತ್ತದೆ", ver_fix_bad:"ಮರು-ರಫ್ತು ಭಿನ್ನವಾಗಿದೆ",
+  ver_block:"ಡೇಟಾ ಬ್ಲಾಕ್", ver_block_ok:"ನಿಖರವಾಗಿ ಒಮ್ಮೆ ಸಿಕ್ಕಿದೆ", ver_block_bad:"ಅನನ್ಯವಾಗಿ ಸಿಗಲಿಲ್ಲ", ver_round:"ಡೇಟಾ ರೌಂಡ್-ಟ್ರಿಪ್", ver_round_ok:"ಎಲ್ಲಾ ದಾಖಲೆಗಳು ಮರುಲೋಡ್", ver_round_bad:"ಡೇಟಾ ನಷ್ಟ", ver_size:"ಗಾತ್ರ",
+  st_title:"ಅಂಕಿಅಂಶ", st_total:"ದಾಖಲೆಗಳು", st_words:"ಪದಗಳು", st_tags:"ಅನನ್ಯ ಟ್ಯಾಗ್‌ಗಳು", st_span:"ವ್ಯಾಪಿಸಿದ ದಿನಗಳು", st_bycat:"ವರ್ಗದ ಪ್ರಕಾರ", ab_title:"ಆಕಾಶಾ ಬಗ್ಗೆ",
+  t_saved:"ಕೆತ್ತನೆ ಉಳಿಸಲಾಗಿದೆ", t_deleted:"ದಾಖಲೆ ಅಳಿಸಲಾಗಿದೆ", t_dup:"ದಾಖಲೆ ನಕಲಾಗಿದೆ", t_reincarnated:"ಆಕಾಶಾ ಪುನರ್ಜನ್ಮ ತಾಳಿದೆ → akasha.html", t_exported:"JSON ರಫ್ತಾಗಿದೆ", t_imported:"ಆಮದು: ",
+  t_import_err:"ಅಮಾನ್ಯ ಫೈಲ್", t_nothing:"ಉಳಿಸಲು ಏನೂ ಇಲ್ಲ — ಶೀರ್ಷಿಕೆ ಸೇರಿಸಿ", unsaved:"ನಿಮ್ಮಲ್ಲಿ ಉಳಿಸದ ಬದಲಾವಣೆಗಳಿವೆ. ಅವುಗಳನ್ನು ಉಳಿಸಿಕೊಳ್ಳಲು ಪುನರ್ಜನ್ಮ (Ctrl/⌘+S) ತಾಳಿ.",
+  restore_q:"ಈ ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಹೆಚ್ಚು ಇತ್ತೀಚಿನ ಉಳಿಸದ ಬದಲಾವಣೆಗಳಿವೆ.", restore_yes:"ಮರುಸ್ಥಾಪಿಸಿ", restore_no:"ತಿರಸ್ಕರಿಸಿ",
+  foot_quine:"ಏಕ-ಫೈಲ್ ಆಫ್‌ಲೈನ್ quine", foot_priv:"ಶೂನ್ಯ ಟೆಲಿಮೆಟ್ರಿ · ಶೂನ್ಯ ಅವಲಂಬನೆಗಳು",
+  cat_gand:"ಚಿಂತನೆ", cat_eveniment:"ಘಟನೆ", cat_cunoastere:"ಜ್ಞಾನ", cat_amintire:"ನೆನಪು", cat_viziune:"ದರ್ಶನ", cat_intrebare:"ಪ್ರಶ್ನೆ",
+  untitled:"ಶೀರ್ಷಿಕೆ ಇಲ್ಲದ್ದು", copy_suffix:" (ನಕಲು)", t_restored:"ಬದಲಾವಣೆಗಳು ಮರುಸ್ಥಾಪಿಸಲಾಗಿದೆ", lang_label:"ಭಾಷೆ",
+  ab_lead:"ಆಕಾಶಾ ಒಂದೇ HTML ಫೈಲ್‌ನಲ್ಲಿ ಆಫ್‌ಲೈನ್ ಆಕಾಶಿಕ ದಾಖಲೆ — ಪುನರ್ಜನ್ಮ ತಾಳುವ ಒಂದು quine: ಪುನರ್ಜನ್ಮ ಒತ್ತಿದರೆ ಪ್ರತಿ ದಾಖಲೆಯನ್ನು ಹುದುಗಿಸಿ ತನ್ನ ಹೊಸ ನಕಲನ್ನು ಬರೆಯುತ್ತದೆ. ಹೊಸ ಫೈಲ್ ಎಂದರೆ ಆ್ಯಪ್ ಮತ್ತು ನಿಮ್ಮ ಜ್ಞಾನ.",
+  ab_h_data:"ನಿಮ್ಮ ಡೇಟಾ ಉಳಿಸುವುದು", ab_p_data:"ಸತ್ಯದ ಮೂಲ ಫೈಲ್‌ನೊಳಗಿನ ಡೇಟಾ ಬ್ಲಾಕ್. ಕೆತ್ತಿದ ನಂತರ, ಹೊಸ akasha.html ಬರೆಯಲು Ctrl/⌘+S (ಪುನರ್ಜನ್ಮ) ಒತ್ತಿ ಮುಂದಿನ ಬಾರಿ ಆ ಫೈಲ್ ತೆರೆಯಿರಿ — ಅದು ಎಲ್ಲವನ್ನೂ ಒಯ್ಯುತ್ತದೆ. ಬದಲಾವಣೆಗಳು ಈ ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಸುರಕ್ಷತಾ ಜಾಲವಾಗಿ ಸ್ವಯಂ ಉಳಿಸಲಾಗುತ್ತದೆ.",
+  ab_h_fix:"ಸ್ಥಿರ-ಬಿಂದು ಗುಣ", ab_p_fix:"ರಫ್ತು ಮಾಡಿದ ಫೈಲ್‌ನಿಂದ ಮರು-ರಫ್ತು ಒಂದೇ ಬೈಟ್‌ಗಳನ್ನು ನೀಡುತ್ತದೆ. 'ಸಮಗ್ರತೆ ಪರಿಶೀಲಿಸಿ' ಇದನ್ನು ಮತ್ತು ಯಾವ ದಾಖಲೆಯೂ ಕಳೆದುಹೋಗುವುದಿಲ್ಲ ಎಂಬುದನ್ನು ಸಾಬೀತುಪಡಿಸುತ್ತದೆ.",
+  ab_h_keys:"ಶಾರ್ಟ್‌ಕಟ್‌ಗಳು", kx_new:"ಹೊಸ", kx_search:"ಹುಡುಕು", kx_close:"ಮುಚ್ಚು", kx_reinc:"ಪುನರ್ಜನ್ಮ",
+  ab_h_principles:"ತತ್ವಗಳು", ab_p_principles:"ಒಂದು ಫೈಲ್ · ಶುದ್ಧ JS · ಶೂನ್ಯ ಅವಲಂಬನೆಗಳು · ಶೂನ್ಯ ಟೆಲಿಮೆಟ್ರಿ · ಸರ್ವರ್ ಇಲ್ಲದೆ file:// ನಿಂದ ಚಲಿಸುತ್ತದೆ."
+};
+DICT.ml = {
+  tagline:"ആകാശിക് രേഖ", search:"രേഖ തിരയുക…", inscribe:"കൊത്തുക", reincarnate:"പുനർജന്മം",
+  f_categories:"വിഭാഗങ്ങൾ", f_tags:"ടാഗുകൾ", all:"എല്ലാം",
+  s_offline:"ഓഫ്‌ലൈൻ", s_yes:"ഓൺ", s_telemetry:"ടെലിമെട്രി", s_deps:"ആശ്രിതത്വങ്ങൾ", s_records:"രേഖകൾ", c_records:"രേഖകൾ", c_record:"രേഖ",
+  sort_by:"ക്രമം", sort_updated:"അടുത്തിടെ മാറ്റിയവ", sort_created:"അടുത്തിടെ സൃഷ്ടിച്ചവ", sort_res:"അനുരണനം", sort_title:"അക്ഷരമാലാക്രമം",
+  m_quine:"Quine", m_source:"സ്വന്തം ഉറവിടം കാണുക", m_verify:"സമഗ്രത പരിശോധിക്കുക", m_archive:"ശേഖരം", m_stats:"സ്ഥിതിവിവരം",
+  m_exportJson:"JSON കയറ്റുമതി", m_importJson:"ഇറക്കുമതി (JSON / .html)", m_stars_on:"നക്ഷത്രങ്ങൾ: ഓൺ", m_stars_off:"നക്ഷത്രങ്ങൾ: ഓഫ്", m_about:"ആകാശയെക്കുറിച്ച്",
+  empty_title:"രേഖ ശൂന്യമാണ്", empty_body:"ആകാശത്തിൽ ഇതുവരെ ഒന്നും കൊത്തിയിട്ടില്ല.", empty_cta:"ആദ്യ രേഖ കൊത്തുക",
+  noresults_title:"പൊരുത്തമില്ല", noresults_body:"ആകാശത്തിന്റെ ഒരു ശകലവും ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്നില്ല.", noresults_cta:"ഫിൽട്ടറുകൾ മായ്ക്കുക",
+  ed_new:"പുതിയ കൊത്തുപണി", ed_edit:"കൊത്തുപണി തിരുത്തുക", ed_title:"തലക്കെട്ട്", ed_title_ph:"ഈ രേഖയ്ക്ക് പേരിടുക…",
+  ed_cat:"വിഭാഗം", ed_res:"അനുരണനം", ed_tags:"ടാഗുകൾ", ed_tags_ph:"കോമ അല്ലെങ്കിൽ സ്‌പേസ് കൊണ്ട് വേർതിരിച്ചത്",
+  ed_body:"ഉള്ളടക്കം", ed_body_ph:"ആകാശത്തിൽ കൊത്തുക… (**കടുപ്പം**, *ചരിവ്*, `കോഡ്`, - പട്ടികകൾ, # തലക്കെട്ടുകൾ)",
+  save:"സംരക്ഷിക്കുക", cancel:"റദ്ദാക്കുക", delete:"ഇല്ലാതാക്കുക", duplicate:"പകർപ്പ്", edit:"തിരുത്തുക", close:"അടയ്ക്കുക", confirm_del:"ഈ രേഖ ശാശ്വതമായി ഇല്ലാതാക്കണോ?",
+  src_title:"സ്വന്തം ഉറവിട കോഡ്", src_note:"ആകാശ പുനർജനിക്കുമ്പോൾ എഴുതുന്ന പൂർണ്ണ ഉറവിടം ഇതാണ് — ആപ്പും എല്ലാ നിലവിലെ രേഖകളും, ഉൾച്ചേർത്തവ.", src_copy:"ഉറവിടം പകർത്തുക", src_download:"ഫയൽ ഡൗൺലോഡ്",
+  copied:"ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്തി", ver_title:"Quine സമഗ്രത", ver_fix:"സ്ഥിര ബിന്ദു", ver_fix_ok:"വീണ്ടും-കയറ്റുമതി ഒരേ ബൈറ്റുകൾ നൽകുന്നു", ver_fix_bad:"വീണ്ടും-കയറ്റുമതി വ്യത്യാസപ്പെടുന്നു",
+  ver_block:"ഡാറ്റ ബ്ലോക്ക്", ver_block_ok:"കൃത്യമായി ഒരിക്കൽ കണ്ടെത്തി", ver_block_bad:"അദ്വിതീയമായി കണ്ടെത്തിയില്ല", ver_round:"ഡാറ്റ റൗണ്ട്-ട്രിപ്പ്", ver_round_ok:"എല്ലാ രേഖകളും വീണ്ടും ലോഡ്", ver_round_bad:"ഡാറ്റ നഷ്ടം", ver_size:"വലുപ്പം",
+  st_title:"സ്ഥിതിവിവരം", st_total:"രേഖകൾ", st_words:"വാക്കുകൾ", st_tags:"അദ്വിതീയ ടാഗുകൾ", st_span:"വ്യാപിച്ച ദിവസങ്ങൾ", st_bycat:"വിഭാഗം അനുസരിച്ച്", ab_title:"ആകാശയെക്കുറിച്ച്",
+  t_saved:"കൊത്തുപണി സംരക്ഷിച്ചു", t_deleted:"രേഖ ഇല്ലാതാക്കി", t_dup:"രേഖ പകർത്തി", t_reincarnated:"ആകാശ പുനർജനിച്ചു → akasha.html", t_exported:"JSON കയറ്റുമതി ചെയ്തു", t_imported:"ഇറക്കുമതി: ",
+  t_import_err:"അസാധുവായ ഫയൽ", t_nothing:"സംരക്ഷിക്കാൻ ഒന്നുമില്ല — ഒരു തലക്കെട്ട് ചേർക്കുക", unsaved:"നിങ്ങൾക്ക് സംരക്ഷിക്കാത്ത മാറ്റങ്ങളുണ്ട്. അവ നിലനിർത്താൻ പുനർജന്മം (Ctrl/⌘+S) ചെയ്യുക.",
+  restore_q:"ഈ ബ്രൗസറിൽ കൂടുതൽ പുതിയ സംരക്ഷിക്കാത്ത മാറ്റങ്ങളുണ്ട്.", restore_yes:"പുനഃസ്ഥാപിക്കുക", restore_no:"തള്ളിക്കളയുക",
+  foot_quine:"ഒറ്റ-ഫയൽ ഓഫ്‌ലൈൻ quine", foot_priv:"പൂജ്യം ടെലിമെട്രി · പൂജ്യം ആശ്രിതത്വങ്ങൾ",
+  cat_gand:"ചിന്ത", cat_eveniment:"സംഭവം", cat_cunoastere:"അറിവ്", cat_amintire:"ഓർമ്മ", cat_viziune:"ദർശനം", cat_intrebare:"ചോദ്യം",
+  untitled:"തലക്കെട്ടില്ലാത്തത്", copy_suffix:" (പകർപ്പ്)", t_restored:"മാറ്റങ്ങൾ പുനഃസ്ഥാപിച്ചു", lang_label:"ഭാഷ",
+  ab_lead:"ആകാശ എന്നത് ഒറ്റ HTML ഫയലിലെ ഓഫ്‌ലൈൻ ആകാശിക് രേഖയാണ് — പുനർജനിക്കുന്ന ഒരു quine: പുനർജന്മം അമർത്തുമ്പോൾ ഓരോ രേഖയും ഉൾച്ചേർത്ത് അതിന്റെ പുതിയ പകർപ്പ് എഴുതുന്നു. പുതിയ ഫയൽ എന്നാൽ ആപ്പും നിങ്ങളുടെ അറിവുമാണ്.",
+  ab_h_data:"നിങ്ങളുടെ ഡാറ്റ സൂക്ഷിക്കൽ", ab_p_data:"സത്യത്തിന്റെ ഉറവിടം ഫയലിനുള്ളിലെ ഡാറ്റ ബ്ലോക്കാണ്. കൊത്തിയ ശേഷം, പുതിയ akasha.html എഴുതാൻ Ctrl/⌘+S (പുനർജന്മം) അമർത്തി അടുത്ത തവണ ആ ഫയൽ തുറക്കുക — അത് എല്ലാം കൊണ്ടുപോകുന്നു. മാറ്റങ്ങൾ ഈ ബ്രൗസറിൽ സുരക്ഷാ വലയായി സ്വയം സംരക്ഷിക്കപ്പെടുന്നു.",
+  ab_h_fix:"സ്ഥിര-ബിന്ദു സ്വഭാവം", ab_p_fix:"കയറ്റുമതി ചെയ്ത ഫയലിൽ നിന്ന് വീണ്ടും-കയറ്റുമതി ഒരേ ബൈറ്റുകൾ നൽകുന്നു. 'സമഗ്രത പരിശോധിക്കുക' ഇതും ഒരു രേഖയും നഷ്ടപ്പെടുന്നില്ല എന്നതും തെളിയിക്കുന്നു.",
+  ab_h_keys:"കുറുക്കുവഴികൾ", kx_new:"പുതിയത്", kx_search:"തിരയുക", kx_close:"അടയ്ക്കുക", kx_reinc:"പുനർജന്മം",
+  ab_h_principles:"തത്വങ്ങൾ", ab_p_principles:"ഒരു ഫയൽ · ശുദ്ധ JS · പൂജ്യം ആശ്രിതത്വങ്ങൾ · പൂജ്യം ടെലിമെട്രി · സെർവർ ഇല്ലാതെ file:// ൽ നിന്ന് പ്രവർത്തിക്കുന്നു."
+};
+DICT.am = {
+  tagline:"የአካሻ መዝገብ", search:"መዝገብ ፈልግ…", inscribe:"ቅረጽ", reincarnate:"እንደገና ተወለድ",
+  f_categories:"ምድቦች", f_tags:"መለያዎች", all:"ሁሉም",
+  s_offline:"ከመስመር ውጭ", s_yes:"በርቷል", s_telemetry:"ቴሌሜትሪ", s_deps:"ጥገኞች", s_records:"መዝገቦች", c_records:"መዝገቦች", c_record:"መዝገብ",
+  sort_by:"ቅደም ተከተል", sort_updated:"በቅርቡ የተቀየረ", sort_created:"በቅርቡ የተፈጠረ", sort_res:"ድምፀት", sort_title:"በፊደል ቅደም ተከተል",
+  m_quine:"Quine", m_source:"የራሱን ምንጭ ተመልከት", m_verify:"ሙሉነትን አረጋግጥ", m_archive:"መዝገብ ቤት", m_stats:"ስታቲስቲክስ",
+  m_exportJson:"JSON ላክ", m_importJson:"አስገባ (JSON / .html)", m_stars_on:"ኮከቦች: በርቷል", m_stars_off:"ኮከቦች: ጠፍቷል", m_about:"ስለ አካሻ",
+  empty_title:"መዝገቡ ባዶ ነው", empty_body:"በአካሻ ውስጥ ገና ምንም አልተቀረጸም።", empty_cta:"የመጀመሪያውን መዝገብ ቅረጽ",
+  noresults_title:"ምንም ተዛማጅ የለም", noresults_body:"የአካሻ ምንም ቁራጭ ከማጣሪያው ጋር አይዛመድም።", noresults_cta:"ማጣሪያዎችን አጽዳ",
+  ed_new:"አዲስ ቅርጻ", ed_edit:"ቅርጻን አርትዕ", ed_title:"ርዕስ", ed_title_ph:"ለዚህ መዝገብ ስም ስጥ…",
+  ed_cat:"ምድብ", ed_res:"ድምፀት", ed_tags:"መለያዎች", ed_tags_ph:"በኮማ ወይም በክፍተት የተለየ",
+  ed_body:"ይዘት", ed_body_ph:"በአካሻ ውስጥ ቅረጽ… (**ደማቅ**፣ *ዘንበል*፣ `ኮድ`፣ - ዝርዝሮች፣ # ርዕሶች)",
+  save:"አስቀምጥ", cancel:"ሰርዝ", delete:"አጥፋ", duplicate:"አባዛ", edit:"አርትዕ", close:"ዝጋ", confirm_del:"ይህን መዝገብ በቋሚነት ማጥፋት?",
+  src_title:"የራሱ ምንጭ ኮድ", src_note:"ይህ አካሻ እንደገና ሲወለድ የሚጽፈው ሙሉ ምንጭ ነው — መተግበሪያው እና ሁሉም የአሁኑ መዝገቦች፣ የተካተቱ።", src_copy:"ምንጭ ቅዳ", src_download:"ፋይል አውርድ",
+  copied:"ወደ ቅንጥብ ሰሌዳ ተቀድቷል", ver_title:"የQuine ሙሉነት", ver_fix:"ቋሚ ነጥብ", ver_fix_ok:"እንደገና መላክ ተመሳሳይ ባይቶችን ይሰጣል", ver_fix_bad:"እንደገና መላክ ይለያያል",
+  ver_block:"የውሂብ ብሎክ", ver_block_ok:"በትክክል አንድ ጊዜ ተገኝቷል", ver_block_bad:"በልዩ ሁኔታ አልተገኘም", ver_round:"የውሂብ ዙር ጉዞ", ver_round_ok:"ሁሉም መዝገቦች እንደገና ይጫናሉ", ver_round_bad:"የውሂብ መጥፋት", ver_size:"መጠን",
+  st_title:"ስታቲስቲክስ", st_total:"መዝገቦች", st_words:"ቃላት", st_tags:"ልዩ መለያዎች", st_span:"የተዘረጉ ቀናት", st_bycat:"በምድብ", ab_title:"ስለ አካሻ",
+  t_saved:"ቅርጻ ተቀምጧል", t_deleted:"መዝገብ ተሰርዟል", t_dup:"መዝገብ ተባዝቷል", t_reincarnated:"አካሻ እንደገና ተወልዷል → akasha.html", t_exported:"JSON ተልኳል", t_imported:"ገብቷል: ",
+  t_import_err:"ልክ ያልሆነ ፋይል", t_nothing:"የሚቀመጥ ነገር የለም — ርዕስ ጨምር", unsaved:"ያልተቀመጡ ለውጦች አሉህ። እነሱን ለማቆየት እንደገና ተወለድ (Ctrl/⌘+S)።",
+  restore_q:"በዚህ አሳሽ ውስጥ የቅርብ ጊዜ ያልተቀመጡ ለውጦች አሉ።", restore_yes:"መልስ", restore_no:"አስወግድ",
+  foot_quine:"ነጠላ-ፋይል ከመስመር ውጭ quine", foot_priv:"ዜሮ ቴሌሜትሪ · ዜሮ ጥገኞች",
+  cat_gand:"ሐሳብ", cat_eveniment:"ክስተት", cat_cunoastere:"እውቀት", cat_amintire:"ትዝታ", cat_viziune:"ራእይ", cat_intrebare:"ጥያቄ",
+  untitled:"ርዕስ የለሽ", copy_suffix:" (ቅጂ)", t_restored:"ለውጦች ተመልሰዋል", lang_label:"ቋንቋ",
+  ab_lead:"አካሻ በአንድ የHTML ፋይል ውስጥ ከመስመር ውጭ የአካሻ መዝገብ ነው — እንደገና የሚወለድ quine: እንደገና ተወለድን ሲጫኑ እያንዳንዱን መዝገብ አካቶ የራሱን አዲስ ቅጂ ይጽፋል። አዲሱ ፋይል መተግበሪያው እና እውቀትህ ነው።",
+  ab_h_data:"ውሂብህን መጠበቅ", ab_p_data:"የእውነት ምንጭ በፋይሉ ውስጥ ያለው የውሂብ ብሎክ ነው። ከቀረጽህ በኋላ፣ አዲስ akasha.html ለመጻፍ Ctrl/⌘+S (እንደገና ተወለድ) ተጫን እና በሚቀጥለው ጊዜ ያን ፋይል ክፈት — ሁሉንም ይዞ ይሄዳል። ለውጦች በዚህ አሳሽ ውስጥ እንደ ደህንነት መረብ በራስ-ሰር ይቀመጣሉ።",
+  ab_h_fix:"የቋሚ-ነጥብ ባህሪ", ab_p_fix:"ከተላከ ፋይል እንደገና መላክ ተመሳሳይ ባይቶችን ይሰጣል። 'ሙሉነትን አረጋግጥ' ይህን እና ምንም መዝገብ እንደማይጠፋ ያረጋግጣል።",
+  ab_h_keys:"አቋራጮች", kx_new:"አዲስ", kx_search:"ፈልግ", kx_close:"ዝጋ", kx_reinc:"እንደገና ተወለድ",
+  ab_h_principles:"መርሆዎች", ab_p_principles:"አንድ ፋይል · ንጹህ JS · ዜሮ ጥገኞች · ዜሮ ቴሌሜትሪ · ያለ አገልጋይ ከ file:// ይሰራል።"
+};
+DICT.ha = {
+  tagline:"Tarihin Akasha", search:"Nemi tarihin…", inscribe:"Zāna", reincarnate:"Sāke haihuwa",
+  f_categories:"Rukunoni", f_tags:"Alamomi", all:"Duka",
+  s_offline:"Bã layi", s_yes:"a kunne", s_telemetry:"Telemetri", s_deps:"Dogaro", s_records:"Bayanai", c_records:"bayanai", c_record:"bayani",
+  sort_by:"Tsara", sort_updated:"An canza kwanan nan", sort_created:"An ƙirƙira kwanan nan", sort_res:"Amsa-kuwwa", sort_title:"Bisa haruffa",
+  m_quine:"Quine", m_source:"Duba tushen kansa", m_verify:"Tabbatar da cikar", m_archive:"Tarihi", m_stats:"Ƙididdiga",
+  m_exportJson:"Fitar da JSON", m_importJson:"Shigar (JSON / .html)", m_stars_on:"Taurari: a kunne", m_stars_off:"Taurari: a kashe", m_about:"Game da Akasha",
+  empty_title:"Tarihin babu komai", empty_body:"Ba a zāna kome a cikin Akasha ba tukuna.", empty_cta:"Zāna bayani na farko",
+  noresults_title:"Babu dacewa", noresults_body:"Babu wani ɓangaren Akasha da ya dace da matattara.", noresults_cta:"Share matattara",
+  ed_new:"Sabon zāne", ed_edit:"Gyara zāne", ed_title:"Lakabi", ed_title_ph:"Ba wannan bayani suna…",
+  ed_cat:"Rukuni", ed_res:"Amsa-kuwwa", ed_tags:"Alamomi", ed_tags_ph:"an raba da waƙafi ko sarari",
+  ed_body:"Abun ciki", ed_body_ph:"Zāna a cikin Akasha… (**kauri**, *karkata*, `lamba`, - jeri, # kanun labarai)",
+  save:"Ajiye", cancel:"Soke", delete:"Share", duplicate:"Kwafa", edit:"Gyara", close:"Rufe", confirm_del:"A share wannan bayani har abada?",
+  src_title:"Tushen lambar kansa", src_note:"Wannan shine cikakken tushe da Akasha ke rubutawa lokacin sāke haihuwa — manhajar da dukkan bayanai na yanzu, an haɗa su.", src_copy:"Kwafi tushe", src_download:"Sauke fayil",
+  copied:"An kwafa zuwa allo", ver_title:"Cikar Quine", ver_fix:"Tsayayyen wuri", ver_fix_ok:"sāke fitarwa yana ba da baiti iri ɗaya", ver_fix_bad:"sāke fitarwa ya bambanta",
+  ver_block:"Tubalin bayanai", ver_block_ok:"an samu sau ɗaya kaɗai", ver_block_bad:"ba a samu na musamman ba", ver_round:"Zagayen bayanai", ver_round_ok:"dukkan bayanai sun sāke lodi", ver_round_bad:"asarar bayanai", ver_size:"Girma",
+  st_title:"Ƙididdiga", st_total:"Bayanai", st_words:"Kalmomi", st_tags:"Alamomi na musamman", st_span:"Kwanaki da aka rufe", st_bycat:"Bisa rukuni", ab_title:"Game da Akasha",
+  t_saved:"An ajiye zāne", t_deleted:"An share bayani", t_dup:"An kwafa bayani", t_reincarnated:"Akasha ya sāke haihuwa → akasha.html", t_exported:"An fitar da JSON", t_imported:"An shigar: ",
+  t_import_err:"Fayil mara inganci", t_nothing:"Babu abin ajiyewa — ƙara lakabi", unsaved:"Kana da canje-canje da ba a ajiye ba. Sāke haihuwa (Ctrl/⌘+S) don kiyaye su.",
+  restore_q:"Akwai sabbin canje-canje da ba a ajiye ba a wannan birawsa.", restore_yes:"Maido", restore_no:"Kau da",
+  foot_quine:"quine na fayil ɗaya bã layi", foot_priv:"sifili telemetri · sifili dogaro",
+  cat_gand:"Tunani", cat_eveniment:"Lamari", cat_cunoastere:"Sani", cat_amintire:"Tunawa", cat_viziune:"Hangen nesa", cat_intrebare:"Tambaya",
+  untitled:"Mara lakabi", copy_suffix:" (kwafi)", t_restored:"An maido da canje-canje", lang_label:"Harshe",
+  ab_lead:"Akasha tarihin Akasha ne bã layi a cikin fayil ɗaya na HTML — quine da ke sāke haihuwa: danna Sāke haihuwa yana rubuta sabon kwafin kansa da kowane bayani a haɗe. Sabon fayil shine manhajar da ilimin ka.",
+  ab_h_data:"Kiyaye bayananka", ab_p_data:"Tushen gaskiya shine tubalin bayanai a cikin fayil. Bayan zāna, danna Ctrl/⌘+S (Sāke haihuwa) don rubuta sabon akasha.html sannan ka buɗe wannan fayil a lokaci na gaba — yana ɗauke da komai. Ana kuma ajiye canje-canje ta atomatik a wannan birawsa a matsayin raga ta tsaro.",
+  ab_h_fix:"Halin tsayayyen-wuri", ab_p_fix:"Sāke fitarwa daga fayil da aka fitar yana ba da baiti iri ɗaya. 'Tabbatar da cikar' yana tabbatar da wannan da cewa babu bayanin da ya ɓace.",
+  ab_h_keys:"Gajerun hanyoyi", kx_new:"sabo", kx_search:"nema", kx_close:"rufe", kx_reinc:"sāke haihuwa",
+  ab_h_principles:"Ƙa'idodi", ab_p_principles:"Fayil ɗaya · JS mai tsabta · sifili dogaro · sifili telemetri · yana aiki daga file:// ba tare da uwar garke ba."
+};
+DICT.yo = {
+  tagline:"Àkọsílẹ̀ Akasha", search:"Wá àkọsílẹ̀…", inscribe:"Kọ", reincarnate:"Àtúnwáyé",
+  f_categories:"Ẹ̀ka", f_tags:"Àmì", all:"Gbogbo",
+  s_offline:"Aláìsí-lẹ́ńtà", s_yes:"ó ń ṣiṣẹ́", s_telemetry:"Telemetri", s_deps:"Ìgbáralé", s_records:"Àwọn àkọsílẹ̀", c_records:"àwọn àkọsílẹ̀", c_record:"àkọsílẹ̀",
+  sort_by:"Tò", sort_updated:"Tí a yí padà láìpẹ́", sort_created:"Tí a dá láìpẹ́", sort_res:"Ìfọ̀rọ̀wérọ̀", sort_title:"Lẹ́sẹẹsẹ àbídí",
+  m_quine:"Quine", m_source:"Wo orísun ara rẹ̀", m_verify:"Ṣàyẹ̀wò ìpé", m_archive:"Ìpamọ́", m_stats:"Ìṣirò",
+  m_exportJson:"Kó JSON jáde", m_importJson:"Kó wọlé (JSON / .html)", m_stars_on:"Ìràwọ̀: ó ń ṣiṣẹ́", m_stars_off:"Ìràwọ̀: kú", m_about:"Nípa Akasha",
+  empty_title:"Àkọsílẹ̀ ṣófo", empty_body:"A kò tíì kọ ohunkóhun sínú Akasha.", empty_cta:"Kọ àkọsílẹ̀ àkọ́kọ́",
+  noresults_title:"Kò sí ìbámu", noresults_body:"Kò sí ẹyọ Akasha kankan tó bá àyọ̀dà mu.", noresults_cta:"Pa àwọn àyọ̀dà rẹ́",
+  ed_new:"Àkọsílẹ̀ tuntun", ed_edit:"Ṣàtúnṣe àkọsílẹ̀", ed_title:"Àkọlé", ed_title_ph:"Fún àkọsílẹ̀ yìí ní orúkọ…",
+  ed_cat:"Ẹ̀ka", ed_res:"Ìfọ̀rọ̀wérọ̀", ed_tags:"Àmì", ed_tags_ph:"a yà sọ́tọ̀ pẹ̀lú àmì-ọ̀rọ̀ tàbí àlàfo",
+  ed_body:"Àkóónú", ed_body_ph:"Kọ sínú Akasha… (**nípọn**, *ìpẹ́*, `kóòdù`, - àkójọ, # àkọlé)",
+  save:"Fipamọ́", cancel:"Fagilé", delete:"Pa rẹ́", duplicate:"Ṣẹ̀dà", edit:"Ṣàtúnṣe", close:"Tì", confirm_del:"Pa àkọsílẹ̀ yìí rẹ́ pátápátá?",
+  src_title:"Kóòdù orísun ara rẹ̀", src_note:"Èyí ni orísun pípé tí Akasha ń kọ nígbà tí ó bá tún wáyé — ẹ̀rọ ìṣàmúlò àti gbogbo àwọn àkọsílẹ̀ lọ́wọ́lọ́wọ́, tí a fi sínú.", src_copy:"Ṣẹ̀dà orísun", src_download:"Gba fáìlì sílẹ̀",
+  copied:"A ṣẹ̀dà sí pátákó", ver_title:"Ìpé Quine", ver_fix:"Ojú tó dúró", ver_fix_ok:"àtúnkó-jáde ń fúnni ní báìtì kannáà", ver_fix_bad:"àtúnkó-jáde yàtọ̀",
+  ver_block:"Àkójọ data", ver_block_ok:"a rí i lẹ́ẹ̀kan ṣoṣo", ver_block_bad:"a kò rí i ní ọ̀tọ̀", ver_round:"Ìrìnàjò data", ver_round_ok:"gbogbo àkọsílẹ̀ tún ru", ver_round_bad:"àdánù data", ver_size:"Ìwọ̀n",
+  st_title:"Ìṣirò", st_total:"Àwọn àkọsílẹ̀", st_words:"Àwọn ọ̀rọ̀", st_tags:"Àmì ọ̀tọ̀ọ̀tọ̀", st_span:"Ọjọ́ tó gbalẹ̀", st_bycat:"Nípa ẹ̀ka", ab_title:"Nípa Akasha",
+  t_saved:"A fi àkọsílẹ̀ pamọ́", t_deleted:"A pa àkọsílẹ̀ rẹ́", t_dup:"A ṣẹ̀dà àkọsílẹ̀", t_reincarnated:"Akasha tún wáyé → akasha.html", t_exported:"A kó JSON jáde", t_imported:"A kó wọlé: ",
+  t_import_err:"Fáìlì tí kò tọ́", t_nothing:"Kò sí ohun láti fipamọ́ — fi àkọlé kún", unsaved:"O ní àwọn àyípadà tí a kò fipamọ́. Tún wáyé (Ctrl/⌘+S) láti pa wọ́n mọ́.",
+  restore_q:"Àwọn àyípadà tuntun tí a kò fipamọ́ wà nínú aṣàwákiri yìí.", restore_yes:"Mú padà", restore_no:"Kọ̀ ọ́",
+  foot_quine:"quine aláìsí-lẹ́ńtà fáìlì-kan", foot_priv:"odo telemetri · odo ìgbáralé",
+  cat_gand:"Èrò", cat_eveniment:"Ìṣẹ̀lẹ̀", cat_cunoastere:"Ìmọ̀", cat_amintire:"Ìrántí", cat_viziune:"Ìríran", cat_intrebare:"Ìbéèrè",
+  untitled:"Aláìní àkọlé", copy_suffix:" (ẹ̀dà)", t_restored:"A mú àwọn àyípadà padà", lang_label:"Èdè",
+  ab_lead:"Akasha jẹ́ àkọsílẹ̀ Akasha aláìsí-lẹ́ńtà nínú fáìlì HTML kan ṣoṣo — quine tó ń tún wáyé: títẹ Àtúnwáyé ń kọ ẹ̀dà tuntun ti ara rẹ̀ pẹ̀lú gbogbo àkọsílẹ̀ tí a fi sínú. Fáìlì tuntun náà ni ẹ̀rọ ìṣàmúlò àti ìmọ̀ rẹ.",
+  ab_h_data:"Pípa data rẹ mọ́", ab_p_data:"Orísun òtítọ́ ni àkójọ data inú fáìlì. Lẹ́yìn kíkọ, tẹ Ctrl/⌘+S (Àtúnwáyé) láti kọ akasha.html tuntun kí o sì ṣí fáìlì yẹn nígbà tó ń bọ̀ — ó gbé gbogbo nǹkan. A tún fi àwọn àyípadà pamọ́ fúnra wọn nínú aṣàwákiri yìí gẹ́gẹ́ bí àwọ̀n ààbò.",
+  ab_h_fix:"Ìṣesí ojú-tó-dúró", ab_p_fix:"Àtúnkó-jáde láti inú fáìlì tí a kó jáde ń fúnni ní báìtì kannáà. 'Ṣàyẹ̀wò ìpé' fi èyí àti pé kò sí àkọsílẹ̀ tó sọnù hàn.",
+  ab_h_keys:"Àwọn ọ̀nà kúkúrú", kx_new:"tuntun", kx_search:"wá", kx_close:"tì", kx_reinc:"àtúnwáyé",
+  ab_h_principles:"Àwọn ìlànà", ab_p_principles:"Fáìlì kan · JS mímọ́ · odo ìgbáralé · odo telemetri · ó ń ṣiṣẹ́ láti file:// láìsí olùpèsè."
+};
+DICT.jv = {
+  tagline:"Cathetan Akasha", search:"Goleki cathetan…", inscribe:"Tatah", reincarnate:"Manitis manèh",
+  f_categories:"Kategori", f_tags:"Tag", all:"Kabèh",
+  s_offline:"Offline", s_yes:"urip", s_telemetry:"Telemetri", s_deps:"Gumantung", s_records:"Cathetan", c_records:"cathetan", c_record:"cathetan",
+  sort_by:"Urut", sort_updated:"Anyar diowahi", sort_created:"Anyar digawé", sort_res:"Gaung", sort_title:"Manut aksara",
+  m_quine:"Quine", m_source:"Deleng sumber dhéwé", m_verify:"Priksa wutuhé", m_archive:"Arsip", m_stats:"Statistik",
+  m_exportJson:"Ékspor JSON", m_importJson:"Impor (JSON / .html)", m_stars_on:"Lintang: urip", m_stars_off:"Lintang: mati", m_about:"Bab Akasha",
+  empty_title:"Cathetané kosong", empty_body:"Durung ana sing ditatah ing Akasha.", empty_cta:"Tatah cathetan kapisan",
+  noresults_title:"Ora ana sing cocog", noresults_body:"Ora ana pérangan Akasha sing cocog karo saringan.", noresults_cta:"Resiki saringan",
+  ed_new:"Tatahan anyar", ed_edit:"Sunting tatahan", ed_title:"Irah-irahan", ed_title_ph:"Wènèhi jeneng cathetan iki…",
+  ed_cat:"Kategori", ed_res:"Gaung", ed_tags:"Tag", ed_tags_ph:"dipisah nganggo koma utawa spasi",
+  ed_body:"Isi", ed_body_ph:"Tatah ing Akasha… (**kandel**, *miring*, `kode`, - dhaptar, # irah-irahan)",
+  save:"Simpen", cancel:"Batal", delete:"Busak", duplicate:"Gandakaké", edit:"Sunting", close:"Tutup", confirm_del:"Busak cathetan iki kanggo salawasé?",
+  src_title:"Kode sumber dhéwé", src_note:"Iki sumber lengkap sing ditulis Akasha nalika manitis manèh — aplikasi lan kabèh cathetan saiki, kalebu.", src_copy:"Salin sumber", src_download:"Undhuh berkas",
+  copied:"Disalin menyang clipboard", ver_title:"Wutuhé Quine", ver_fix:"Titik tetep", ver_fix_ok:"ékspor manèh ngasilaké bita sing padha", ver_fix_bad:"ékspor manèh béda",
+  ver_block:"Blok data", ver_block_ok:"ketemu persis sepisan", ver_block_bad:"ora ketemu kanthi unik", ver_round:"Bali-balèn data", ver_round_ok:"kabèh cathetan dimuat manèh", ver_round_bad:"data ilang", ver_size:"Ukuran",
+  st_title:"Statistik", st_total:"Cathetan", st_words:"Tembung", st_tags:"Tag unik", st_span:"Dina kawengku", st_bycat:"Manut kategori", ab_title:"Bab Akasha",
+  t_saved:"Tatahan disimpen", t_deleted:"Cathetan dibusak", t_dup:"Cathetan digandakaké", t_reincarnated:"Akasha manitis manèh → akasha.html", t_exported:"JSON diékspor", t_imported:"Diimpor: ",
+  t_import_err:"Berkas ora sah", t_nothing:"Ora ana sing disimpen — tambahna irah-irahan", unsaved:"Sampéyan duwé owahan sing durung disimpen. Manitis manèh (Ctrl/⌘+S) kanggo nyimpen.",
+  restore_q:"Ana owahan anyar sing durung disimpen ing browser iki.", restore_yes:"Balèkaké", restore_no:"Tampik",
+  foot_quine:"quine offline berkas-siji", foot_priv:"nol telemetri · nol gumantung",
+  cat_gand:"Pikiran", cat_eveniment:"Kedadéyan", cat_cunoastere:"Kawruh", cat_amintire:"Pangéling", cat_viziune:"Wahyu", cat_intrebare:"Pitakon",
+  untitled:"Tanpa irah-irahan", copy_suffix:" (salinan)", t_restored:"Owahan dibalèkaké", lang_label:"Basa",
+  ab_lead:"Akasha iku cathetan Akasha offline ing siji berkas HTML — quine sing manitis manèh: mencet Manitis manèh nulis salinan anyaré dhéwé kanthi saben cathetan kalebu. Berkas anyar iku aplikasi lan kawruhmu.",
+  ab_h_data:"Njaga datamu", ab_p_data:"Sumber kayektèn yaiku blok data ing njero berkas. Sawisé natah, pencet Ctrl/⌘+S (Manitis manèh) kanggo nulis akasha.html anyar lan bukak berkas kuwi mengko — kabèh digawa. Owahan uga disimpen otomatis ing browser iki minangka jaring pengaman.",
+  ab_h_fix:"Sipat titik-tetep", ab_p_fix:"Ékspor manèh saka berkas sing wis diékspor ngasilaké bita sing padha. 'Priksa wutuhé' mbuktèkaké iki lan ora ana cathetan sing ilang.",
+  ab_h_keys:"Cara cepet", kx_new:"anyar", kx_search:"goleki", kx_close:"tutup", kx_reinc:"manitis manèh",
+  ab_h_principles:"Prinsip", ab_p_principles:"Siji berkas · JS murni · nol gumantung · nol telemetri · mlaku saka file:// tanpa server."
+};
+DICT.my = {
+  tagline:"အာကာသမှတ်တမ်း", search:"မှတ်တမ်းရှာရန်…", inscribe:"ထွင်းရေးပါ", reincarnate:"ပြန်လည်မွေးဖွား",
+  f_categories:"အမျိုးအစားများ", f_tags:"တဂ်များ", all:"အားလုံး",
+  s_offline:"အော့ဖ်လိုင်း", s_yes:"ဖွင့်", s_telemetry:"တယ်လီမီတြီ", s_deps:"မှီခိုမှုများ", s_records:"မှတ်တမ်းများ", c_records:"မှတ်တမ်းများ", c_record:"မှတ်တမ်း",
+  sort_by:"စဥ်ရန်", sort_updated:"မကြာသေးမီပြောင်းလဲ", sort_created:"မကြာသေးမီဖန်တီး", sort_res:"တုန့်ပြန်သံ", sort_title:"အက္ခရာစဉ်",
+  m_quine:"Quine", m_source:"ကိုယ်ပိုင်အရင်းအမြစ်ကြည့်ရန်", m_verify:"ပြည့်စုံမှုစစ်ဆေးရန်", m_archive:"မော်ကွန်း", m_stats:"စာရင်းအင်း",
+  m_exportJson:"JSON တင်ပို့", m_importJson:"တင်သွင်း (JSON / .html)", m_stars_on:"ကြယ်များ: ဖွင့်", m_stars_off:"ကြယ်များ: ပိတ်", m_about:"အာကာသအကြောင်း",
+  empty_title:"မှတ်တမ်းဗလာဖြစ်နေသည်", empty_body:"အာကာသထဲတွင် မည်သည့်အရာမျှ မထွင်းရသေးပါ။", empty_cta:"ပထမမှတ်တမ်းကိုထွင်းပါ",
+  noresults_title:"ကိုက်ညီမှုမရှိ", noresults_body:"အာကာသ၏မည်သည့်အပိုင်းအစမျှ စစ်ထုတ်မှုနှင့်မကိုက်ညီပါ။", noresults_cta:"စစ်ထုတ်မှုများရှင်းရန်",
+  ed_new:"ထွင်းချက်အသစ်", ed_edit:"ထွင်းချက်တည်းဖြတ်ရန်", ed_title:"ခေါင်းစဉ်", ed_title_ph:"ဤမှတ်တမ်းကိုအမည်ပေးပါ…",
+  ed_cat:"အမျိုးအစား", ed_res:"တုန့်ပြန်သံ", ed_tags:"တဂ်များ", ed_tags_ph:"ကော်မာ သို့မဟုတ် နေရာလွတ်ဖြင့်ခွဲ",
+  ed_body:"အကြောင်းအရာ", ed_body_ph:"အာကာသထဲတွင်ထွင်းပါ… (**ထူ**၊ *စောင်း*၊ `ကုဒ်`၊ - စာရင်းများ၊ # ခေါင်းစဉ်များ)",
+  save:"သိမ်းရန်", cancel:"ပယ်ဖျက်", delete:"ဖျက်ရန်", duplicate:"ပွားရန်", edit:"တည်းဖြတ်", close:"ပိတ်ရန်", confirm_del:"ဤမှတ်တမ်းကိုအပြီးအပိုင်ဖျက်မလား?",
+  src_title:"ကိုယ်ပိုင်အရင်းအမြစ်ကုဒ်", src_note:"ဤသည်မှာ အာကာသပြန်လည်မွေးဖွားသည့်အခါ ရေးသားသည့်အပြည့်အစုံအရင်းအမြစ်ဖြစ်သည် — အက်ပ်နှင့်လက်ရှိမှတ်တမ်းအားလုံး၊ ထည့်သွင်းထားသည်။", src_copy:"အရင်းအမြစ်ကူးရန်", src_download:"ဖိုင်ဒေါင်းလုဒ်",
+  copied:"ကလစ်ဘုတ်သို့ကူးပြီး", ver_title:"Quine ပြည့်စုံမှု", ver_fix:"တည်ငြိမ်အမှတ်", ver_fix_ok:"ပြန်တင်ပို့ခြင်းသည်တူညီသောဘိုက်များပေးသည်", ver_fix_bad:"ပြန်တင်ပို့ခြင်းကွဲပြားသည်",
+  ver_block:"ဒေတာဘလောက်", ver_block_ok:"တစ်ကြိမ်တိတိတွေ့သည်", ver_block_bad:"ထူးခြားစွာမတွေ့ပါ", ver_round:"ဒေတာအသွားအပြန်", ver_round_ok:"မှတ်တမ်းအားလုံးပြန်တင်သည်", ver_round_bad:"ဒေတာဆုံးရှုံး", ver_size:"အရွယ်အစား",
+  st_title:"စာရင်းအင်း", st_total:"မှတ်တမ်းများ", st_words:"စကားလုံးများ", st_tags:"ထူးခြားသောတဂ်များ", st_span:"ဖြန့်ကျက်ရက်များ", st_bycat:"အမျိုးအစားအလိုက်", ab_title:"အာကာသအကြောင်း",
+  t_saved:"ထွင်းချက်သိမ်းပြီး", t_deleted:"မှတ်တမ်းဖျက်ပြီး", t_dup:"မှတ်တမ်းပွားပြီး", t_reincarnated:"အာကာသပြန်လည်မွေးဖွားပြီး → akasha.html", t_exported:"JSON တင်ပို့ပြီး", t_imported:"တင်သွင်းပြီး: ",
+  t_import_err:"မမှန်ကန်သောဖိုင်", t_nothing:"သိမ်းရန်ဘာမှမရှိ — ခေါင်းစဉ်ထည့်ပါ", unsaved:"သိမ်းမထားသောပြောင်းလဲမှုများရှိသည်။ ၎င်းတို့ကိုသိမ်းရန်ပြန်လည်မွေးဖွား (Ctrl/⌘+S) ပါ။",
+  restore_q:"ဤဘရောက်ဇာတွင်ပိုမိုသစ်လွင်သောသိမ်းမထားသည့်ပြောင်းလဲမှုများရှိသည်။", restore_yes:"ပြန်လည်ရယူ", restore_no:"ပယ်ရန်",
+  foot_quine:"ဖိုင်တစ်ခုတည်းအော့ဖ်လိုင်း quine", foot_priv:"တယ်လီမီတြီသုည · မှီခိုမှုသုည",
+  cat_gand:"အတွေး", cat_eveniment:"ဖြစ်ရပ်", cat_cunoastere:"အသိပညာ", cat_amintire:"အမှတ်တရ", cat_viziune:"အမြင်", cat_intrebare:"မေးခွန်း",
+  untitled:"ခေါင်းစဉ်မဲ့", copy_suffix:" (မိတ္တူ)", t_restored:"ပြောင်းလဲမှုများပြန်လည်ရယူပြီး", lang_label:"ဘာသာစကား",
+  ab_lead:"အာကာသသည် HTML ဖိုင်တစ်ခုတည်းအတွင်းရှိအော့ဖ်လိုင်းအာကာသမှတ်တမ်းဖြစ်သည် — ပြန်လည်မွေးဖွားသော quine: ပြန်လည်မွေးဖွားကိုနှိပ်လျှင်မှတ်တမ်းတိုင်းကိုထည့်သွင်းကာ၎င်း၏မိတ္တူအသစ်ကိုရေးသည်။ ဖိုင်အသစ်သည်အက်ပ်နှင့်သင့်အသိပညာဖြစ်သည်။",
+  ab_h_data:"သင့်ဒေတာထိန်းသိမ်းခြင်း", ab_p_data:"အမှန်တရား၏အရင်းအမြစ်မှာဖိုင်အတွင်းရှိဒေတာဘလောက်ဖြစ်သည်။ ထွင်းပြီးနောက်၊ akasha.html အသစ်ရေးရန် Ctrl/⌘+S (ပြန်လည်မွေးဖွား) ကိုနှိပ်ပြီးနောက်တစ်ကြိမ်ထိုဖိုင်ကိုဖွင့်ပါ — ၎င်းသည်အားလုံးကိုသယ်ဆောင်သည်။ ပြောင်းလဲမှုများကိုဤဘရောက်ဇာတွင်လုံခြုံရေးကွန်ရက်အဖြစ်အလိုအလျောက်သိမ်းသည်။",
+  ab_h_fix:"တည်ငြိမ်အမှတ်ဂုဏ်သတ္တိ", ab_p_fix:"တင်ပို့ထားသောဖိုင်မှပြန်တင်ပို့ခြင်းသည်တူညီသောဘိုက်များပေးသည်။ 'ပြည့်စုံမှုစစ်ဆေးရန်' ဤအချက်နှင့်မှတ်တမ်းမဆုံးရှုံးကြောင်းသက်သေပြသည်။",
+  ab_h_keys:"ဖြတ်လမ်းများ", kx_new:"အသစ်", kx_search:"ရှာ", kx_close:"ပိတ်", kx_reinc:"ပြန်လည်မွေးဖွား",
+  ab_h_principles:"မူများ", ab_p_principles:"ဖိုင်တစ်ခု · သန့်ရှင်းသော JS · မှီခိုမှုသုည · တယ်လီမီတြီသုည · ဆာဗာမလိုဘဲ file:// မှလည်ပတ်သည်။"
+};
+
 var SEEDS = {
+pa:[
+ {t:"ਆਕਾਸ਼ਾ ਕੀ ਹੈ",b:"ਥੀਓਸੋਫੀ ਵਿੱਚ, **ਆਕਾਸ਼ਾ** (ਸੰਸਕ੍ਰਿਤ *ākāśa*, 'ਈਥਰ') ਹਰ ਘਟਨਾ, ਵਿਚਾਰ ਅਤੇ ਇਰਾਦੇ ਦਾ ਰਿਕਾਰਡ ਹੈ।\n\nਇੱਥੇ ਇਹ ਨਿੱਜੀ ਹੈ: ਇੱਕ ਫਾਈਲ ਜੋ ਆਪਣੇ ਰਿਕਾਰਡ ਅੰਦਰ ਰੱਖਦੀ ਹੈ ਅਤੇ ਆਪਣੇ ਆਪ ਨੂੰ ਦੁਬਾਰਾ ਬਣਾ ਸਕਦੀ ਹੈ। ਜਦੋਂ ਸਾਫ਼ ਸ਼ੁਰੂ ਕਰਨਾ ਚਾਹੋ ਇਹ ਤਿੰਨ ਉਦਾਹਰਣਾਂ ਮਿਟਾ ਦਿਓ।"},
+ {t:"Quine: ਉਹ ਰਿਕਾਰਡ ਜੋ ਪੁਨਰ-ਜਨਮ ਲੈਂਦਾ ਹੈ",b:"ਇੱਕ **quine** ਉਹ ਪ੍ਰੋਗਰਾਮ ਹੈ ਜੋ ਆਪਣਾ ਸਰੋਤ ਕੋਡ ਆਪ ਪੈਦਾ ਕਰਦਾ ਹੈ।\n\n**ਪੁਨਰ-ਜਨਮ** 'ਤੇ, ਆਕਾਸ਼ਾ ਹਰ ਰਿਕਾਰਡ ਜੜ ਕੇ ਨਵਾਂ `akasha.html` ਲਿਖਦਾ ਹੈ — ਨਵੀਂ ਫਾਈਲ *ਹੀ* ਐਪ ਅਤੇ ਤੁਹਾਡਾ ਗਿਆਨ ਹੈ। ਨਿਰਯਾਤ ਕੀਤੀ ਫਾਈਲ ਮੁੜ-ਨਿਰਯਾਤ ਕਰਨ 'ਤੇ ਇੱਕੋ ਜਿਹੇ ਬਾਈਟ ਮਿਲਦੇ ਹਨ।"},
+ {t:"ਪਹਿਲੀ ਉੱਕਰਾਈ",b:"ਵਿਚਾਰ, ਘਟਨਾ ਜਾਂ ਦਰਸ਼ਨ ਜੋੜਨ ਲਈ **ਉੱਕਰੋ** ਦਬਾਓ।\n\n`**ਮੋਟਾ**`, `*ਤਿਰਛਾ*`, `` `ਕੋਡ` ``, `-` ਸੂਚੀਆਂ ਅਤੇ `#` ਸਿਰਲੇਖ ਵਰਤੋ। ਖੋਜ ਡਾਇਆਕ੍ਰਿਟਿਕਸ ਨੂੰ ਅਣਡਿੱਠ ਕਰਦੀ ਹੈ। ਜਦੋਂ ਪੂਰਾ ਹੋ ਜਾਵੇ, ਸਭ ਕੁਝ ਨਵੀਂ ਫਾਈਲ ਵਿੱਚ ਸੰਭਾਲਣ ਲਈ **ਪੁਨਰ-ਜਨਮ**।"}
+],
+mr:[
+ {t:"आकाशा म्हणजे काय",b:"थिओसॉफीमध्ये, **आकाशा** (संस्कृत *ākāśa*, 'इथर') प्रत्येक घटना, विचार आणि हेतूची नोंद आहे.\n\nइथे ती वैयक्तिक आहे: एकच फाइल जी स्वतःच्या नोंदी आत ठेवते आणि स्वतःची प्रत बनवू शकते. स्वच्छ सुरुवात करायची असेल तेव्हा ही तीन उदाहरणे हटवा."},
+ {t:"Quine: पुनर्जन्म घेणारी नोंद",b:"**quine** हा असा प्रोग्राम आहे जो स्वतःचा स्रोत कोड तयार करतो.\n\n**पुनर्जन्म** दाबल्यावर, आकाशा प्रत्येक नोंद अंतर्भूत करून नवीन `akasha.html` लिहितो — नवी फाइल *म्हणजेच* अॅप आणि तुमचे ज्ञान. निर्यात केलेली फाइल पुन्हा निर्यात केल्यास समान बाइट मिळतात."},
+ {t:"पहिली कोरीव",b:"विचार, घटना किंवा दृष्टी जोडण्यासाठी **कोरा** दाबा.\n\n`**ठळक**`, `*तिरपे*`, `` `कोड` ``, `-` याद्या आणि `#` शीर्षके वापरा. शोध डायाक्रिटिक्स दुर्लक्षित करतो. पूर्ण झाल्यावर, सर्व काही नवीन फाइलमध्ये जतन करण्यासाठी **पुनर्जन्म**."}
+],
+gu:[
+ {t:"આકાશા શું છે",b:"થિયોસોફીમાં, **આકાશા** (સંસ્કૃત *ākāśa*, 'ઈથર') દરેક ઘટના, વિચાર અને ઈરાદાની નોંધ છે.\n\nઅહીં તે વ્યક્તિગત છે: એક જ ફાઇલ જે પોતાની નોંધો અંદર રાખે છે અને પોતાની નકલ બનાવી શકે છે. સ્વચ્છ શરૂઆત કરવી હોય ત્યારે આ ત્રણ ઉદાહરણો કાઢી નાખો."},
+ {t:"Quine: પુનર્જન્મ લેતી નોંધ",b:"**quine** એ એવો પ્રોગ્રામ છે જે પોતાનો સ્રોત કોડ જાતે ઉત્પન્ન કરે છે.\n\n**પુનર્જન્મ** દબાવતાં, આકાશા દરેક નોંધ જડીને નવી `akasha.html` લખે છે — નવી ફાઇલ *એટલે જ* એપ અને તમારું જ્ઞાન. નિકાસ કરેલી ફાઇલ ફરી નિકાસ કરતાં સમાન બાઇટ મળે છે."},
+ {t:"પહેલી કોતરણી",b:"વિચાર, ઘટના કે દર્શન ઉમેરવા **કોતરો** દબાવો.\n\n`**જાડું**`, `*ત્રાંસું*`, `` `કોડ` ``, `-` યાદીઓ અને `#` શીર્ષકો વાપરો. શોધ ડાયાક્રિટિક્સ અવગણે છે. પૂર્ણ થાય ત્યારે, બધું નવી ફાઇલમાં સાચવવા **પુનર્જન્મ**."}
+],
+ta:[
+ {t:"ஆகாஶா என்றால் என்ன",b:"தியோசஃபியில், **ஆகாஶா** (சமஸ்கிருதம் *ākāśa*, 'ஈதர்') ஒவ்வொரு நிகழ்வு, எண்ணம் மற்றும் நோக்கத்தின் பதிவு.\n\nஇங்கே இது தனிப்பட்டது: தன் பதிவுகளை உள்ளே வைத்திருக்கும், தன்னையே நகலெடுக்கும் ஒரே கோப்பு. சுத்தமாகத் தொடங்க விரும்பும்போது இந்த மூன்று எடுத்துக்காட்டுகளை நீக்கவும்."},
+ {t:"Quine: மறுபிறவி எடுக்கும் பதிவு",b:"**quine** என்பது தன் மூலக் குறியீட்டையே உருவாக்கும் நிரல்.\n\n**மறுபிறவி**யில், ஆகாஶா ஒவ்வொரு பதிவையும் உட்பொதித்து புதிய `akasha.html` எழுதுகிறது — புதிய கோப்பு *தான்* செயலியும் உங்கள் அறிவும். ஏற்றுமதி செய்த கோப்பை மீண்டும் ஏற்றுமதி செய்தால் ஒரே மாதிரியான பைட்டுகள் கிடைக்கும்."},
+ {t:"முதல் பொறிப்பு",b:"எண்ணம், நிகழ்வு அல்லது தரிசனத்தைச் சேர்க்க **பொறி** அழுத்தவும்.\n\n`**தடிமன்**`, `*சாய்வு*`, `` `குறியீடு` ``, `-` பட்டியல்கள் மற்றும் `#` தலைப்புகளைப் பயன்படுத்தவும். தேடல் ஒலி அடையாளங்களைப் புறக்கணிக்கிறது. முடிந்ததும், அனைத்தையும் புதிய கோப்பில் சேமிக்க **மறுபிறவி**."}
+],
+te:[
+ {t:"ఆకాశా అంటే ఏమిటి",b:"థియోసఫీలో, **ఆకాశా** (సంస్కృతం *ākāśa*, 'ఈథర్') ప్రతి సంఘటన, ఆలోచన మరియు ఉద్దేశ్యం యొక్క రికార్డు.\n\nఇక్కడ ఇది వ్యక్తిగతం: తన రికార్డులను లోపల ఉంచుకుని, తనను తాను నకలు చేసుకోగల ఒకే ఫైల్. శుభ్రంగా ప్రారంభించాలనుకున్నప్పుడు ఈ మూడు ఉదాహరణలను తొలగించండి."},
+ {t:"Quine: పునర్జన్మ తీసుకునే రికార్డు",b:"**quine** అంటే తన మూల కోడ్‌ను తానే ఉత్పత్తి చేసే ప్రోగ్రామ్.\n\n**పునర్జన్మ** నొక్కితే, ఆకాశా ప్రతి రికార్డును పొందుపరిచి కొత్త `akasha.html` రాస్తుంది — కొత్త ఫైల్ *అంటేనే* యాప్ మరియు మీ జ్ఞానం. ఎగుమతి చేసిన ఫైల్‌ను తిరిగి ఎగుమతి చేస్తే ఒకే బైట్‌లు వస్తాయి."},
+ {t:"మొదటి చెక్కడం",b:"ఆలోచన, సంఘటన లేదా దృష్టిని జోడించడానికి **చెక్కు** నొక్కండి.\n\n`**బొద్దు**`, `*వాలు*`, `` `కోడ్` ``, `-` జాబితాలు మరియు `#` శీర్షికలు వాడండి. శోధన ఉచ్చారణ గుర్తులను విస్మరిస్తుంది. పూర్తయ్యాక, అన్నింటినీ కొత్త ఫైల్‌లో సేవ్ చేయడానికి **పునర్జన్మ**."}
+],
+kn:[
+ {t:"ಆಕಾಶಾ ಎಂದರೇನು",b:"ಥಿಯೋಸಫಿಯಲ್ಲಿ, **ಆಕಾಶಾ** (ಸಂಸ್ಕೃತ *ākāśa*, 'ಈಥರ್') ಪ್ರತಿ ಘಟನೆ, ಚಿಂತನೆ ಮತ್ತು ಉದ್ದೇಶದ ದಾಖಲೆ.\n\nಇಲ್ಲಿ ಇದು ವೈಯಕ್ತಿಕ: ತನ್ನ ದಾಖಲೆಗಳನ್ನು ಒಳಗೆ ಇಟ್ಟುಕೊಂಡು, ತನ್ನನ್ನೇ ನಕಲಿಸಬಲ್ಲ ಒಂದೇ ಫೈಲ್. ಸ್ವಚ್ಛವಾಗಿ ಪ್ರಾರಂಭಿಸಲು ಬಯಸಿದಾಗ ಈ ಮೂರು ಉದಾಹರಣೆಗಳನ್ನು ಅಳಿಸಿ."},
+ {t:"Quine: ಪುನರ್ಜನ್ಮ ತಾಳುವ ದಾಖಲೆ",b:"**quine** ಎಂದರೆ ತನ್ನ ಮೂಲ ಕೋಡ್ ಅನ್ನೇ ಉತ್ಪಾದಿಸುವ ಪ್ರೋಗ್ರಾಂ.\n\n**ಪುನರ್ಜನ್ಮ** ಒತ್ತಿದರೆ, ಆಕಾಶಾ ಪ್ರತಿ ದಾಖಲೆಯನ್ನು ಹುದುಗಿಸಿ ಹೊಸ `akasha.html` ಬರೆಯುತ್ತದೆ — ಹೊಸ ಫೈಲ್ *ಎಂದರೆ* ಆ್ಯಪ್ ಮತ್ತು ನಿಮ್ಮ ಜ್ಞಾನ. ರಫ್ತು ಮಾಡಿದ ಫೈಲ್ ಅನ್ನು ಮರು-ರಫ್ತು ಮಾಡಿದರೆ ಒಂದೇ ಬೈಟ್‌ಗಳು ಸಿಗುತ್ತವೆ."},
+ {t:"ಮೊದಲ ಕೆತ್ತನೆ",b:"ಚಿಂತನೆ, ಘಟನೆ ಅಥವಾ ದರ್ಶನ ಸೇರಿಸಲು **ಕೆತ್ತಿ** ಒತ್ತಿ.\n\n`**ದಪ್ಪ**`, `*ಓರೆ*`, `` `ಕೋಡ್` ``, `-` ಪಟ್ಟಿಗಳು ಮತ್ತು `#` ಶೀರ್ಷಿಕೆಗಳನ್ನು ಬಳಸಿ. ಹುಡುಕಾಟ ಉಚ್ಚಾರ ಗುರುತುಗಳನ್ನು ನಿರ್ಲಕ್ಷಿಸುತ್ತದೆ. ಮುಗಿದಾಗ, ಎಲ್ಲವನ್ನೂ ಹೊಸ ಫೈಲ್‌ನಲ್ಲಿ ಉಳಿಸಲು **ಪುನರ್ಜನ್ಮ**."}
+],
+ml:[
+ {t:"ആകാശ എന്നാൽ എന്ത്",b:"തിയോസഫിയിൽ, **ആകാശ** (സംസ്കൃതം *ākāśa*, 'ഈഥർ') എല്ലാ സംഭവത്തിന്റെയും ചിന്തയുടെയും ഉദ്ദേശ്യത്തിന്റെയും രേഖയാണ്.\n\nഇവിടെ അത് വ്യക്തിപരമാണ്: സ്വന്തം രേഖകൾ ഉള്ളിൽ സൂക്ഷിക്കുന്ന, സ്വയം പകർത്താൻ കഴിയുന്ന ഒറ്റ ഫയൽ. വൃത്തിയായി തുടങ്ങാൻ ആഗ്രഹിക്കുമ്പോൾ ഈ മൂന്ന് ഉദാഹരണങ്ങൾ ഇല്ലാതാക്കുക."},
+ {t:"Quine: പുനർജനിക്കുന്ന രേഖ",b:"**quine** എന്നത് സ്വന്തം ഉറവിട കോഡ് സ്വയം ഉത്പാദിപ്പിക്കുന്ന ഒരു പ്രോഗ്രാമാണ്.\n\n**പുനർജന്മം** അമർത്തുമ്പോൾ, ആകാശ ഓരോ രേഖയും ഉൾച്ചേർത്ത് പുതിയ `akasha.html` എഴുതുന്നു — പുതിയ ഫയൽ *തന്നെ* ആപ്പും നിങ്ങളുടെ അറിവുമാണ്. കയറ്റുമതി ചെയ്ത ഫയൽ വീണ്ടും കയറ്റുമതി ചെയ്താൽ ഒരേ ബൈറ്റുകൾ ലഭിക്കും."},
+ {t:"ആദ്യ കൊത്തുപണി",b:"ചിന്ത, സംഭവം അല്ലെങ്കിൽ ദർശനം ചേർക്കാൻ **കൊത്തുക** അമർത്തുക.\n\n`**കടുപ്പം**`, `*ചരിവ്*`, `` `കോഡ്` ``, `-` പട്ടികകൾ, `#` തലക്കെട്ടുകൾ ഉപയോഗിക്കുക. തിരയൽ ഉച്ചാരണചിഹ്നങ്ങൾ അവഗണിക്കുന്നു. പൂർത്തിയായാൽ, എല്ലാം പുതിയ ഫയലിൽ സംരക്ഷിക്കാൻ **പുനർജന്മം**."}
+],
+am:[
+ {t:"አካሻ ምንድን ነው",b:"በቴዎሶፊ ውስጥ፣ **አካሻ** (ሳንስክሪት *ākāśa*፣ 'ኤተር') የእያንዳንዱ ክስተት፣ ሐሳብ እና ዓላማ መዝገብ ነው።\n\nእዚህ ግላዊ ነው፦ መዝገቦቹን በውስጡ የሚይዝ እና ራሱን ማባዛት የሚችል አንድ ፋይል። በንጹህ መጀመር ሲፈልጉ እነዚህን ሦስት ምሳሌዎች ይሰርዙ።"},
+ {t:"Quine: እንደገና የሚወለድ መዝገብ",b:"**quine** የራሱን ምንጭ ኮድ የሚያመነጭ ፕሮግራም ነው።\n\n**እንደገና ተወለድ** ሲጫን፣ አካሻ እያንዳንዱን መዝገብ አካቶ አዲስ `akasha.html` ይጽፋል — አዲሱ ፋይል *ራሱ* መተግበሪያው እና እውቀትዎ ነው። የተላከ ፋይል እንደገና መላክ ተመሳሳይ ባይቶችን ይሰጣል።"},
+ {t:"የመጀመሪያው ቅርጻ",b:"ሐሳብ፣ ክስተት ወይም ራእይ ለመጨመር **ቅረጽ** ይጫኑ።\n\n`**ደማቅ**`፣ `*ዘንበል*`፣ `` `ኮድ` ``፣ `-` ዝርዝሮች እና `#` ርዕሶች ይጠቀሙ። ፍለጋ ድምፅ ምልክቶችን ይዘላል። ሲጨርሱ፣ ሁሉንም በአዲስ ፋይል ለማስቀመጥ **እንደገና ተወለድ**።"}
+],
+ha:[
+ {t:"Menene Akasha",b:"A cikin theosophy, **Akasha** (Sanskrit *ākāśa*, 'ether') tarihin kowane lamari, tunani da niyya ne.\n\nA nan na sirri ne: fayil ɗaya da ke ajiye bayanansa a ciki kuma yana iya sāke kwafin kansa. Share waɗannan misalai uku idan kana son fara sabo."},
+ {t:"Quine: bayanin da ke sāke haihuwa",b:"**quine** shiri ne da ke fitar da tushen kansa.\n\nA **Sāke haihuwa**, Akasha yana rubuta sabon `akasha.html` da kowane bayani a haɗe — sabon fayil *shine* manhajar da ilimin ka. Sāke fitar da fayil da aka fitar yana ba da baiti iri ɗaya."},
+ {t:"Zāne na farko",b:"Danna **Zāna** don ƙara tunani, lamari, ko hangen nesa.\n\nYi amfani da `**kauri**`, `*karkata*`, `` `lamba` ``, jeri da `-` da kanun labarai da `#`. Bincike yana watsi da alamomin lafazi. Idan ka gama, **Sāke haihuwa** don ajiye komai a sabon fayil."}
+],
+yo:[
+ {t:"Kí ni Akasha",b:"Nínú ẹ̀kọ́ theosophy, **Akasha** (Sanskrit *ākāśa*, 'ether') ni àkọsílẹ̀ gbogbo ìṣẹ̀lẹ̀, èrò àti ète.\n\nNíbí ó jẹ́ ti ara ẹni: fáìlì kan tó ń pa àwọn àkọsílẹ̀ rẹ̀ mọ́ nínú tó sì lè ṣẹ̀dà ara rẹ̀. Pa àwọn àpẹẹrẹ mẹ́ta yìí rẹ́ nígbà tí o bá fẹ́ bẹ̀rẹ̀ ní mímọ́."},
+ {t:"Quine: àkọsílẹ̀ tó ń tún wáyé",b:"**quine** jẹ́ ètò tó ń mú orísun ara rẹ̀ jáde.\n\nNí **Àtúnwáyé**, Akasha ń kọ `akasha.html` tuntun pẹ̀lú gbogbo àkọsílẹ̀ tí a fi sínú — fáìlì tuntun náà *ni* ẹ̀rọ ìṣàmúlò àti ìmọ̀ rẹ. Àtúnkó-jáde fáìlì tí a kó jáde ń fúnni ní báìtì kannáà."},
+ {t:"Àkọsílẹ̀ àkọ́kọ́",b:"Tẹ **Kọ** láti fi èrò, ìṣẹ̀lẹ̀, tàbí ìríran kún.\n\nLo `**nípọn**`, `*ìpẹ́*`, `` `kóòdù` ``, àkójọ pẹ̀lú `-` àti àkọlé pẹ̀lú `#`. Ìwákiri kọ àwọn àmì-ohùn sílẹ̀. Tó o bá parí, **Àtúnwáyé** láti fi gbogbo nǹkan pamọ́ sínú fáìlì tuntun."}
+],
+jv:[
+ {t:"Apa iku Akasha",b:"Ing teosofi, **Akasha** (Sanskerta *ākāśa*, 'èter') iku cathetan saben kedadéyan, pikiran, lan niyat.\n\nIng kéné iku pribadi: siji berkas sing nyimpen cathetané dhéwé ing njero lan bisa nggawé tiron dhéwé. Busak telung conto iki yèn kowé péngin miwiti resik."},
+ {t:"Quine: cathetan sing manitis manèh",b:"**quine** iku program sing ngasilaké kode sumberé dhéwé.\n\nNalika **Manitis manèh**, Akasha nulis `akasha.html` anyar kanthi saben cathetan kalebu — berkas anyar *yaiku* aplikasi lan kawruhmu. Ngékspor manèh berkas sing wis diékspor ngasilaké bita sing padha."},
+ {t:"Tatahan kapisan",b:"Pencet **Tatah** kanggo nambah pikiran, kedadéyan, utawa wahyu.\n\nNganggo `**kandel**`, `*miring*`, `` `kode` ``, dhaptar nganggo `-` lan irah-irahan nganggo `#`. Panggolékan ngabaikan tandha diakritik. Yèn wis rampung, **Manitis manèh** kanggo nyimpen kabèh menyang berkas anyar."}
+],
+my:[
+ {t:"အာကာသ ဆိုသည်မှာ",b:"သီအိုဆော်ဖီတွင်၊ **အာကာသ** (သက္ကတ *ākāśa*၊ 'အီသာ') သည် ဖြစ်ရပ်၊ အတွေး၊ ရည်ရွယ်ချက်တိုင်း၏ မှတ်တမ်းဖြစ်သည်။\n\nဤနေရာတွင် ၎င်းသည် ကိုယ်ရေးကိုယ်တာဖြစ်သည်၊ မိမိမှတ်တမ်းများကို အတွင်း၌ထိန်းသိမ်းကာ မိမိကိုယ်ကို ပွားနိုင်သော ဖိုင်တစ်ခု။ သန့်ရှင်းစွာစတင်လိုသည့်အခါ ဤဥပမာသုံးခုကို ဖျက်ပါ။"},
+ {t:"Quine: ပြန်လည်မွေးဖွားသော မှတ်တမ်း",b:"**quine** သည် မိမိ၏အရင်းအမြစ်ကုဒ်ကို ထုတ်ပေးသော ပရိုဂရမ်ဖြစ်သည်။\n\n**ပြန်လည်မွေးဖွား** ကိုနှိပ်လျှင်၊ အာကာသသည် မှတ်တမ်းတိုင်းကိုထည့်သွင်းကာ `akasha.html` အသစ်ကိုရေးသည် — ဖိုင်အသစ်သည် အက်ပ်နှင့်သင့်အသိပညာ *ပင်ဖြစ်သည်*။ တင်ပို့ထားသောဖိုင်ကို ပြန်တင်ပို့လျှင် တူညီသောဘိုက်များရရှိသည်။"},
+ {t:"ပထမဆုံးထွင်းချက်",b:"အတွေး၊ ဖြစ်ရပ် သို့မဟုတ် အမြင်ထည့်ရန် **ထွင်းရေးပါ** ကိုနှိပ်ပါ။\n\n`**ထူ**`၊ `*စောင်း*`၊ `` `ကုဒ်` ``၊ `-` စာရင်းများနှင့် `#` ခေါင်းစဉ်များသုံးပါ။ ရှာဖွေမှုသည် အသံအမှတ်အသားများကို လျစ်လျူရှုသည်။ ပြီးဆုံးသောအခါ၊ အားလုံးကိုဖိုင်အသစ်တွင်သိမ်းရန် **ပြန်လည်မွေးဖွား**။"}
+],
 en:[
  {t:"What is Akasha",b:"In theosophy, **Akasha** (Sanskrit *ākāśa*, ‘aether’) is the record of every event, thought and intention.\n\nHere it is personal: a single file that keeps its own records inside and can reproduce itself. Delete these three examples whenever you want to start clean."},
  {t:"Quine: the record that reincarnates",b:"A **quine** is a program that outputs its own source.\n\nOn **Reincarnate**, Akasha writes a fresh `akasha.html` with every record embedded — the new file *is* the app plus your knowledge. Re-exporting an exported file yields identical bytes."},
@@ -2509,8 +2929,45 @@ function el(tag,attrs,kids){
   (kids||[]).forEach(function(c){ if(c==null)return; n.appendChild(typeof c==="string"?document.createTextNode(c):c); });
   return n;
 }
-function uid(){ return "r"+Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+var _uidc=0;
+function uid(){ return "r"+Date.now().toString(36)+(_uidc++).toString(36)+Math.random().toString(36).slice(2,5); }
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+/* locale-aware comparison, rebuilt when the language changes (correct A–Z for any script) */
+var collator=null;
+function rebuildCollator(){ try{ collator=new Intl.Collator(ui.lang,{numeric:true}); }catch(e){ collator=null; } }
+function cmp(x,y){ x=x||""; y=y||""; return collator?collator.compare(x,y):String(x).localeCompare(y); }
+/* folded search index (built once per data/language change, not per keystroke) */
+var SEARCH_INDEX=null;
+function invalidateSearchIndex(){ SEARCH_INDEX=null; }
+function searchHay(r){
+  if(!SEARCH_INDEX) SEARCH_INDEX=Object.create(null);
+  var key=r.id||"";
+  if(SEARCH_INDEX[key]==null) SEARCH_INDEX[key]=fold([r.title,r.body,tagsOf(r).join(" "),catName(r.cat)].join(" "));
+  return SEARCH_INDEX[key];
+}
+/* always return a clean array of tag tokens, however malformed the record is */
+function tagsOf(r){ return (r && Array.isArray(r.tags)) ? r.tags : []; }
+function isoOr(v){ var d=new Date(v); return isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString(); }
+/* coerce any imported/foreign object into a safe record; never carries the seed flag */
+function sanitizeRecord(raw){
+  if(!raw || typeof raw!=="object") return null;
+  var catIds=CATS.map(function(c){return c.id;});
+  var res=parseInt(raw.res,10); if(isNaN(res)) res=0; res=Math.max(0,Math.min(5,res));
+  var t=raw.tags, arr = Array.isArray(t) ? t : (typeof t==="string" ? t.split(/[,\s]+/) : []);
+  arr=arr.map(function(x){return String(x).trim().replace(/^#/,"");}).filter(Boolean)
+        .filter(function(v,i,a){return a.indexOf(v)===i;}).slice(0,60);
+  return {
+    id:(typeof raw.id==="string" && raw.id && !/^(__proto__|constructor|prototype)$/.test(raw.id)) ? raw.id : uid(),
+    title:(raw.title==null?"":String(raw.title)).slice(0,500),
+    cat:(catIds.indexOf(raw.cat)>=0 ? raw.cat : "gand"),
+    res:res, tags:arr,
+    created:isoOr(raw.created), updated:isoOr(raw.updated),
+    body:(raw.body==null?"":String(raw.body))
+  };
+}
+/* brief attention pulse for one or more buttons */
+function pulse(nodes){ nodes.forEach(function(b){ if(!b)return; b.classList.remove("pulsing");
+  void b.offsetWidth; b.classList.add("pulsing"); setTimeout(function(){b.classList.remove("pulsing");},360); }); }
 function fold(s){
   s=String(s).toLowerCase();
   try{ s=s.normalize("NFD").replace(/[\u0300-\u036f]/g,""); }catch(e){}
@@ -2612,7 +3069,7 @@ function autosave(){
 function readAutosave(){
   try{ var v=localStorage.getItem(AUTOSAVE_KEY); return v?JSON.parse(v):null; }catch(e){ return null; }
 }
-function markDirty(){ dirty=true; autosave(); }
+function markDirty(){ dirty=true; invalidateSearchIndex(); autosave(); }
 
 /* ── QUINE core ── */
 function dataBlock(){
@@ -2650,8 +3107,11 @@ function blockMatches(src){
 var listEl=$("#list");
 
 function applyI18nStatic(){
+  rebuildCollator(); invalidateSearchIndex();   // language affects sort order and catName in the search haystack
   $("[data-i='tagline']").textContent=t("tagline");
   $("#q").setAttribute("placeholder",t("search"));
+  $("#q").setAttribute("aria-label",t("search"));
+  $("#sortSel").setAttribute("aria-label",t("sort_by"));
   $$("[data-i]").forEach(function(n){
     var k=n.getAttribute("data-i");
     if(DICT.en[k]!=null) n.textContent=t(k);
@@ -2683,8 +3143,8 @@ function renderFacets(){
     ]));
   });
   // tags
-  var tagCounts={}; state.records.forEach(function(r){ (r.tags||[]).forEach(function(tg){ tagCounts[tg]=(tagCounts[tg]||0)+1; }); });
-  var tags=Object.keys(tagCounts).sort(function(a,b){ return tagCounts[b]-tagCounts[a]||a.localeCompare(b); });
+  var tagCounts={}; state.records.forEach(function(r){ tagsOf(r).forEach(function(tg){ tagCounts[tg]=(tagCounts[tg]||0)+1; }); });
+  var tags=Object.keys(tagCounts).sort(function(a,b){ return tagCounts[b]-tagCounts[a]||cmp(a,b); });
   var tf=$("#tagFilters"); tf.innerHTML="";
   $("#tagFacet").classList.toggle("hidden", tags.length===0);
   tags.slice(0,40).forEach(function(tg){
@@ -2696,15 +3156,14 @@ function filtered(){
   var q=fold(ui.q.trim());
   var arr=state.records.filter(function(r){
     if(ui.cat && r.cat!==ui.cat) return false;
-    if(ui.tag && (r.tags||[]).indexOf(ui.tag)<0) return false;
+    if(ui.tag && tagsOf(r).indexOf(ui.tag)<0) return false;
     if(q){
-      var hay=fold([r.title,r.body,(r.tags||[]).join(" "),catName(r.cat)].join(" "));
-      if(hay.indexOf(q)<0) return false;
+      if(searchHay(r).indexOf(q)<0) return false;
     }
     return true;
   });
   arr.sort(function(a,b){
-    if(ui.sort==="title") return (a.title||"").localeCompare(b.title||"");
+    if(ui.sort==="title") return cmp(a.title,b.title);
     if(ui.sort==="res") return (b.res||0)-(a.res||0) || (b.updated||"").localeCompare(a.updated||"");
     if(ui.sort==="created") return (b.created||"").localeCompare(a.created||"");
     return (b.updated||"").localeCompare(a.updated||"");
@@ -2736,11 +3195,12 @@ function renderList(){
     return;
   }
   arr.forEach(function(r){
+   try{
     var c=cat(r.cat);
     var excerpt=String(r.body||"").replace(/[#*`>\-]/g," ").replace(/\s+/g," ").trim();
     var foot=[el("time",{datetime:r.updated},[fmtDate(r.updated)])];
     if(r.res) foot.push(el("span",{class:"res",html:resStr(r.res)}));
-    (r.tags||[]).slice(0,3).forEach(function(tg){ foot.push(el("span",{class:"rtag",text:tg})); });
+    tagsOf(r).slice(0,3).forEach(function(tg){ foot.push(el("span",{class:"rtag",text:String(tg)})); });
     listEl.appendChild(el("article",{class:"rec",style:"--cat:"+c.color, tabindex:"0", role:"button",
       onclick:function(){openDetail(r.id);},
       onkeydown:function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();openDetail(r.id);} }
@@ -2750,6 +3210,7 @@ function renderList(){
       el("p",{class:"excerpt",text:excerpt||"…"}),
       el("div",{class:"foot"},foot)
     ]));
+   }catch(err){ /* skip a single malformed record rather than blanking the whole list */ }
   });
 }
 
@@ -2757,15 +3218,30 @@ function render(){ renderFacets(); renderList(); }
 
 /* ── overlay ── */
 var scrim=$("#scrim"), panelEl=$("#panel");
-var reopenPanel=null;
+var reopenPanel=null, lastFocus=null, closeGuard=null;
+function focusables(){
+  return Array.prototype.slice.call(panelEl.querySelectorAll(
+    'a[href],button:not([disabled]),input:not([disabled]),textarea:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])'));
+}
 function openOverlay(node, centered){
+  closeGuard=null;                          // panels carry no guard; editor sets its own after this
+  lastFocus=document.activeElement;          // remember where focus was, to restore on close
   panelEl.className="panel"+(centered?" center":"");
   scrim.className="scrim show"+(centered?" center":"");
   panelEl.innerHTML=""; panelEl.appendChild(node);
+  panelEl.setAttribute("role","dialog"); panelEl.setAttribute("aria-modal","true");
+  var h=node.querySelector&&node.querySelector("h2,h3");
+  panelEl.setAttribute("aria-label",(h&&h.textContent)||"Akasha");
   document.body.style.overflow="hidden";
 }
-function closeOverlay(){ scrim.className="scrim"; document.body.style.overflow=""; reopenPanel=null; }
-scrim.addEventListener("click",function(e){ if(e.target===scrim) closeOverlay(); });
+function closeOverlay(reason){
+  if(closeGuard && !closeGuard(reason)) return;   // editor may veto (unsaved draft)
+  closeGuard=null;
+  scrim.className="scrim"; document.body.style.overflow=""; reopenPanel=null;
+  if(lastFocus && typeof lastFocus.focus==="function"){ try{ lastFocus.focus(); }catch(e){} }
+  lastFocus=null;
+}
+scrim.addEventListener("click",function(e){ if(e.target===scrim) closeOverlay("backdrop"); });
 
 /* ── editor ── */
 var draft=null;
@@ -2795,8 +3271,22 @@ function openEditor(rec){
   paintRes();
 
   titleIn=el("input",{type:"text",value:draft.title,placeholder:t("ed_title_ph"),maxlength:"200"});
-  tagsIn=el("input",{type:"text",value:(draft.tags||[]).join(", "),placeholder:t("ed_tags_ph")});
+  tagsIn=el("input",{type:"text",value:tagsOf(draft).join(", "),placeholder:t("ed_tags_ph")});
   bodyIn=el("textarea",{placeholder:t("ed_body_ph")}); bodyIn.value=draft.body;
+
+  /* track whether the in-progress draft differs from what was opened */
+  var origSnap=JSON.stringify([draft.title,draft.body,draft.cat,draft.res,tagsOf(draft).join(",")]);
+  function editorDirty(){
+    var ct=tagsIn.value.split(/[,\s]+/).map(function(s){return s.trim().replace(/^#/,"");}).filter(Boolean).join(",");
+    return JSON.stringify([titleIn.value,bodyIn.value,draft.cat,draft.res,ct])!==origSnap;
+  }
+  var saveBtn, cancelBtn;
+  /* guard: never lose an unsaved draft to an accidental backdrop click or Escape */
+  function editorGuard(reason){
+    if(reason==="backdrop") return false;                         // outside click never closes the editor
+    if(reason==="escape" && editorDirty()){ pulse([saveBtn,cancelBtn]); return false; }
+    return true;                                                   // explicit Save / Cancel / X always close
+  }
 
   function save(){
     var title=titleIn.value.trim();
@@ -2811,13 +3301,13 @@ function openEditor(rec){
     var idx=-1; for(var i=0;i<state.records.length;i++) if(state.records[i].id===draft.id){idx=i;break;}
     if(idx>=0){ draft.created=state.records[idx].created||now; state.records[idx]=draft; }
     else { draft.created=now; state.records.unshift(draft); }
-    markDirty(); render(); closeOverlay(); toast(t("t_saved"),"ok");
+    markDirty(); render(); closeGuard=null; closeOverlay(); toast(t("t_saved"),"ok");
   }
 
   var node=el("div",{class:"panelInner",style:"display:flex;flex-direction:column;height:100%"},[
     el("div",{class:"phead"},[
       el("h2",{text:t(isNew?"ed_new":"ed_edit")}),
-      el("button",{class:"btn icon ghost x",onclick:closeOverlay,"aria-label":t("close")},
+      el("button",{class:"btn icon ghost x",onclick:function(){ closeGuard=null; closeOverlay(); },"aria-label":t("close")},
         [el("span",{html:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>'})])
     ]),
     el("div",{class:"pbody"},[
@@ -2831,13 +3321,14 @@ function openEditor(rec){
         el("div",{class:"hint",text:"**aldine** · *cursive* · `cod` · # titlu · - listă · > citat"})])
     ]),
     el("div",{class:"pfoot"},[
-      el("button",{class:"btn gold",onclick:save},[t("save")]),
-      el("button",{class:"btn ghost",onclick:closeOverlay},[t("cancel")]),
-      isNew?null:el("button",{class:"btn btn-danger",style:"margin-left:auto",onclick:function(){ del(draft.id,true); }},[t("delete")])
+      (saveBtn=el("button",{class:"btn gold",onclick:save},[t("save")])),
+      (cancelBtn=el("button",{class:"btn ghost",onclick:function(){ closeGuard=null; closeOverlay(); }},[t("cancel")])),
+      isNew?null:el("button",{class:"btn btn-danger",style:"margin-inline-start:auto",onclick:function(){ del(draft.id,true); }},[t("delete")])
     ])
   ]);
   openEditor._save=save;
   openOverlay(node,false);
+  closeGuard=editorGuard;
   setTimeout(function(){ titleIn.focus(); },60);
 }
 
@@ -2854,7 +3345,7 @@ function openDetail(id){
   if(r.res) metaBits.push(el("span",{class:"res",html:resStr(r.res)}));
 
   var tagsRow=null;
-  if((r.tags||[]).length){
+  if(tagsOf(r).length){
     tagsRow=el("div",{class:"d-tags"});
     r.tags.forEach(function(tg){ tagsRow.appendChild(el("button",{class:"tg",onclick:function(){ closeOverlay(); ui.tag=tg; render(); }},["#"+tg])); });
   }
@@ -2875,7 +3366,7 @@ function openDetail(id){
     el("div",{class:"pfoot"},[
       el("button",{class:"btn",onclick:function(){ dup(r.id); }},
         [el("span",{html:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>'}),t("duplicate")]),
-      el("button",{class:"btn btn-danger",style:"margin-left:auto",onclick:function(){ del(r.id,false); }},[t("delete")])
+      el("button",{class:"btn btn-danger",style:"margin-inline-start:auto",onclick:function(){ del(r.id,false); }},[t("delete")])
     ])
   ]);
   openOverlay(node,false);
@@ -2883,8 +3374,15 @@ function openDetail(id){
 
 function del(id,fromEditor){
   if(!confirm(t("confirm_del"))) return;
-  state.records=state.records.filter(function(r){return r.id!==id;});
-  markDirty(); render(); closeOverlay(); toast(t("t_deleted"),"ok");
+  var idx=-1, rec=null;
+  for(var i=0;i<state.records.length;i++){ if(state.records[i].id===id){ idx=i; rec=state.records[i]; break; } }
+  if(idx<0) return;
+  state.records.splice(idx,1);
+  markDirty(); render(); closeGuard=null; closeOverlay();
+  toast(t("t_deleted"),"ok",{ label:t("restore_yes"), fn:function(){
+    state.records.splice(Math.min(idx,state.records.length),0,rec);
+    markDirty(); render();
+  }});
 }
 function dup(id){
   var r=null; for(var i=0;i<state.records.length;i++) if(state.records[i].id===id){r=state.records[i];break;}
@@ -2965,7 +3463,7 @@ function openStats(){
   reopenPanel=openStats;
   var n=state.records.length;
   var words=state.records.reduce(function(a,r){return a+wordCount(r.body);},0);
-  var tagset={}; state.records.forEach(function(r){(r.tags||[]).forEach(function(tg){tagset[tg]=1;});});
+  var tagset={}; state.records.forEach(function(r){tagsOf(r).forEach(function(tg){tagset[tg]=1;});});
   var nTags=Object.keys(tagset).length;
   var dates=state.records.map(function(r){return +new Date(r.created);}).filter(function(x){return x;});
   var span = dates.length? Math.round((Math.max.apply(null,dates)-Math.min.apply(null,dates))/86400000)+1 : 0;
@@ -3040,14 +3538,18 @@ function importFile(){
           if(m) data=JSON.parse(m[1].replace(/\\u003c/g,"<"));
         } else { data=JSON.parse(txt); }
         if(!data || !Array.isArray(data.records)) throw new Error("bad");
-        // merge by id (incoming wins), keep others
-        var byId={}; state.records.forEach(function(r){byId[r.id]=r;});
-        var added=0;
-        data.records.forEach(function(r){ if(r&&r.id){ if(!byId[r.id]) added++; byId[r.id]=r; } });
+        // merge by id (incoming wins), each record sanitized → no crashes, no seed hijack
+        var byId=Object.create(null); state.records.forEach(function(r){byId[r.id]=r;});
+        var added=0, updated=0;
+        data.records.forEach(function(raw){
+          var r=sanitizeRecord(raw); if(!r) return;
+          if(byId[r.id]) updated++; else added++;
+          byId[r.id]=r;
+        });
         state.records=Object.keys(byId).map(function(k){return byId[k];});
         if(data.meta && typeof data.meta.stars==="boolean") state.meta.stars=data.meta.stars;
         markDirty(); render();
-        toast(t("t_imported")+data.records.length+(added?(" (+"+added+")"):""),"gold");
+        toast(t("t_imported")+(added+updated)+" (+"+added+(updated?(" \u21BB"+updated):"")+")","gold");
       }catch(e){ toast(t("t_import_err"),"warn"); }
     };
     rd.readAsText(f);
@@ -3068,13 +3570,17 @@ function fallbackCopy(s){
 }
 
 /* ── toasts ── */
-function toast(msg,kind){
+function toast(msg,kind,action){
   var icon = kind==="gold" ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.5 6L21 9.5l-5 4 1.5 6.5L12 16l-5.5 4L8 13.5 3 9.5 9.5 9z"/></svg>'
     : kind==="warn" ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9L2 18a1.7 1.7 0 001.5 2.5h17A1.7 1.7 0 0022 18L13.7 3.9a1.7 1.7 0 00-3 0z"/></svg>'
     : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg>';
-  var n=el("div",{class:"toast "+(kind||"ok")},[el("span",{html:icon}),document.createTextNode(msg)]);
+  var n=el("div",{class:"toast "+(kind||"ok"),role:"status"},[el("span",{html:icon}),document.createTextNode(msg)]);
+  if(action && typeof action.fn==="function"){
+    n.appendChild(el("button",{class:"toast-act",type:"button",onclick:function(){ try{action.fn();}finally{ n.remove(); } }},[action.label||"↶"]));
+  }
   $("#toasts").appendChild(n);
-  setTimeout(function(){ n.style.transition="opacity .3s, transform .3s"; n.style.opacity="0"; n.style.transform="translateY(8px)"; setTimeout(function(){n.remove();},320); },2600);
+  var life = action ? 6000 : 2600;
+  setTimeout(function(){ n.style.transition="opacity .3s, transform .3s"; n.style.opacity="0"; n.style.transform="translateY(8px)"; setTimeout(function(){n.remove();},320); },life);
 }
 
 /* ── starfield ── */
@@ -3127,11 +3633,12 @@ function applyStars(){
 
 /* ── menu wiring ── */
 var menu=$("#menu");
-$("#menuBtn").addEventListener("click",function(e){ e.stopPropagation(); menu.classList.toggle("open"); });
-document.addEventListener("click",function(e){ if(!menu.contains(e.target) && e.target.id!=="menuBtn") menu.classList.remove("open"); });
+function setMenu(open){ menu.classList.toggle("open",!!open); var b=$("#menuBtn"); if(b) b.setAttribute("aria-expanded",open?"true":"false"); }
+$("#menuBtn").addEventListener("click",function(e){ e.stopPropagation(); setMenu(!menu.classList.contains("open")); });
+document.addEventListener("click",function(e){ if(!menu.contains(e.target) && e.target.id!=="menuBtn") setMenu(false); });
 menu.addEventListener("click",function(e){
   var b=e.target.closest("button[data-act]"); if(!b) return;
-  menu.classList.remove("open");
+  setMenu(false);
   var act=b.getAttribute("data-act");
   if(act==="source") openSource();
   else if(act==="verify") openVerify();
@@ -3167,12 +3674,21 @@ $("#sortSel").addEventListener("change",function(e){ ui.sort=e.target.value; ren
 
 /* ── keyboard ── */
 document.addEventListener("keydown",function(e){
-  var typing=/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement&&document.activeElement.tagName);
+  var open=scrim.classList.contains("show");
+  if(open && e.key==="Tab"){                       // trap focus inside the dialog
+    var f=focusables();
+    if(f.length){ var first=f[0], last=f[f.length-1], a=document.activeElement;
+      if(e.shiftKey && (a===first || !panelEl.contains(a))){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && (a===last || !panelEl.contains(a))){ e.preventDefault(); first.focus(); }
+    }
+    return;
+  }
   if((e.ctrlKey||e.metaKey) && (e.key==="s"||e.key==="S")){ e.preventDefault(); reincarnate(); return; }
-  if(typing) return;
+  if(e.key==="Escape"){ if(open) closeOverlay("escape"); else setMenu(false); return; }
+  var typing=/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement&&document.activeElement.tagName);
+  if(typing || open) return;                        // suppress single-key shortcuts while typing or in a dialog
   if(e.key==="n"||e.key==="N"){ e.preventDefault(); openEditor(null); }
   else if(e.key==="/"){ e.preventDefault(); $("#q").focus(); }
-  else if(e.key==="Escape"){ if(scrim.classList.contains("show")) closeOverlay(); else menu.classList.remove("open"); }
 });
 
 /* ── unsaved guard ── */
@@ -3189,7 +3705,9 @@ function maybeOfferRestore(){
   if(a===b) return;
   var banner=$("#banner"); banner.classList.add("show");
   $("#restoreYes").onclick=function(){ state=as.state; if(!state.meta)state.meta={stars:true};
-    banner.classList.remove("show"); dirty=true; applyStars(); render(); toast(t("t_restored"),"gold"); };
+    if(state.meta.lang && DICT[state.meta.lang]) ui.lang=state.meta.lang;
+    banner.classList.remove("show"); dirty=true;
+    localizeSeeds(); applyI18nStatic(); applyStars(); render(); toast(t("t_restored"),"gold"); };
   $("#restoreNo").onclick=function(){ banner.classList.remove("show"); try{ localStorage.removeItem(AUTOSAVE_KEY); }catch(e){} };
 }
 
@@ -3204,8 +3722,10 @@ render();
 maybeOfferRestore();
 
 /* ── tiny test hook (harmless; aids power users & audits) ── */
-window.__akasha={ getState:function(){return state;}, setState:function(s){state=s;render();},
-  buildSource:buildSource, dataBlock:dataBlock, blockMatches:blockMatches };
+window.__akasha={ getState:function(){return state;}, setState:function(s){state=s;invalidateSearchIndex();render();},
+  buildSource:buildSource, dataBlock:dataBlock, blockMatches:blockMatches,
+  sanitizeRecord:sanitizeRecord, tagsOf:tagsOf, localizeSeeds:localizeSeeds,
+  del:del, openEditor:openEditor, openDetail:openDetail, filtered:filtered, uid:uid };
 
 })();
 </script>
