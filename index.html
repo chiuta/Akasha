@@ -3318,7 +3318,7 @@ function openEditor(rec){
       ]),
       el("div",{class:"field"},[el("label",{text:t("ed_tags")}),tagsIn]),
       el("div",{class:"field"},[el("label",{text:t("ed_body")}),bodyIn,
-        el("div",{class:"hint",text:"**aldine** · *cursive* · `cod` · # titlu · - listă · > citat"})])
+        el("div",{class:"hint",text:"**…** · *…* · `…` · # … · - … · > …"})])
     ]),
     el("div",{class:"pfoot"},[
       (saveBtn=el("button",{class:"btn gold",onclick:save},[t("save")])),
@@ -3431,7 +3431,7 @@ function openVerify(){
     var m=s1.match(/<script\b[^>]*\bid="akasha-records"[^>]*>([\s\S]*?)<\/script>/);
     if(m){ var p=JSON.parse(m[1].replace(/\\u003c/g,"<")); parsedN=(p.records||[]).length; roundOk=(parsedN===state.records.length); }
   }catch(e){ roundOk=false; }
-  var kb=(s1.length/1024).toFixed(1);
+  var kb=((typeof Blob!=="undefined"?new Blob([s1]).size:s1.length)/1024).toFixed(1); // octeți reali (UTF-8), nu caractere
 
   function row(ok,label,detail){
     return el("div",{class:"vrow "+(ok?"ok":"bad")},[
@@ -3526,9 +3526,10 @@ function exportJson(){
   toast(t("t_exported"),"ok");
 }
 function importFile(){
-  var inp=el("input",{type:"file",accept:".json,.html,application/json,text/html",style:"display:none"});
+  var inp=el("input",{type:"file",accept:".json,.html,application/json,text/html",style:"display:none","data-imp":"1"});
+  $$("input[data-imp]").forEach(function(o){ o.remove(); });   // curăță selectoare rămase din anulări anterioare
   inp.addEventListener("change",function(){
-    var f=inp.files&&inp.files[0]; if(!f) return;
+    var f=inp.files&&inp.files[0]; inp.remove(); if(!f) return;
     var rd=new FileReader();
     rd.onload=function(){
       try{
@@ -3554,7 +3555,7 @@ function importFile(){
     };
     rd.readAsText(f);
   });
-  document.body.appendChild(inp); inp.click(); setTimeout(function(){inp.remove();},1000);
+  document.body.appendChild(inp); inp.click();   // nu îl scoatem din DOM pe timer: Safari/iOS pierde evenimentul „change” dacă elementul e detașat cât timp dialogul e deschis
 }
 
 /* ── clipboard ── */
