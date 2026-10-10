@@ -47,6 +47,10 @@ Descărcați `index.html` și deschideți-l direct din sistemul de fișiere (`fi
 
 Licența nu este încă declarată explicit în acest repository; vezi nota din aplicație.
 
+## Audit
+
+Audit: 2026-10-10 — verificat cu Playwright și axe-core; verificat în cod: fără `fetch`/CDN. Importul de înregistrări neîncrezătoare (JSON cu `</script>`, `<img onerror>`) a fost testat: textul este escapat, iar blocul de date se serializează cu `<` → `\u003c`. Corectat: lipseau marginile laterale (20 px) pe ecran îngust. Notă: numele „Akasha/registru akashic" este doar tematic — aplicația este un utilitar de notițe, fără pretenții esoterice.
+
 ## Autor
 
 Alexio — Alexandru-Ionuț Chiuță. Contact: alexio@trom.tf
