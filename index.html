@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="dark">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-peSJH8CasU7cx+GBvrvxmbz7YjFmjYbsf2kysOX1p90='; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'">
+<meta name="color-scheme" content="dark light">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-c+rCkl78EAnZ6B05qVyZO4nT3fsAGaFl94xi32BUXy4='; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'">
 <title>Akasha · Registru akashic</title>
 <meta name="description" content="Akasha — registru akashic offline, un singur fișier HTML quine. Zero dependențe, zero telemetrie.">
 <!-- ============================================================
@@ -232,7 +232,8 @@ html[dir="rtl"] .scrim.show .panel{transform:none}
 .catopt{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid var(--line);
   border-radius:999px;background:transparent;color:var(--ink-dim);font-size:13px;font-weight:600}
 .catopt .dot{width:9px;height:9px;border-radius:50%}
-.catopt.on{border-color:currentColor}
+.catopt{color:var(--ink-dim)}
+.catopt.on{color:var(--cat,var(--ink-dim));border-color:currentColor}
 .resin{display:flex;gap:5px;align-items:center}
 .resin button{background:transparent;border:0;font-size:22px;line-height:1;color:rgba(216,179,119,.22);padding:0 1px}
 .resin button.on{color:var(--gold)}
@@ -340,6 +341,53 @@ footer.foot .seal{font-family:var(--serif);color:var(--gold)}
 .dotsep{width:3px;height:3px;border-radius:50%;background:var(--muted);display:inline-block}
 
 .hidden{display:none!important}
+/* ---------- light theme (follows the system preference; dark stays the default) ---------- */
+@media (prefers-color-scheme: light){
+  :root{
+    --void:#f7f3ea;--void-2:#efe8da;--ink:#1d1a2b;--ink-dim:#46416b;--muted:#625d88;
+    --line:rgba(60,50,120,.18);--line-strong:rgba(60,50,120,.34);
+    --panel:rgba(255,255,255,.78);--panel-2:#fffdf8;
+    --aether:#0a6a7d;--aether-deep:#2a8aa0;--gold:#7a5410;--gold-deep:#a98239;
+    --rose:#a8344f;--ok:#1d7440;--warn:#7d5d08;
+    --shadow:0 18px 50px -24px rgba(40,30,90,.35);
+  }
+  #stars{display:none}
+  ::selection{background:rgba(10,106,125,.22)}
+  .sky{background:
+    radial-gradient(1100px 720px at 82% -8%, rgba(42,138,160,.10), transparent 60%),
+    radial-gradient(900px 700px at 12% 8%, rgba(169,130,57,.10), transparent 58%),
+    linear-gradient(180deg, var(--void) 0%, var(--void-2) 100%)}
+  header.top{background:linear-gradient(180deg, rgba(247,243,234,.95), rgba(247,243,234,.75))}
+  .sigil,.empty .e-sigil{text-shadow:none}
+  .search input,.sort select,.field input,.field textarea,.field select{background:rgba(255,255,255,.85)}
+  .btn,.btn.ghost:hover,.kbd,.vrow{background:rgba(255,255,255,.55)}
+  .btn:hover{background:rgba(10,106,125,.08)}
+  .btn.gold{color:#4a3208;background:linear-gradient(180deg, rgba(169,130,57,.24), rgba(169,130,57,.10))}
+  .btn.gold:hover{background:linear-gradient(180deg, rgba(169,130,57,.34), rgba(169,130,57,.16))}
+  .btn.ghost{background:transparent}
+  .btn.ghost:hover,.menu button:hover,.chip:hover{background:rgba(60,50,120,.07)}
+  .chip.on{background:rgba(10,106,125,.12)}
+  .tg.on{background:rgba(169,130,57,.14)}
+  .lang option{background:#fff;color:var(--ink)}
+  .lang{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23625d88' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")}
+  .rec{background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(250,246,238,.9))}
+  .cat-pill{color:color-mix(in srgb, var(--cat, var(--muted)) 40%, #000)}
+  .catopt.on{color:color-mix(in srgb, var(--cat, var(--muted)) 40%, #000)}
+  .res .off,.resin button{color:rgba(122,84,16,.28)}
+  .resin button.on{color:var(--gold)}
+  .empty{background:rgba(255,255,255,.5)}
+  .scrim{background:rgba(40,34,80,.38)}
+  .panel{box-shadow:-30px 0 80px -30px rgba(40,30,90,.35)}
+  .rendered code,.about code{background:rgba(10,106,125,.1);color:#0a4a58}
+  .rendered strong{color:#000}
+  .rendered a.wl{color:var(--aether)}
+  .codebox{background:#f1ece0;color:#2d3a52}
+  .track{background:rgba(60,50,120,.1)}
+  .quine-note{background:rgba(169,130,57,.1)}
+  .toast-act:hover{background:rgba(60,50,120,.08)}
+  .btn-danger{color:var(--rose);border-color:rgba(168,52,79,.4)}
+  .btn-danger:hover{background:rgba(168,52,79,.08)}
+}
 </style>
 </head>
 <body>
@@ -469,7 +517,7 @@ var CLOSE = "<" + "/script>";
 var OPEN  = "<" + 'script id="akasha-records" type="application/json">';
 var DATA_RE = new RegExp('<script\\b[^>]*\\bid="akasha-records"[^>]*>[\\s\\S]*?' + '<\\/script>');
 
-var VERSION = "1.0.2";
+var VERSION = "1.0.3";
 var AUTOSAVE_KEY = "akasha:autosave:v1";
 
 /* ── state ── */
@@ -3241,7 +3289,7 @@ function renderList(){
       onclick:function(){openDetail(r.id);},
       onkeydown:function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();openDetail(r.id);} }
     },[
-      el("div",{class:"meta"},[ el("span",{class:"cat-pill",style:"color:"+c.color},[el("span",{class:"dot"}),catName(r.cat)]) ]),
+      el("div",{class:"meta"},[ el("span",{class:"cat-pill",style:"--cat:"+c.color},[el("span",{class:"dot"}),catName(r.cat)]) ]),
       el("h2",{text:r.title||"—"}),
       el("p",{class:"excerpt",text:excerpt||"…"}),
       el("div",{class:"foot"},foot)
@@ -3290,7 +3338,7 @@ function openEditor(rec){
     catWrap.innerHTML="";
     CATS.forEach(function(c){
       catWrap.appendChild(el("button",{class:"catopt"+(draft.cat===c.id?" on":""),type:"button",
-        style:"color:"+(draft.cat===c.id?c.color:"var(--ink-dim)"),
+        style:"--cat:"+c.color,
         onclick:function(){draft.cat=c.id;paintCats();}},
         [el("span",{class:"dot",style:"background:"+c.color}),catName(c.id)]));
     });
@@ -3374,7 +3422,7 @@ function openDetail(id){
   if(!r) return;
   var c=cat(r.cat);
   var metaBits=[
-    el("span",{class:"cat-pill",style:"color:"+c.color},[el("span",{class:"dot"}),catName(r.cat)]),
+    el("span",{class:"cat-pill",style:"--cat:"+c.color},[el("span",{class:"dot"}),catName(r.cat)]),
     el("span",{html:"✎ "+fmtDate(r.created)}),
   ];
   if(r.updated && r.updated!==r.created) metaBits.push(el("span",{html:"↻ "+fmtDate(r.updated)}));
@@ -3451,7 +3499,7 @@ function dup(id){
 function openSource(){
   reopenPanel=openSource;
   var src=buildSource();
-  var box=el("pre",{class:"codebox",text:src});
+  var box=el("pre",{class:"codebox",text:src,tabindex:"0",role:"region","aria-label":t("m_source")});
   var node=el("div",{style:"display:flex;flex-direction:column;height:100%"},[
     el("div",{class:"phead"},[ el("h2",{text:t("src_title")}),
       el("button",{class:"btn icon ghost x",onclick:closeOverlay,"aria-label":t("close")},
