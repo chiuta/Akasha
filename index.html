@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-jKbHImqI8OK6p37QubvHCEH2pmSUqDu9Zd5MRfRJX3A='; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-peSJH8CasU7cx+GBvrvxmbz7YjFmjYbsf2kysOX1p90='; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'">
 <title>Akasha · Registru akashic</title>
 <meta name="description" content="Akasha — registru akashic offline, un singur fișier HTML quine. Zero dependențe, zero telemetrie.">
 <!-- ============================================================
@@ -249,6 +249,26 @@ html[dir="rtl"] .scrim.show .panel{transform:none}
 .rendered strong{color:#fff}
 .rendered em{color:var(--ink-dim)}
 .rendered hr{border:0;border-top:1px solid var(--line);margin:1.2em 0}
+.rendered a.wl{color:var(--cyan,#74d6e0);text-decoration:underline dotted;text-underline-offset:3px}
+.rendered a.wl.miss{opacity:.6;text-decoration-style:dashed}
+.d-back{margin-top:22px;padding-top:14px;border-top:1px solid var(--line)}
+.d-back h3{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:600}
+.d-back .tg{margin:0 6px 6px 0}
+@media print{
+  .sky,#stars,header.top,.side,.banner,.toasts,.foot{display:none!important}
+  body:has(.scrim.show) main{display:none!important}
+  html,body{background:#fff!important;color:#000!important;overflow:visible!important;height:auto!important}
+  .shell{display:block!important}
+  .rec,.rec *{color:#000!important;background:none!important;box-shadow:none!important}
+  .rec{border:1px solid #999!important;break-inside:avoid;margin:0 0 8px!important}
+  .scrim:not(.show){display:none!important}
+  .scrim{position:static!important;display:block!important;opacity:1!important;background:none!important;backdrop-filter:none!important;padding:0!important}
+  .panel,.panel.center{display:block!important;width:auto!important;max-width:none!important;height:auto!important;max-height:none!important;box-shadow:none!important;border:0!important;background:#fff!important;transform:none!important}
+  .pbody{overflow:visible!important}
+  .pfoot,.phead .btn,.d-tags,.d-back{display:none!important}
+  .phead h2,.d-meta,.d-meta *,.rendered,.rendered *{color:#000!important;background:none!important}
+  .rendered a{text-decoration:underline}
+}
 .d-meta{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted);margin:6px 0 18px;
   padding-bottom:16px;border-bottom:1px solid var(--line)}
 .d-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
@@ -358,6 +378,7 @@ footer.foot .seal{font-family:var(--serif);color:var(--gold)}
           <div class="lbl" data-i="m_archive">Arhivă</div>
           <button data-act="stats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span data-i="m_stats">Statistici</span></button>
           <button data-act="exportJson"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg><span data-i="m_exportJson">Exportă JSON</span></button>
+          <button data-act="exportMd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h6M9 17h6"/></svg><span data-i="m_exportMd">Export Markdown</span></button>
           <button data-act="importJson"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21V9m0 0l-4 4m4-4l4 4M4 7V5a2 2 0 012-2h12a2 2 0 012 2v2"/></svg><span data-i="m_importJson">Importă (JSON / .html)</span></button>
           <div class="sep"></div>
           <button data-act="stars"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.5 6L21 9.5l-5 4 1.5 6.5L12 16l-5.5 4L8 13.5 3 9.5 9.5 9z"/></svg><span data-i="m_stars">Stele: pornite</span></button>
@@ -448,7 +469,7 @@ var CLOSE = "<" + "/script>";
 var OPEN  = "<" + 'script id="akasha-records" type="application/json">';
 var DATA_RE = new RegExp('<script\\b[^>]*\\bid="akasha-records"[^>]*>[\\s\\S]*?' + '<\\/script>');
 
-var VERSION = "1.0.1";
+var VERSION = "1.0.2";
 var AUTOSAVE_KEY = "akasha:autosave:v1";
 
 /* ── state ── */
@@ -504,6 +525,7 @@ DICT.en = {
   s_telemetry:"Telemetry", s_deps:"Dependencies", s_records:"Records", c_records:"records", c_record:"record",
   sort_by:"Sort", sort_updated:"Recently changed", sort_created:"Recently created", sort_res:"Resonance", sort_title:"Alphabetical",
   m_quine:"Quine", m_source:"View own source", m_verify:"Verify integrity", m_archive:"Archive", m_stats:"Statistics",
+  m_exportMd:"Export Markdown", t_exportedMd:"Markdown exported", bl_title:"Mentioned in", print:"Print",
   m_exportJson:"Export JSON", m_importJson:"Import (JSON / .html)", m_stars_on:"Stars: on", m_stars_off:"Stars: off", m_about:"About Akasha",
   empty_title:"The record is empty", empty_body:"Nothing has been inscribed in the aether yet.", empty_cta:"Inscribe the first record",
   noresults_title:"No matches", noresults_body:"No fragment of the aether matches the filter.", noresults_cta:"Clear filters",
@@ -543,6 +565,7 @@ DICT.ro = {
   s_telemetry:"Telemetrie", s_deps:"Dependențe", s_records:"Înregistrări", c_records:"înregistrări", c_record:"înregistrare",
   sort_by:"Ordonează", sort_updated:"Modificat recent", sort_created:"Creat recent", sort_res:"Rezonanță", sort_title:"Alfabetic",
   m_quine:"Quine", m_source:"Vezi propriul cod", m_verify:"Verifică integritatea", m_archive:"Arhivă", m_stats:"Statistici",
+  m_exportMd:"Exportă Markdown", t_exportedMd:"Markdown exportat", bl_title:"Menționat în", print:"Tipărește",
   m_exportJson:"Exportă JSON", m_importJson:"Importă (JSON / .html)", m_stars_on:"Stele: pornite", m_stars_off:"Stele: oprite", m_about:"Despre Akasha",
   empty_title:"Registrul e gol", empty_body:"Nimic încă nu a fost inscripționat în eter.", empty_cta:"Inscripționează prima înregistrare",
   noresults_title:"Nicio potrivire", noresults_body:"Niciun fragment din eter nu corespunde filtrului.", noresults_cta:"Șterge filtrele",
@@ -581,6 +604,7 @@ DICT.es = {
   s_telemetry:"Telemetría", s_deps:"Dependencias", s_records:"Registros", c_records:"registros", c_record:"registro",
   sort_by:"Ordenar", sort_updated:"Modificado recientemente", sort_created:"Creado recientemente", sort_res:"Resonancia", sort_title:"Alfabético",
   m_quine:"Quine", m_source:"Ver el propio código", m_verify:"Verificar integridad", m_archive:"Archivo", m_stats:"Estadísticas",
+  m_exportMd:"Exportar Markdown", t_exportedMd:"Markdown exportado", bl_title:"Mencionado en", print:"Imprimir",
   m_exportJson:"Exportar JSON", m_importJson:"Importar (JSON / .html)", m_stars_on:"Estrellas: sí", m_stars_off:"Estrellas: no", m_about:"Acerca de Akasha",
   empty_title:"El registro está vacío", empty_body:"Aún no se ha inscrito nada en el éter.", empty_cta:"Inscribir el primer registro",
   noresults_title:"Sin coincidencias", noresults_body:"Ningún fragmento del éter coincide con el filtro.", noresults_cta:"Borrar filtros",
@@ -619,6 +643,7 @@ DICT.fr = {
   s_telemetry:"Télémétrie", s_deps:"Dépendances", s_records:"Entrées", c_records:"entrées", c_record:"entrée",
   sort_by:"Trier", sort_updated:"Modifié récemment", sort_created:"Créé récemment", sort_res:"Résonance", sort_title:"Alphabétique",
   m_quine:"Quine", m_source:"Voir son propre code", m_verify:"Vérifier l’intégrité", m_archive:"Archive", m_stats:"Statistiques",
+  m_exportMd:"Exporter Markdown", t_exportedMd:"Markdown exporté", bl_title:"Mentionné dans", print:"Imprimer",
   m_exportJson:"Exporter JSON", m_importJson:"Importer (JSON / .html)", m_stars_on:"Étoiles : oui", m_stars_off:"Étoiles : non", m_about:"À propos d’Akasha",
   empty_title:"Le registre est vide", empty_body:"Rien n’a encore été inscrit dans l’éther.", empty_cta:"Inscrire la première entrée",
   noresults_title:"Aucune correspondance", noresults_body:"Aucun fragment de l’éther ne correspond au filtre.", noresults_cta:"Effacer les filtres",
@@ -657,6 +682,7 @@ DICT.de = {
   s_telemetry:"Telemetrie", s_deps:"Abhängigkeiten", s_records:"Einträge", c_records:"Einträge", c_record:"Eintrag",
   sort_by:"Sortieren", sort_updated:"Zuletzt geändert", sort_created:"Zuletzt erstellt", sort_res:"Resonanz", sort_title:"Alphabetisch",
   m_quine:"Quine", m_source:"Eigenen Quelltext ansehen", m_verify:"Integrität prüfen", m_archive:"Archiv", m_stats:"Statistik",
+  m_exportMd:"Markdown exportieren", t_exportedMd:"Markdown exportiert", bl_title:"Erwähnt in", print:"Drucken",
   m_exportJson:"JSON exportieren", m_importJson:"Importieren (JSON / .html)", m_stars_on:"Sterne: an", m_stars_off:"Sterne: aus", m_about:"Über Akasha",
   empty_title:"Die Chronik ist leer", empty_body:"Im Äther wurde noch nichts eingeschrieben.", empty_cta:"Ersten Eintrag einschreiben",
   noresults_title:"Keine Treffer", noresults_body:"Kein Fragment des Äthers passt zum Filter.", noresults_cta:"Filter löschen",
@@ -695,6 +721,7 @@ DICT.it = {
   s_telemetry:"Telemetria", s_deps:"Dipendenze", s_records:"Voci", c_records:"voci", c_record:"voce",
   sort_by:"Ordina", sort_updated:"Modificato di recente", sort_created:"Creato di recente", sort_res:"Risonanza", sort_title:"Alfabetico",
   m_quine:"Quine", m_source:"Vedi il proprio codice", m_verify:"Verifica integrità", m_archive:"Archivio", m_stats:"Statistiche",
+  m_exportMd:"Esporta Markdown", t_exportedMd:"Markdown esportato", bl_title:"Menzionato in", print:"Stampa",
   m_exportJson:"Esporta JSON", m_importJson:"Importa (JSON / .html)", m_stars_on:"Stelle: sì", m_stars_off:"Stelle: no", m_about:"Informazioni su Akasha",
   empty_title:"Il registro è vuoto", empty_body:"Nulla è stato ancora inscritto nell’etere.", empty_cta:"Inscrivi la prima voce",
   noresults_title:"Nessuna corrispondenza", noresults_body:"Nessun frammento dell’etere corrisponde al filtro.", noresults_cta:"Cancella i filtri",
@@ -733,6 +760,7 @@ DICT.pt = {
   s_telemetry:"Telemetria", s_deps:"Dependências", s_records:"Registros", c_records:"registros", c_record:"registro",
   sort_by:"Ordenar", sort_updated:"Alterado recentemente", sort_created:"Criado recentemente", sort_res:"Ressonância", sort_title:"Alfabético",
   m_quine:"Quine", m_source:"Ver o próprio código", m_verify:"Verificar integridade", m_archive:"Arquivo", m_stats:"Estatísticas",
+  m_exportMd:"Exportar Markdown", t_exportedMd:"Markdown exportado", bl_title:"Mencionado em", print:"Imprimir",
   m_exportJson:"Exportar JSON", m_importJson:"Importar (JSON / .html)", m_stars_on:"Estrelas: sim", m_stars_off:"Estrelas: não", m_about:"Sobre o Akasha",
   empty_title:"O registro está vazio", empty_body:"Nada foi ainda inscrito no éter.", empty_cta:"Inscrever o primeiro registro",
   noresults_title:"Sem correspondências", noresults_body:"Nenhum fragmento do éter corresponde ao filtro.", noresults_cta:"Limpar filtros",
@@ -3039,11 +3067,17 @@ function countWord(n){
 }
 
 /* ── safe markdown-lite (escape first, then format) ── */
+function findByTitle(w){
+  var k=String(w).trim().toLowerCase();
+  for(var i=0;i<state.records.length;i++) if(String(state.records[i].title||"").trim().toLowerCase()===k) return state.records[i];
+  return null;
+}
 function mdInline(s){
   s=esc(s);
   s=s.replace(/`([^`]+)`/g,function(_,c){return "<code>"+c+"</code>";});
   s=s.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>");
   s=s.replace(/(^|[^*])\*([^*\n]+)\*/g,"$1<em>$2</em>");
+  s=s.replace(/\[\[([^\[\]\n]+)\]\]/g,function(_,w){ return '<a href="#" class="wl'+(findByTitle(w.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&amp;/g,"&"))?"":" miss")+'" data-wl="'+w+'">'+w+"</a>"; });
   s=s.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|mailto:[^\s)]+)\)/g,
     '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
   return s;
@@ -3199,7 +3233,7 @@ function renderList(){
   arr.forEach(function(r){
    try{
     var c=cat(r.cat);
-    var excerpt=String(r.body||"").replace(/[#*`>\-]/g," ").replace(/\s+/g," ").trim();
+    var excerpt=String(r.body||"").replace(/\[\[([^\]\n]+)\]\]/g,"$1").replace(/^[ \t]*(?:#{1,3}[ \t]+|[-*][ \t]+|>[ \t]?)/gm,"").replace(/[*`]/g,"").replace(/\s+/g," ").trim();
     var foot=[el("time",{datetime:r.updated},[fmtDate(r.updated)])];
     if(r.res) foot.push(el("span",{class:"res",html:resStr(r.res)}));
     tagsOf(r).slice(0,3).forEach(function(tg){ foot.push(el("span",{class:"rtag",text:String(tg)})); });
@@ -3320,7 +3354,7 @@ function openEditor(rec){
       ]),
       el("div",{class:"field"},[el("label",{text:t("ed_tags")}),tagsIn]),
       el("div",{class:"field"},[el("label",{text:t("ed_body")}),bodyIn,
-        el("div",{class:"hint",text:"**…** · *…* · `…` · # … · - … · > …"})])
+        el("div",{class:"hint",text:"**…** · *…* · `…` · # … · - … · > … · [[…]]"})])
     ]),
     el("div",{class:"pfoot"},[
       (saveBtn=el("button",{class:"btn gold",onclick:save},[t("save")])),
@@ -3352,6 +3386,22 @@ function openDetail(id){
     r.tags.forEach(function(tg){ tagsRow.appendChild(el("button",{class:"tg",onclick:function(){ closeOverlay(); ui.tag=tg; render(); }},["#"+tg])); });
   }
 
+  var back=[], tk="[["+String(r.title||"").trim().toLowerCase()+"]]";
+  if(String(r.title||"").trim()) state.records.forEach(function(o){
+    if(o.id!==r.id && String(o.body||"").toLowerCase().indexOf(tk)>=0) back.push(o);
+  });
+  var backRow=null;
+  if(back.length){
+    backRow=el("div",{class:"d-back"},[el("h3",{text:t("bl_title")})]);
+    back.forEach(function(o){ backRow.appendChild(el("button",{class:"tg",onclick:function(){ openDetail(o.id); }},[o.title||"—"])); });
+  }
+  var rendered=el("div",{class:"rendered",html:mdLite(r.body)});
+  rendered.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a.wl"); if(!a) return;
+    e.preventDefault();
+    var o=findByTitle(a.getAttribute("data-wl")||"");
+    if(o) openDetail(o.id); else toast("[["+a.getAttribute("data-wl")+"]] ?","warn");
+  });
   var node=el("div",{style:"display:flex;flex-direction:column;height:100%"},[
     el("div",{class:"phead"},[
       el("h2",{text:r.title}),
@@ -3362,12 +3412,14 @@ function openDetail(id){
     ]),
     el("div",{class:"pbody"},[
       el("div",{class:"d-meta"},metaBits),
-      el("div",{class:"rendered",html:mdLite(r.body)}),
-      tagsRow
+      rendered,
+      tagsRow,
+      backRow
     ]),
     el("div",{class:"pfoot"},[
       el("button",{class:"btn",onclick:function(){ dup(r.id); }},
         [el("span",{html:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>'}),t("duplicate")]),
+      el("button",{class:"btn",onclick:function(){ window.print(); }},[t("print")]),
       el("button",{class:"btn btn-danger",style:"margin-inline-start:auto",onclick:function(){ del(r.id,false); }},[t("delete")])
     ])
   ]);
@@ -3527,6 +3579,20 @@ function exportJson(){
   downloadFile(JSON.stringify(payload,null,2),"akasha-records.json","application/json");
   toast(t("t_exported"),"ok");
 }
+function exportMd(){
+  var out=["# Akasha","", "<!-- "+state.records.length+" records · "+new Date().toISOString().slice(0,10)+" -->",""];
+  state.records.slice().sort(function(a,b){ return cmp(a.title,b.title); }).forEach(function(r){
+    out.push("## "+String(r.title||"").replace(/\s+/g," ").trim(),"");
+    var meta=[catName(r.cat)];
+    if(r.res) meta.push("★ "+r.res);
+    if(tagsOf(r).length) meta.push(r.tags.map(function(x){ return "#"+x; }).join(" "));
+    if(r.created) meta.push(String(r.created).slice(0,10));
+    out.push("_"+meta.join(" · ")+"_","");
+    out.push(String(r.body||"").replace(/^(#{1,3})(\s)/gm,"###$1$2").replace(/^#{4}(#*)/gm,"####"),"","---","");
+  });
+  downloadFile(out.join("\n"),"akasha-records.md","text/markdown");
+  toast(t("t_exportedMd"),"ok");
+}
 function importFile(){
   var inp=el("input",{type:"file",accept:".json,.html,application/json,text/html",style:"display:none","data-imp":"1"});
   $$("input[data-imp]").forEach(function(o){ o.remove(); });   // curăță selectoare rămase din anulări anterioare
@@ -3647,6 +3713,7 @@ menu.addEventListener("click",function(e){
   else if(act==="verify") openVerify();
   else if(act==="stats") openStats();
   else if(act==="exportJson") exportJson();
+  else if(act==="exportMd") exportMd();
   else if(act==="importJson") importFile();
   else if(act==="about") openAbout();
   else if(act==="stars"){ state.meta.stars=!state.meta.stars; markDirty(); applyStars(); }

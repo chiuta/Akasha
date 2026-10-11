@@ -17,7 +17,9 @@ Akasha este un registru personal de înregistrări (gânduri, evenimente, cunoa�
 - Editare, duplicare și ștergere de înregistrări; meniu cu „Arhivă" și „Statistici" (înregistrări, cuvinte, etichete unice, zile acoperite, defalcare pe categorii).
 - „Vezi propriul cod": afișează sursa completă pe care aplicația o scrie la reîncarnare (copiere sau descărcare).
 - „Verifică integritatea": verifică proprietatea de fix-point (reexport cu octeți identici), prezența unică a blocului de date și reîncărcarea tuturor înregistrărilor.
-- „Exportă JSON" și „Importă (JSON / .html)".
+- „Exportă JSON", „Exportă Markdown" (un singur fișier `akasha-records.md`, cu titluri în ordine alfabetică) și „Importă (JSON / .html)".
+- Legături între înregistrări: `[[Titlu]]` în conținut devine legătură către înregistrarea cu acel titlu (cu majuscule/minuscule indiferente; legăturile fără țintă sunt estompate), iar în detaliu apare lista „Menționat în" (retrolegături).
+- Tipărire: butonul „Tipărește" din detaliul unei înregistrări; stil de tipărire alb-negru (fără meniuri și fundal).
 - Fundal cu stele, care poate fi pornit/oprit.
 - Salvare automată de siguranță în browser, cu banner „Restaurează / Ignoră" pentru modificări mai noi decât fișierul; avertisment la închidere dacă există modificări nesalvate.
 - Interfață în 58 de limbi (inclusiv română), cu suport pentru scriere de la dreapta la stânga (ar, he, fa, ur).
@@ -53,7 +55,8 @@ Audit: 2026-10-10 — verificat cu Playwright și axe-core; verificat în cod: f
 
 ## Istoric / Changelog
 
-Ultima actualizare: 11 octombrie 2026 — v1.0.1 (afișată în subsolul aplicației).
+Ultima actualizare: 11 octombrie 2026 — v1.0.2 (afișată în subsolul aplicației).
+- v1.0.2: previzualizarea din listă nu mai șterge cratimele din cuvinte (ex. „re-export”), ci doar marcajele de la începutul liniei; adăugate „Exportă Markdown”, legături `[[Titlu]]` cu „Menționat în”, butonul „Tipărește” și stil de tipărire (texte noi în 7 limbi; celelalte folosesc engleza). CSP: hash recalculat.
 - Accesibilitate: titlul „Akasha” este h1, panourile laterale sunt h2, înregistrările nu mai folosesc `role="button"` pe `<article>` (acum `<div>`), canvasul de stele este ascuns pentru cititoarele de ecran; axe-core = 0 violări la 1280 și 360 px.
 - Adăugată politică CSP (`<meta>`: scripturi doar pe bază de hash, `connect-src 'none'`); verificarea „Integritate quine” (fix-point) rămâne reușită.
 - Previzualizarea unei înregistrări care conține text de tip `<script …` este afișată ca text simplu (escapată), nu interpretată; trunchierea ei este doar cosmetică.
