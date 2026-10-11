@@ -51,6 +51,13 @@ Licența nu este încă declarată explicit în acest repository; vezi nota din 
 
 Audit: 2026-10-10 — verificat cu Playwright și axe-core; verificat în cod: fără `fetch`/CDN. Importul de înregistrări neîncrezătoare (JSON cu `</script>`, `<img onerror>`) a fost testat: textul este escapat, iar blocul de date se serializează cu `<` → `\u003c`. Corectat: lipseau marginile laterale (20 px) pe ecran îngust. Notă: numele „Akasha/registru akashic" este doar tematic — aplicația este un utilitar de notițe, fără pretenții esoterice.
 
+## Istoric / Changelog
+
+Ultima actualizare: 11 octombrie 2026 — v1.0.1 (afișată în subsolul aplicației).
+- Accesibilitate: titlul „Akasha” este h1, panourile laterale sunt h2, înregistrările nu mai folosesc `role="button"` pe `<article>` (acum `<div>`), canvasul de stele este ascuns pentru cititoarele de ecran; axe-core = 0 violări la 1280 și 360 px.
+- Adăugată politică CSP (`<meta>`: scripturi doar pe bază de hash, `connect-src 'none'`); verificarea „Integritate quine” (fix-point) rămâne reușită.
+- Previzualizarea unei înregistrări care conține text de tip `<script …` este afișată ca text simplu (escapată), nu interpretată; trunchierea ei este doar cosmetică.
+
 ## Autor
 
 Alexio — Alexandru-Ionuț Chiuță. Contact: alexio@trom.tf

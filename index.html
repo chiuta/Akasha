@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-jKbHImqI8OK6p37QubvHCEH2pmSUqDu9Zd5MRfRJX3A='; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'">
 <title>Akasha · Registru akashic</title>
 <meta name="description" content="Akasha — registru akashic offline, un singur fișier HTML quine. Zero dependențe, zero telemetrie.">
 <!-- ============================================================
@@ -81,6 +82,7 @@ header.top{position:sticky;top:0;z-index:30;
 .brand{display:flex;align-items:baseline;gap:12px;min-width:0}
 .sigil{font-family:var(--serif);font-size:30px;line-height:1;color:var(--gold);
   text-shadow:0 0 22px rgba(216,179,119,.35);flex:none}
+h1.title{margin:0}
 .title{font-family:var(--serif);font-size:25px;letter-spacing:.5px;font-weight:600;white-space:nowrap}
 .title small{font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;
   color:var(--muted);display:block;margin-top:3px;font-weight:600}
@@ -133,9 +135,9 @@ html[dir="rtl"] .lang{padding:7px 12px 7px 28px;background-position:left 8px cen
 aside.side{align-self:start;position:sticky;top:84px}
 @media (max-width:860px){aside.side{position:static}}
 .facet{margin-bottom:22px}
-.facet h3{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+.facet h2{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
   margin:0 0 10px;font-weight:700;display:flex;align-items:center;gap:8px}
-.facet h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.facet h2::after{content:"";flex:1;height:1px;background:var(--line)}
 .chips{display:flex;flex-direction:column;gap:3px}
 .chip{display:flex;align-items:center;gap:9px;width:100%;text-align:start;
   padding:8px 10px;border:0;border-radius:9px;background:transparent;color:var(--ink-dim);
@@ -322,13 +324,13 @@ footer.foot .seal{font-family:var(--serif);color:var(--gold)}
 </head>
 <body>
 <div class="sky"></div>
-<canvas id="stars"></canvas>
+<canvas id="stars" aria-hidden="true"></canvas>
 
 <header class="top">
   <div class="wrap bar">
     <div class="brand">
       <span class="sigil" aria-hidden="true">✦</span>
-      <div class="title">Akasha<small data-i="tagline">Registru akashic</small></div>
+      <h1 class="title">Akasha<small data-i="tagline">Registru akashic</small></h1>
     </div>
     <div class="grow search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
@@ -369,11 +371,11 @@ footer.foot .seal{font-family:var(--serif);color:var(--gold)}
 <div class="wrap shell">
   <aside class="side">
     <div class="facet">
-      <h3 data-i="f_categories">Categorii</h3>
+      <h2 data-i="f_categories">Categorii</h2>
       <div class="chips" id="catFilters"></div>
     </div>
     <div class="facet" id="tagFacet">
-      <h3 data-i="f_tags">Etichete</h3>
+      <h2 data-i="f_tags">Etichete</h2>
       <div class="tagcloud" id="tagFilters"></div>
     </div>
     <div class="sidecard">
@@ -446,7 +448,7 @@ var CLOSE = "<" + "/script>";
 var OPEN  = "<" + 'script id="akasha-records" type="application/json">';
 var DATA_RE = new RegExp('<script\\b[^>]*\\bid="akasha-records"[^>]*>[\\s\\S]*?' + '<\\/script>');
 
-var VERSION = "1.0";
+var VERSION = "1.0.1";
 var AUTOSAVE_KEY = "akasha:autosave:v1";
 
 /* ── state ── */
@@ -3201,7 +3203,7 @@ function renderList(){
     var foot=[el("time",{datetime:r.updated},[fmtDate(r.updated)])];
     if(r.res) foot.push(el("span",{class:"res",html:resStr(r.res)}));
     tagsOf(r).slice(0,3).forEach(function(tg){ foot.push(el("span",{class:"rtag",text:String(tg)})); });
-    listEl.appendChild(el("article",{class:"rec",style:"--cat:"+c.color, tabindex:"0", role:"button",
+    listEl.appendChild(el("div",{class:"rec",style:"--cat:"+c.color, tabindex:"0", role:"button",
       onclick:function(){openDetail(r.id);},
       onkeydown:function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();openDetail(r.id);} }
     },[
