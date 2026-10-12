@@ -1,5 +1,7 @@
 # Akasha
 
+**Versiune:** 1.0.4 · **Ultima actualizare:** 12 octombrie 2026
+
 Registru akashic offline: un quine HTML dintr-un singur fișier, care se reîncarnează cu toate înregistrările încorporate.
 
 **Live:** https://chiuta.github.io/Akasha/
@@ -55,7 +57,7 @@ Audit: 2026-10-10 — verificat cu Playwright și axe-core; verificat în cod: f
 
 ## Istoric / Changelog
 
-Ultima actualizare: 11 octombrie 2026 — v1.0.3 (afișată în subsolul aplicației).
+- 1.0.4 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație (subsol, cu etichetă tradusă).
 - v1.0.3: **temă luminoasă** automată (`prefers-color-scheme: light`; implicit rămâne cea întunecată; fără comutator manual, deci fără texte noi de tradus); fundalul cu stele este ascuns în tema luminoasă. Culorile categoriilor din text sunt acum variabile CSS (`--cat`), închise în tema luminoasă pentru contrast. Corectat: caseta cu codul sursă („Vezi propriul cod”) nu putea fi derulată de la tastatură (acum are `tabindex="0"` și nume). Hash-ul CSP recalculat; „Verifică integritatea” reușită în ambele teme; axe-core = 0 violări la 1280 și 360 px în ambele teme, inclusiv în dialoguri.
 - v1.0.2: previzualizarea din listă nu mai șterge cratimele din cuvinte (ex. „re-export”), ci doar marcajele de la începutul liniei; adăugate „Exportă Markdown”, legături `[[Titlu]]` cu „Menționat în”, butonul „Tipărește” și stil de tipărire (texte noi în 7 limbi; celelalte folosesc engleza). CSP: hash recalculat.
 - Accesibilitate: titlul „Akasha” este h1, panourile laterale sunt h2, înregistrările nu mai folosesc `role="button"` pe `<article>` (acum `<div>`), canvasul de stele este ascuns pentru cititoarele de ecran; axe-core = 0 violări la 1280 și 360 px.
