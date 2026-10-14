@@ -60,7 +60,7 @@ Descărcați `index.html` și deschideți-l direct din sistemul de fișiere (`fi
 
 ## Licență
 
-Licența nu este încă declarată explicit în acest repository; vezi nota din aplicație.
+CC0 1.0 Universal (domeniu public) pentru codul și structura aplicației — vezi fișierul `LICENSE`. Eventualele biblioteci terțe incluse în fișier își păstrează licențele proprii.
 
 ## Audit
 
