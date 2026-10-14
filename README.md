@@ -1,6 +1,6 @@
 # Akasha
 
-**Versiune:** 1.0.4 · **Ultima actualizare:** 12 octombrie 2026
+**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
 
 Registru akashic offline: un quine HTML dintr-un singur fișier, care se reîncarnează cu toate înregistrările încorporate.
 
@@ -26,6 +26,14 @@ Akasha este un registru personal de înregistrări (gânduri, evenimente, cunoa�
 - Salvare automată de siguranță în browser, cu banner „Restaurează / Ignoră" pentru modificări mai noi decât fișierul; avertisment la închidere dacă există modificări nesalvate.
 - Interfață în 58 de limbi (inclusiv română), cu suport pentru scriere de la dreapta la stânga (ar, he, fa, ur).
 
+## Funcții noi (v1.1.0)
+
+- **Citire cu voce tare** (sinteza vocală a browserului, `speechSynthesis`, prin `FFF.tts`): butonul din subsolul detaliului unei înregistrări rostește titlul, apoi textul; al doilea clic oprește; închiderea panoului oprește vocea. Limba vocii urmează limba interfeței. Dacă browserul nu are o voce pentru acea limbă (sau nu are sinteză), apare un mesaj și nu se rostește nimic. Calitatea și disponibilitatea vocilor depind de sistem.
+- **Cod QR pentru o înregistrare**: din detaliu se generează un QR (prefix `akasha1:` + JSON cu titlul, categoria, rezonanța, etichetele și textul) de cel mult 1000 de octeți. Textul mai lung este **trunchiat, cu avertizare** („X din 6300 de caractere”); nu se simulează o capacitate pe care codul nu o are. Din meniu, „Citește QR dintr-o imagine” adaugă o **înregistrare nouă** (nu o suprascrie); conținutul este validat (categorie, rezonanță, lungimi), iar JSON stricat sau QR străin se resping.
+- **Accesibilitate**: panou cu „Text mai mare” (zoom 1,2) și „Contrast ridicat” (inclusiv în tema luminoasă); preferințele se păstrează local și nu sunt încorporate în copiile reîncarnate.
+- **Kit**: dialog „Transparență” și copie de siguranță `.fff.json` (modulele `core`, `label`, `bundle`, `qr`, `tts`). Fiindcă aplicația este un quine, dialogul avertizează că datele din fișierul reîncarnat nu intră în `localStorage` și deci nu sunt în copia `.fff.json`; sursa de adevăr rămâne „Reîncarnează”.
+- **Limbi și traduceri**: Textele noi sunt scrise în română și engleză, cu variante maghiare și germane; restul limbilor folosesc engleza pentru funcțiile noi. Traducerile (hu, de) sunt automate și **neverificate de vorbitori nativi**; kitul are texte în 8 limbi, tot neverificate nativ.
+
 ## Manual de utilizare
 
 1. Deschideți `index.html` în browser.
@@ -38,6 +46,9 @@ Akasha este un registru personal de înregistrări (gânduri, evenimente, cunoa�
 8. Alte scurtături: `Esc` închide dialogul sau meniul; scurtăturile cu o singură tastă (`N`, `/`) sunt dezactivate în timp ce scrieți într-un câmp.
 
 ## Confidențialitate și rețea
+
+- Kitul „fără frontiere” (`fff-kit`, modulele `core, label, bundle, qr, tts`) este lipit în `index.html`: nu face cereri de rețea. Dialogul „Transparență” (clic pe versiune) arată rețeaua declarată (0 cereri externe), cheile din `localStorage`, SHA-256 al fișierului și oferă copie de siguranță `.fff.json` (opțional criptată cu parolă, AES-GCM). Codurile QR se generează și se citesc local; citirea se face doar dintr-o imagine aleasă de utilizator, fără cameră.
+- Citirea cu voce tare folosește motorul de vorbire al sistemului; unele sisteme îl pot trimite la un serviciu de rețea al furnizorului — aplicația nu controlează acest lucru.
 
 - Aplicația nu conține apeluri de rețea (nu are `fetch`, CDN-uri sau resurse externe) și nu contactează niciun host terț.
 - Datele sunt păstrate în blocul de date din interiorul fișierului HTML (sursa de adevăr). În plus, `localStorage` conține o copie de siguranță automată (cheia `akasha:autosave:v1`), ștearsă după reîncarnare.
@@ -56,6 +67,8 @@ Licența nu este încă declarată explicit în acest repository; vezi nota din 
 Audit: 2026-10-10 — verificat cu Playwright și axe-core; verificat în cod: fără `fetch`/CDN. Importul de înregistrări neîncrezătoare (JSON cu `</script>`, `<img onerror>`) a fost testat: textul este escapat, iar blocul de date se serializează cu `<` → `\u003c`. Corectat: lipseau marginile laterale (20 px) pe ecran îngust. Notă: numele „Akasha/registru akashic" este doar tematic — aplicația este un utilitar de notițe, fără pretenții esoterice.
 
 ## Istoric / Changelog
+
+- 1.1.0 — 2026-10-14: citire cu voce tare, cod QR pentru înregistrare (generare + citire din imagine), panou de accesibilitate (text mai mare, contrast ridicat; reparat contrastul în tema luminoasă), kit „fără frontiere” (Transparență + copie `.fff.json`). Teste: `tests/fff-r8.test.mjs`.
 
 - 1.0.4 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație (subsol, cu etichetă tradusă).
 - v1.0.3: **temă luminoasă** automată (`prefers-color-scheme: light`; implicit rămâne cea întunecată; fără comutator manual, deci fără texte noi de tradus); fundalul cu stele este ascuns în tema luminoasă. Culorile categoriilor din text sunt acum variabile CSS (`--cat`), închise în tema luminoasă pentru contrast. Corectat: caseta cu codul sursă („Vezi propriul cod”) nu putea fi derulată de la tastatură (acum are `tabindex="0"` și nume). Hash-ul CSP recalculat; „Verifică integritatea” reușită în ambele teme; axe-core = 0 violări la 1280 și 360 px în ambele teme, inclusiv în dialoguri.
