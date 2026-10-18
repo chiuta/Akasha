@@ -10,9 +10,11 @@
     "clipboard",
     "localStorage"
   ],
-  "storageKeys": [],
-  "sizeBytes": 633542,
-  "sha256": "1ddea71aa0f7932a835c7c9bffe4ae53bc50de4aa05db91e68f65860201a851f",
+  "storageKeys": [
+    "akasha:autosave:v1"
+  ],
+  "sizeBytes": 634057,
+  "sha256": "764f64dfee1f4d089a4fec7c7fc387dc24c4a50dc6284e010f5ef6521b25df43",
   "csp": {
     "present": true,
     "directives": {
