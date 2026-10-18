@@ -1,6 +1,6 @@
 # Akasha
 
-**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
+**Versiune:** 1.1.1 · **Ultima actualizare:** 18 octombrie 2026
 
 Registru akashic offline: un quine HTML dintr-un singur fișier, care se reîncarnează cu toate înregistrările încorporate.
 
@@ -68,6 +68,7 @@ Audit: 2026-10-10 — verificat cu Playwright și axe-core; verificat în cod: f
 
 ## Istoric / Changelog
 
+- 1.1.1 — 2026-10-18: importul de registre nu mai schimbă preferința „stele” (`meta.stars` din fișier e ignorat); testul corespunzător.
 - 1.1.0 — 2026-10-14: citire cu voce tare, cod QR pentru înregistrare (generare + citire din imagine), panou de accesibilitate (text mai mare, contrast ridicat; reparat contrastul în tema luminoasă), kit „fără frontiere” (Transparență + copie `.fff.json`). Teste: `tests/fff-r8.test.mjs`.
 
 - 1.0.4 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație (subsol, cu etichetă tradusă).
