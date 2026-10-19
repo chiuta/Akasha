@@ -1,84 +1,86 @@
 # Akasha
 
-**Versiune:** 1.1.1 · **Ultima actualizare:** 18 octombrie 2026
+**English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Registru akashic offline: un quine HTML dintr-un singur fișier, care se reîncarnează cu toate înregistrările încorporate.
+**Version:** 1.1.1 · **Last updated:** 2026-10-18
+
+Offline akashic record: a single-file HTML quine that reincarnates itself with all the records embedded.
 
 **Live:** https://chiuta.github.io/Akasha/
 
-![Captura de ecran](screenshot.png)
+![Screenshot](screenshot.png)
 
-## Ce este
+## What it is
 
-Akasha este un registru personal de înregistrări (gânduri, evenimente, cunoaștere, amintiri, viziuni, întrebări) într-un singur fișier `index.html`. Este un *quine*: când apăsați „Reîncarnează", aplicația scrie o copie nouă a ei însăși (`akasha.html`) cu toate înregistrările curente încorporate în fișier. Noul fișier este aplicația plus datele dumneavoastră.
+Akasha is a personal register of records (thoughts, events, knowledge, memories, visions, questions) in a single `index.html` file. It is a *quine*: when you press "Reincarnate", the application writes a new copy of itself (`akasha.html`) with all the current records embedded in the file. The new file is the application plus your data.
 
-## Funcții
+## Features
 
-- Înregistrări cu titlu, categorie (Gând, Eveniment, Cunoaștere, Amintire, Viziune, Întrebare), „rezonanță", etichete și conținut cu formatare simplă (`**aldin**`, `*cursiv*`, `` `cod` ``, liste, titluri).
-- Căutare, filtrare după categorii și etichete, sortare (Modificat recent, Creat recent, Rezonanță, Alfabetic).
-- Editare, duplicare și ștergere de înregistrări; meniu cu „Arhivă" și „Statistici" (înregistrări, cuvinte, etichete unice, zile acoperite, defalcare pe categorii).
-- „Vezi propriul cod": afișează sursa completă pe care aplicația o scrie la reîncarnare (copiere sau descărcare).
-- „Verifică integritatea": verifică proprietatea de fix-point (reexport cu octeți identici), prezența unică a blocului de date și reîncărcarea tuturor înregistrărilor.
-- „Exportă JSON", „Exportă Markdown" (un singur fișier `akasha-records.md`, cu titluri în ordine alfabetică) și „Importă (JSON / .html)".
-- Legături între înregistrări: `[[Titlu]]` în conținut devine legătură către înregistrarea cu acel titlu (cu majuscule/minuscule indiferente; legăturile fără țintă sunt estompate), iar în detaliu apare lista „Menționat în" (retrolegături).
-- Tipărire: butonul „Tipărește" din detaliul unei înregistrări; stil de tipărire alb-negru (fără meniuri și fundal).
-- Fundal cu stele, care poate fi pornit/oprit (în tema întunecată); tema luminoasă urmează preferința sistemului.
-- Salvare automată de siguranță în browser, cu banner „Restaurează / Ignoră" pentru modificări mai noi decât fișierul; avertisment la închidere dacă există modificări nesalvate.
-- Interfață în 58 de limbi (inclusiv română), cu suport pentru scriere de la dreapta la stânga (ar, he, fa, ur).
+- Records with a title, category (Thought, Event, Knowledge, Memory, Vision, Question), "resonance", tags and content with simple formatting (`**bold**`, `*italic*`, `` `code` ``, lists, headings).
+- Search, filtering by categories and tags, sorting (Recently modified, Recently created, Resonance, Alphabetical).
+- Editing, duplicating and deleting records; a menu with "Archive" and "Statistics" (records, words, unique tags, days covered, breakdown by category).
+- "View own code": shows the complete source that the application writes on reincarnation (copy or download).
+- "Check integrity": verifies the fix-point property (re-export with byte-identical output), the unique presence of the data block and the reloading of all records.
+- "Export JSON", "Export Markdown" (a single `akasha-records.md` file, with headings in alphabetical order) and "Import (JSON / .html)".
+- Links between records: `[[Title]]` in the content becomes a link to the record with that title (case-insensitive; links without a target are dimmed), and the detail view shows a "Mentioned in" list (backlinks).
+- Printing: the "Print" button in a record's detail view; black-and-white print style (no menus or background).
+- Starry background that can be switched on/off (in the dark theme); the light theme follows the system preference.
+- Automatic backup saved in the browser, with a "Restore / Ignore" banner for changes newer than the file; warning on closing if there are unsaved changes.
+- Interface in 58 languages (including Romanian), with support for right-to-left writing (ar, he, fa, ur).
 
-## Funcții noi (v1.1.0)
+## New features (v1.1.0)
 
-- **Citire cu voce tare** (sinteza vocală a browserului, `speechSynthesis`, prin `FFF.tts`): butonul din subsolul detaliului unei înregistrări rostește titlul, apoi textul; al doilea clic oprește; închiderea panoului oprește vocea. Limba vocii urmează limba interfeței. Dacă browserul nu are o voce pentru acea limbă (sau nu are sinteză), apare un mesaj și nu se rostește nimic. Calitatea și disponibilitatea vocilor depind de sistem.
-- **Cod QR pentru o înregistrare**: din detaliu se generează un QR (prefix `akasha1:` + JSON cu titlul, categoria, rezonanța, etichetele și textul) de cel mult 1000 de octeți. Textul mai lung este **trunchiat, cu avertizare** („X din 6300 de caractere”); nu se simulează o capacitate pe care codul nu o are. Din meniu, „Citește QR dintr-o imagine” adaugă o **înregistrare nouă** (nu o suprascrie); conținutul este validat (categorie, rezonanță, lungimi), iar JSON stricat sau QR străin se resping.
-- **Accesibilitate**: panou cu „Text mai mare” (zoom 1,2) și „Contrast ridicat” (inclusiv în tema luminoasă); preferințele se păstrează local și nu sunt încorporate în copiile reîncarnate.
-- **Kit**: dialog „Transparență” și copie de siguranță `.fff.json` (modulele `core`, `label`, `bundle`, `qr`, `tts`). Fiindcă aplicația este un quine, dialogul avertizează că datele din fișierul reîncarnat nu intră în `localStorage` și deci nu sunt în copia `.fff.json`; sursa de adevăr rămâne „Reîncarnează”.
-- **Limbi și traduceri**: Textele noi sunt scrise în română și engleză, cu variante maghiare și germane; restul limbilor folosesc engleza pentru funcțiile noi. Traducerile (hu, de) sunt automate și **neverificate de vorbitori nativi**; kitul are texte în 8 limbi, tot neverificate nativ.
+- **Read aloud** (the browser's speech synthesis, `speechSynthesis`, via `FFF.tts`): the button in the footer of a record's detail view speaks the title, then the text; a second click stops it; closing the panel stops the voice. The voice language follows the interface language. If the browser has no voice for that language (or no speech synthesis), a message appears and nothing is spoken. The quality and availability of voices depend on the system.
+- **QR code for a record**: from the detail view a QR is generated (prefix `akasha1:` + JSON with the title, category, resonance, tags and text) of at most 1000 bytes. Longer text is **truncated, with a warning** ("X of 6300 characters"); no capacity that the code does not have is simulated. From the menu, "Read QR from an image" adds a **new record** (it does not overwrite one); the content is validated (category, resonance, lengths), and broken JSON or a foreign QR is rejected.
+- **Accessibility**: a panel with "Larger text" (zoom 1.2) and "High contrast" (including in the light theme); the preferences are kept locally and are not embedded in reincarnated copies.
+- **Kit**: "Transparency" dialog and `.fff.json` backup (modules `core`, `label`, `bundle`, `qr`, `tts`). Because the application is a quine, the dialog warns that the data in the reincarnated file does not go into `localStorage` and is therefore not in the `.fff.json` backup; the source of truth remains "Reincarnate".
+- **Languages and translations**: The new texts are written in Romanian and English, with Hungarian and German variants; the other languages use English for the new features. The translations (hu, de) are automatic and **not verified by native speakers**; the kit has texts in 8 languages, also not natively verified.
 
-## Manual de utilizare
+## User guide
 
-1. Deschideți `index.html` în browser.
-2. Apăsați „Inscripționează" (sau tasta `N`), completați titlul, categoria, rezonanța, etichetele și conținutul, apoi „Salvează".
-3. Căutați cu câmpul de căutare (tasta `/`) sau filtrați din panoul „Categorii" / „Etichete"; schimbați ordinea din „Ordonează".
-4. Deschideți o înregistrare pentru a o edita, duplica sau șterge.
-5. **Pentru a păstra datele:** apăsați „Reîncarnează" (`Ctrl+S` / `Cmd+S`). Browserul descarcă `akasha.html`; deschideți acel fișier data viitoare, deoarece conține toate înregistrările.
-6. Pentru copii de siguranță: meniul „Exportă JSON"; pentru a încărca date: „Importă (JSON / .html)".
-7. Pentru limbă, folosiți selectorul de limbă din interfață (eticheta „Limbă").
-8. Alte scurtături: `Esc` închide dialogul sau meniul; scurtăturile cu o singură tastă (`N`, `/`) sunt dezactivate în timp ce scrieți într-un câmp.
+1. Open `index.html` in a browser.
+2. Press "Inscribe" (or the `N` key), fill in the title, category, resonance, tags and content, then "Save".
+3. Search with the search field (the `/` key) or filter from the "Categories" / "Tags" panel; change the order from "Sort".
+4. Open a record to edit, duplicate or delete it.
+5. **To keep your data:** press "Reincarnate" (`Ctrl+S` / `Cmd+S`). The browser downloads `akasha.html`; open that file next time, because it contains all the records.
+6. For backups: the "Export JSON" menu; to load data: "Import (JSON / .html)".
+7. For the language, use the language selector in the interface (the "Language" label).
+8. Other shortcuts: `Esc` closes the dialog or menu; single-key shortcuts (`N`, `/`) are disabled while you are typing in a field.
 
-## Confidențialitate și rețea
+## Privacy and network
 
-- Kitul „fără frontiere” (`fff-kit`, modulele `core, label, bundle, qr, tts`) este lipit în `index.html`: nu face cereri de rețea. Dialogul „Transparență” (clic pe versiune) arată rețeaua declarată (0 cereri externe), cheile din `localStorage`, SHA-256 al fișierului și oferă copie de siguranță `.fff.json` (opțional criptată cu parolă, AES-GCM). Codurile QR se generează și se citesc local; citirea se face doar dintr-o imagine aleasă de utilizator, fără cameră.
-- Citirea cu voce tare folosește motorul de vorbire al sistemului; unele sisteme îl pot trimite la un serviciu de rețea al furnizorului — aplicația nu controlează acest lucru.
+- The "without borders" kit (`fff-kit`, modules `core, label, bundle, qr, tts`) is pasted into `index.html`: it makes no network requests. The "Transparency" dialog (click on the version) shows the declared network (0 external requests), the `localStorage` keys, the SHA-256 of the file and offers a `.fff.json` backup (optionally password-encrypted, AES-GCM). QR codes are generated and read locally; reading is done only from an image chosen by the user, without a camera.
+- Reading aloud uses the system's speech engine; some systems may send it to a network service of the vendor — the application does not control this.
 
-- Aplicația nu conține apeluri de rețea (nu are `fetch`, CDN-uri sau resurse externe) și nu contactează niciun host terț.
-- Datele sunt păstrate în blocul de date din interiorul fișierului HTML (sursa de adevăr). În plus, `localStorage` conține o copie de siguranță automată (cheia `akasha:autosave:v1`), ștearsă după reîncarnare.
-- Nu există analitice; aplicația însăși afișează „Telemetrie: 0" și „Dependențe: 0".
+- The application contains no network calls (it has no `fetch`, CDNs or external resources) and contacts no third-party host.
+- The data is kept in the data block inside the HTML file (the source of truth). In addition, `localStorage` holds an automatic backup (key `akasha:autosave:v1`), deleted after reincarnation.
+- There are no analytics; the application itself displays "Telemetry: 0" and "Dependencies: 0".
 
-## Rulare locală / offline
+## Local / offline use
 
-Descărcați `index.html` și deschideți-l direct din sistemul de fișiere (`file://`), fără server. Nu necesită internet.
+Download `index.html` and open it directly from the file system (`file://`), without a server. No internet required.
 
-## Licență
+## License
 
-Licență MIT pentru codul și structura aplicației — vezi fișierul `LICENSE`. Eventualele biblioteci terțe incluse în fișier își păstrează licențele proprii.
+MIT license for the code and structure of the application — see the `LICENSE` file. Any third-party libraries included in the file keep their own licenses.
 
 ## Audit
 
-Audit: 2026-10-10 — verificat cu Playwright și axe-core; verificat în cod: fără `fetch`/CDN. Importul de înregistrări neîncrezătoare (JSON cu `</script>`, `<img onerror>`) a fost testat: textul este escapat, iar blocul de date se serializează cu `<` → `\u003c`. Corectat: lipseau marginile laterale (20 px) pe ecran îngust. Notă: numele „Akasha/registru akashic" este doar tematic — aplicația este un utilitar de notițe, fără pretenții esoterice.
+Audit: 2026-10-10 — verified with Playwright and axe-core; verified in the code: no `fetch`/CDN. The import of untrusted records (JSON with `</script>`, `<img onerror>`) was tested: the text is escaped, and the data block is serialized with `<` → `<`. Fixed: the side margins (20 px) were missing on a narrow screen. Note: the name "Akasha/akashic record" is only thematic — the application is a note-taking utility, with no esoteric claims.
 
-## Istoric / Changelog
+## History / Changelog
 
-- 1.1.1 — 2026-10-18: importul de registre nu mai schimbă preferința „stele” (`meta.stars` din fișier e ignorat); testul corespunzător.
-- 1.1.0 — 2026-10-14: citire cu voce tare, cod QR pentru înregistrare (generare + citire din imagine), panou de accesibilitate (text mai mare, contrast ridicat; reparat contrastul în tema luminoasă), kit „fără frontiere” (Transparență + copie `.fff.json`). Teste: `tests/fff-r8.test.mjs`.
+- 1.1.1 — 2026-10-18: importing registers no longer changes the "stars" preference (`meta.stars` from the file is ignored); corresponding test.
+- 1.1.0 — 2026-10-14: read aloud, QR code for a record (generation + reading from an image), accessibility panel (larger text, high contrast; light-theme contrast fixed), "without borders" kit (Transparency + `.fff.json` backup). Tests: `tests/fff-r8.test.mjs`.
 
-- 1.0.4 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație (subsol, cu etichetă tradusă).
-- v1.0.3: **temă luminoasă** automată (`prefers-color-scheme: light`; implicit rămâne cea întunecată; fără comutator manual, deci fără texte noi de tradus); fundalul cu stele este ascuns în tema luminoasă. Culorile categoriilor din text sunt acum variabile CSS (`--cat`), închise în tema luminoasă pentru contrast. Corectat: caseta cu codul sursă („Vezi propriul cod”) nu putea fi derulată de la tastatură (acum are `tabindex="0"` și nume). Hash-ul CSP recalculat; „Verifică integritatea” reușită în ambele teme; axe-core = 0 violări la 1280 și 360 px în ambele teme, inclusiv în dialoguri.
-- v1.0.2: previzualizarea din listă nu mai șterge cratimele din cuvinte (ex. „re-export”), ci doar marcajele de la începutul liniei; adăugate „Exportă Markdown”, legături `[[Titlu]]` cu „Menționat în”, butonul „Tipărește” și stil de tipărire (texte noi în 7 limbi; celelalte folosesc engleza). CSP: hash recalculat.
-- Accesibilitate: titlul „Akasha” este h1, panourile laterale sunt h2, înregistrările nu mai folosesc `role="button"` pe `<article>` (acum `<div>`), canvasul de stele este ascuns pentru cititoarele de ecran; axe-core = 0 violări la 1280 și 360 px.
-- Adăugată politică CSP (`<meta>`: scripturi doar pe bază de hash, `connect-src 'none'`); verificarea „Integritate quine” (fix-point) rămâne reușită.
-- Previzualizarea unei înregistrări care conține text de tip `<script …` este afișată ca text simplu (escapată), nu interpretată; trunchierea ei este doar cosmetică.
+- 1.0.4 — 2026-10-12: the version and the date of the last update are shown in the application (footer, with translated label).
+- v1.0.3: automatic **light theme** (`prefers-color-scheme: light`; dark remains the default; no manual switch, hence no new texts to translate); the starry background is hidden in the light theme. The category colors in the text are now CSS variables (`--cat`), darkened in the light theme for contrast. Fixed: the source-code box ("View own code") could not be scrolled from the keyboard (it now has `tabindex="0"` and a name). CSP hash recomputed; "Check integrity" succeeds in both themes; axe-core = 0 violations at 1280 and 360 px in both themes, including in dialogs.
+- v1.0.2: the preview in the list no longer strips hyphens from words (e.g. "re-export"), only the markers at the start of the line; added "Export Markdown", `[[Title]]` links with "Mentioned in", the "Print" button and a print style (new texts in 7 languages; the others use English). CSP: hash recomputed.
+- Accessibility: the "Akasha" title is h1, the side panels are h2, records no longer use `role="button"` on `<article>` (now `<div>`), the star canvas is hidden from screen readers; axe-core = 0 violations at 1280 and 360 px.
+- Added a CSP policy (`<meta>`: scripts only by hash, `connect-src 'none'`); the "Quine integrity" (fix-point) check remains successful.
+- The preview of a record containing `<script …` text is displayed as plain text (escaped), not interpreted; its truncation is only cosmetic.
 
-## Autor
+## Author
 
 Alexio — Alexandru-Ionuț Chiuță. Contact: alexio@trom.tf
 
