@@ -86,6 +86,6 @@ Audit: 2026-10-10 — geprüft mit Playwright und axe-core; im Code geprüft: ke
 
 Alexio — Alexandru-Ionuț Chiuță. Kontakt: alexio@trom.tf
 
-## English summary
+## Zusammenfassung
 
-Akasha is a single-file offline "akashic record": a quine that, on "Reincarnate" (Ctrl/Cmd+S), writes a fresh copy of itself with all records embedded. It has search, tags, categories, JSON import/export, an integrity check, and a UI in 58 languages. It makes no network requests; an autosave backup is kept in localStorage.
+Akasha ist eine „Akasha-Chronik“ in einer einzigen Datei, offline: ein Quine, das bei „Reinkarnieren“ (Strg/Cmd+S) eine frische Kopie seiner selbst mit allen eingebetteten Einträgen schreibt. Es bietet Suche, Tags, Kategorien, JSON-Import/-Export, eine Integritätsprüfung und eine Oberfläche in 58 Sprachen. Es stellt keine Netzwerkanfragen; eine automatische Sicherung wird in localStorage gehalten.
