@@ -13,8 +13,8 @@
   "storageKeys": [
     "akasha:autosave:v1"
   ],
-  "sizeBytes": 634111,
-  "sha256": "b861c877407a9236271b3e06a1d86472fb26451975fa1ce68ec3124782358a20",
+  "sizeBytes": 634747,
+  "sha256": "b84b66e5df0f857bb582526c7e4fb39aafdba5ee0406434bd6bbca628215386d",
   "csp": {
     "present": true,
     "directives": {
@@ -58,7 +58,7 @@
     ]
   },
   "kit": {
-    "version": "1.1.0",
+    "version": "1.1.1",
     "modules": [
       "core",
       "label",
