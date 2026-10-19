@@ -10,7 +10,7 @@ Registro akásico sin conexión: un quine HTML en un solo archivo, que se reenca
 
 **En línea:** https://chiuta.github.io/Akasha/
 
-![Captura de pantalla](screenshot.png)
+![Captura de pantalla](screenshot.es.png)
 
 ## Qué es
 

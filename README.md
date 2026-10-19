@@ -10,7 +10,7 @@ Offline akashic record: a single-file HTML quine that reincarnates itself with a
 
 **Live:** https://chiuta.github.io/Akasha/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.en.png)
 
 ## What it is
 

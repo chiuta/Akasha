@@ -10,7 +10,7 @@ Registro akashico offline: un quine HTML in un unico file, che si reincarna con 
 
 **Online:** https://chiuta.github.io/Akasha/
 
-![Schermata](screenshot.png)
+![Schermata](screenshot.it.png)
 
 ## Cos'è
 

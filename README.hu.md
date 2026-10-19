@@ -10,7 +10,7 @@ Offline akasha-krónika: egyetlen HTML-fájlból álló quine, amely az összes 
 
 **Élő változat:** https://chiuta.github.io/Akasha/
 
-![Képernyőkép](screenshot.png)
+![Képernyőkép](screenshot.hu.png)
 
 ## Mi ez
 

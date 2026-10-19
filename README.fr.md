@@ -10,7 +10,7 @@ Registre akashique hors ligne : un quine HTML en un seul fichier, qui se réinca
 
 **En ligne :** https://chiuta.github.io/Akasha/
 
-![Capture d'écran](screenshot.png)
+![Capture d'écran](screenshot.fr.png)
 
 ## De quoi s'agit-il
 

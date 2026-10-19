@@ -10,7 +10,7 @@ Offline-Akasha-Chronik: ein Quine in einer einzigen HTML-Datei, das sich mit all
 
 **Online:** https://chiuta.github.io/Akasha/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.de.png)
 
 ## Was es ist
 

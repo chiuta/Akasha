@@ -10,7 +10,7 @@ Registo akáshico offline: um quine HTML num único ficheiro, que se reencarna c
 
 **Online:** https://chiuta.github.io/Akasha/
 
-![Captura de ecrã](screenshot.png)
+![Captura de ecrã](screenshot.pt.png)
 
 ## O que é
 

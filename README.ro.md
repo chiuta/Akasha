@@ -10,7 +10,7 @@ Registru akashic offline: un quine HTML dintr-un singur fișier, care se reînca
 
 **Live:** https://chiuta.github.io/Akasha/
 
-![Captura de ecran](screenshot.png)
+![Captura de ecran](screenshot.ro.png)
 
 ## Ce este
 
