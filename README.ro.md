@@ -4,6 +4,8 @@
 
 **Versiune:** 1.1.1 · **Ultima actualizare:** 2026-10-18
 
+Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
+
 Registru akashic offline: un quine HTML dintr-un singur fișier, care se reîncarnează cu toate înregistrările încorporate.
 
 **Live:** https://chiuta.github.io/Akasha/

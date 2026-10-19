@@ -4,6 +4,8 @@
 
 **Versione:** 1.1.1 · **Ultimo aggiornamento:** 2026-10-18
 
+Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
+
 Registro akashico offline: un quine HTML in un unico file, che si reincarna con tutte le registrazioni incorporate.
 
 **Online:** https://chiuta.github.io/Akasha/

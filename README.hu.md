@@ -4,6 +4,8 @@
 
 **Verzió:** 1.1.1 · **Utolsó frissítés:** 2026-10-18
 
+A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
+
 Offline akasha-krónika: egyetlen HTML-fájlból álló quine, amely az összes beágyazott bejegyzéssel újratestesül.
 
 **Élő változat:** https://chiuta.github.io/Akasha/

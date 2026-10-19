@@ -4,6 +4,8 @@
 
 **Versión:** 1.1.1 · **Última actualización:** 2026-10-18
 
+Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
+
 Registro akásico sin conexión: un quine HTML en un solo archivo, que se reencarna con todos los registros incorporados.
 
 **En línea:** https://chiuta.github.io/Akasha/

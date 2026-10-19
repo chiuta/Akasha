@@ -4,6 +4,8 @@
 
 **Version:** 1.1.1 · **Zuletzt aktualisiert:** 2026-10-18
 
+Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
+
 Offline-Akasha-Chronik: ein Quine in einer einzigen HTML-Datei, das sich mit allen eingebetteten Einträgen neu verkörpert.
 
 **Online:** https://chiuta.github.io/Akasha/

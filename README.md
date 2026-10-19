@@ -4,6 +4,8 @@
 
 **Version:** 1.1.1 · **Last updated:** 2026-10-18
 
+Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
+
 Offline akashic record: a single-file HTML quine that reincarnates itself with all the records embedded.
 
 **Live:** https://chiuta.github.io/Akasha/

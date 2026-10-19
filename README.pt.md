@@ -4,6 +4,8 @@
 
 **Versão:** 1.1.1 · **Última atualização:** 2026-10-18
 
+Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
+
 Registo akáshico offline: um quine HTML num único ficheiro, que se reencarna com todos os registos incorporados.
 
 **Online:** https://chiuta.github.io/Akasha/

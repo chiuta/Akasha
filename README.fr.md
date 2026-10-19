@@ -4,6 +4,8 @@
 
 **Version :** 1.1.1 · **Dernière mise à jour :** 2026-10-18
 
+Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
+
 Registre akashique hors ligne : un quine HTML en un seul fichier, qui se réincarne avec tous les enregistrements intégrés.
 
 **En ligne :** https://chiuta.github.io/Akasha/
