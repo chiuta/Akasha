@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.1.2 · **Última atualização:** 2026-10-19
+**Versão:** 1.1.3 · **Última atualização:** 2026-10-22
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -71,6 +71,9 @@ Licença MIT para o código e a estrutura da aplicação — veja o ficheiro `LI
 Auditoria: 2026-10-10 — verificado com Playwright e axe-core; verificado no código: sem `fetch`/CDN. A importação de entradas não fiáveis (JSON com `</script>`, `<img onerror>`) foi testada: o texto é escapado e o bloco de dados é serializado com `<` → `<`. Corrigido: faltavam as margens laterais (20 px) em ecrã estreito. Nota: o nome «Akasha/registo akáshico» é apenas temático — a aplicação é um utilitário de notas, sem pretensões esotéricas.
 
 ## Histórico / Changelog
+
+### 1.1.3 — 2026-10-22
+- O título da página (document.title) acompanha agora o idioma da interface (Akasha · subtítulo), em vez de ficar em romeno.
 
 - 1.1.1 — 2026-10-18: a importação de registos já não altera a preferência «estrelas» (`meta.stars` do ficheiro é ignorado); teste correspondente.
 - 1.1.0 — 2026-10-14: leitura em voz alta, código QR para uma entrada (geração + leitura a partir de uma imagem), painel de acessibilidade (texto maior, contraste elevado; corrigido o contraste no tema claro), kit «sem fronteiras» (Transparência + cópia `.fff.json`). Testes: `tests/fff-r8.test.mjs`.

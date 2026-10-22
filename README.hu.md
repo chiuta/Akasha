@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.1.2 · **Utolsó frissítés:** 2026-10-19
+**Verzió:** 1.1.3 · **Utolsó frissítés:** 2026-10-22
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -71,6 +71,9 @@ MIT licenc az alkalmazás kódjára és szerkezetére — lásd a `LICENSE` fáj
 Audit: 2026-10-10 — Playwrighttal és axe-core-ral ellenőrizve; a kódban ellenőrizve: nincs `fetch`/CDN. A nem megbízható bejegyzések importálását (JSON `</script>`, `<img onerror>` tartalommal) tesztelték: a szöveg escape-elt, az adatblokk szerializálása `<` → `<` cserével történik. Javítva: keskeny képernyőn hiányoztak az oldalsó margók (20 px). Megjegyzés: az „Akasha/akasha-krónika” név csak tematikus — az alkalmazás jegyzetelő segédprogram, ezoterikus igények nélkül.
 
 ## Előzmények / Changelog
+
+### 1.1.3 — 2026-10-22
+- Az oldal címe (document.title) mostantól a felület nyelvét követi (Akasha · alcím), nem marad románul.
 
 - 1.1.1 — 2026-10-18: a nyilvántartások importálása már nem módosítja a „csillagok” beállítást (a fájl `meta.stars` értékét figyelmen kívül hagyja); megfelelő teszt.
 - 1.1.0 — 2026-10-14: felolvasás, QR-kód egy bejegyzéshez (előállítás + olvasás képből), akadálymentesítő panel (nagyobb szöveg, magas kontraszt; javított kontraszt a világos témában), „határok nélküli” kit (Átláthatóság + `.fff.json` mentés). Tesztek: `tests/fff-r8.test.mjs`.

@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.1.2 · **Zuletzt aktualisiert:** 2026-10-19
+**Version:** 1.1.3 · **Zuletzt aktualisiert:** 2026-10-22
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -71,6 +71,9 @@ MIT-Lizenz für den Code und die Struktur der Anwendung — siehe Datei `LICENSE
 Audit: 2026-10-10 — geprüft mit Playwright und axe-core; im Code geprüft: kein `fetch`/CDN. Der Import nicht vertrauenswürdiger Einträge (JSON mit `</script>`, `<img onerror>`) wurde getestet: Der Text wird maskiert, und der Datenblock wird mit `<` → `<` serialisiert. Behoben: Auf schmalen Bildschirmen fehlten die seitlichen Ränder (20 px). Hinweis: Der Name „Akasha/Akasha-Chronik“ ist nur thematisch — die Anwendung ist ein Notizwerkzeug, ohne esoterischen Anspruch.
 
 ## Verlauf / Changelog
+
+### 1.1.3 — 2026-10-22
+- Der Seitentitel (document.title) folgt jetzt der Oberflächensprache (Akasha · Untertitel), statt rumänisch zu bleiben.
 
 - 1.1.1 — 2026-10-18: Der Import von Registern ändert die Einstellung „Sterne“ nicht mehr (`meta.stars` aus der Datei wird ignoriert); entsprechender Test.
 - 1.1.0 — 2026-10-14: Vorlesen, QR-Code für einen Eintrag (Erzeugung + Lesen aus einem Bild), Barrierefreiheits-Panel (größerer Text, hoher Kontrast; Kontrast im hellen Thema behoben), „Ohne-Grenzen“-Kit (Transparenz + `.fff.json`-Sicherung). Tests: `tests/fff-r8.test.mjs`.

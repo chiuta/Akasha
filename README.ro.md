@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.1.2 · **Ultima actualizare:** 2026-10-19
+**Versiune:** 1.1.3 · **Ultima actualizare:** 2026-10-22
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -71,6 +71,9 @@ Licență MIT pentru codul și structura aplicației — vezi fișierul `LICENSE
 Audit: 2026-10-10 — verificat cu Playwright și axe-core; verificat în cod: fără `fetch`/CDN. Importul de înregistrări neîncrezătoare (JSON cu `</script>`, `<img onerror>`) a fost testat: textul este escapat, iar blocul de date se serializează cu `<` → `\u003c`. Corectat: lipseau marginile laterale (20 px) pe ecran îngust. Notă: numele „Akasha/registru akashic" este doar tematic — aplicația este un utilitar de notițe, fără pretenții esoterice.
 
 ## Istoric / Changelog
+
+### 1.1.3 — 2026-10-22
+- Titlul paginii (document.title) urmează acum limba interfeței (Akasha · slogan), nu mai rămâne în română.
 
 - 1.1.1 — 2026-10-18: importul de registre nu mai schimbă preferința „stele” (`meta.stars` din fișier e ignorat); testul corespunzător.
 - 1.1.0 — 2026-10-14: citire cu voce tare, cod QR pentru înregistrare (generare + citire din imagine), panou de accesibilitate (text mai mare, contrast ridicat; reparat contrastul în tema luminoasă), kit „fără frontiere” (Transparență + copie `.fff.json`). Teste: `tests/fff-r8.test.mjs`.

@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.1.2 · **Last updated:** 2026-10-19
+**Version:** 1.1.3 · **Last updated:** 2026-10-22
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -71,6 +71,9 @@ MIT license for the code and structure of the application — see the `LICENSE` 
 Audit: 2026-10-10 — verified with Playwright and axe-core; verified in the code: no `fetch`/CDN. The import of untrusted records (JSON with `</script>`, `<img onerror>`) was tested: the text is escaped, and the data block is serialized with `<` → `<`. Fixed: the side margins (20 px) were missing on a narrow screen. Note: the name "Akasha/akashic record" is only thematic — the application is a note-taking utility, with no esoteric claims.
 
 ## History / Changelog
+
+### 1.1.3 — 2026-10-22
+- The page title (document.title) now follows the interface language (Akasha · tagline) instead of staying Romanian.
 
 - 1.1.1 — 2026-10-18: importing registers no longer changes the "stars" preference (`meta.stars` from the file is ignored); corresponding test.
 - 1.1.0 — 2026-10-14: read aloud, QR code for a record (generation + reading from an image), accessibility panel (larger text, high contrast; light-theme contrast fixed), "without borders" kit (Transparency + `.fff.json` backup). Tests: `tests/fff-r8.test.mjs`.

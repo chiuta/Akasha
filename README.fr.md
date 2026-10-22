@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.1.2 · **Dernière mise à jour :** 2026-10-19
+**Version :** 1.1.3 · **Dernière mise à jour :** 2026-10-22
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -71,6 +71,9 @@ Licence MIT pour le code et la structure de l'application — voir le fichier `L
 Audit : 2026-10-10 — vérifié avec Playwright et axe-core ; vérifié dans le code : pas de `fetch`/CDN. L'importation d'enregistrements non fiables (JSON avec `</script>`, `<img onerror>`) a été testée : le texte est échappé et le bloc de données est sérialisé avec `<` → `<`. Corrigé : les marges latérales (20 px) manquaient sur écran étroit. Remarque : le nom « Akasha/registre akashique » n'est que thématique — l'application est un utilitaire de prise de notes, sans prétention ésotérique.
 
 ## Historique / Changelog
+
+### 1.1.3 — 2026-10-22
+- Le titre de la page (document.title) suit désormais la langue de l'interface (Akasha · sous-titre) au lieu de rester en roumain.
 
 - 1.1.1 — 2026-10-18 : l'importation de registres ne modifie plus la préférence « étoiles » (`meta.stars` du fichier est ignoré) ; test correspondant.
 - 1.1.0 — 2026-10-14 : lecture à voix haute, code QR pour un enregistrement (génération + lecture depuis une image), panneau d'accessibilité (texte plus grand, contraste élevé ; contraste corrigé dans le thème clair), kit « sans frontières » (Transparence + sauvegarde `.fff.json`). Tests : `tests/fff-r8.test.mjs`.
