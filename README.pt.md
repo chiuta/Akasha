@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.1.5 · **Última atualização:** 2026-10-22
+**Versão:** 1.1.6 · **Última atualização:** 2026-10-22
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -71,6 +71,9 @@ Licença MIT para o código e a estrutura da aplicação — veja o ficheiro `LI
 Auditoria: 2026-10-10 — verificado com Playwright e axe-core; verificado no código: sem `fetch`/CDN. A importação de entradas não fiáveis (JSON com `</script>`, `<img onerror>`) foi testada: o texto é escapado e o bloco de dados é serializado com `<` → `<`. Corrigido: faltavam as margens laterais (20 px) em ecrã estreito. Nota: o nome «Akasha/registo akáshico» é apenas temático — a aplicação é um utilitário de notas, sem pretensões esotéricas.
 
 ## Histórico / Changelog
+
+### 1.1.6 — 2026-10-22
+- fff-kit 1.1.4: alvos de toque e tamanho mínimo do texto; alvos de toque/texto corrigidos
 
 ### 1.1.5 — 2026-10-22
 - fff-kit 1.1.2: PBKDF2 600 000 iterações, proteção anti-clickjacking

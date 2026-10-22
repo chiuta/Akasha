@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.1.5 · **Zuletzt aktualisiert:** 2026-10-22
+**Version:** 1.1.6 · **Zuletzt aktualisiert:** 2026-10-22
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -71,6 +71,9 @@ MIT-Lizenz für den Code und die Struktur der Anwendung — siehe Datei `LICENSE
 Audit: 2026-10-10 — geprüft mit Playwright und axe-core; im Code geprüft: kein `fetch`/CDN. Der Import nicht vertrauenswürdiger Einträge (JSON mit `</script>`, `<img onerror>`) wurde getestet: Der Text wird maskiert, und der Datenblock wird mit `<` → `<` serialisiert. Behoben: Auf schmalen Bildschirmen fehlten die seitlichen Ränder (20 px). Hinweis: Der Name „Akasha/Akasha-Chronik“ ist nur thematisch — die Anwendung ist ein Notizwerkzeug, ohne esoterischen Anspruch.
 
 ## Verlauf / Changelog
+
+### 1.1.6 — 2026-10-22
+- fff-kit 1.1.4: Touch-Ziele und Mindestschriftgröße; Touch-Ziele/Text korrigiert
 
 ### 1.1.5 — 2026-10-22
 - fff-kit 1.1.2: PBKDF2 mit 600.000 Iterationen, Schutz vor Clickjacking

@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.1.5 · **Utolsó frissítés:** 2026-10-22
+**Verzió:** 1.1.6 · **Utolsó frissítés:** 2026-10-22
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -71,6 +71,9 @@ MIT licenc az alkalmazás kódjára és szerkezetére — lásd a `LICENSE` fáj
 Audit: 2026-10-10 — Playwrighttal és axe-core-ral ellenőrizve; a kódban ellenőrizve: nincs `fetch`/CDN. A nem megbízható bejegyzések importálását (JSON `</script>`, `<img onerror>` tartalommal) tesztelték: a szöveg escape-elt, az adatblokk szerializálása `<` → `<` cserével történik. Javítva: keskeny képernyőn hiányoztak az oldalsó margók (20 px). Megjegyzés: az „Akasha/akasha-krónika” név csak tematikus — az alkalmazás jegyzetelő segédprogram, ezoterikus igények nélkül.
 
 ## Előzmények / Changelog
+
+### 1.1.6 — 2026-10-22
+- fff-kit 1.1.4: érintési célpontok és minimális szövegméret; érintési célpontok/szöveg javítva
 
 ### 1.1.5 — 2026-10-22
 - fff-kit 1.1.2: PBKDF2 600 000 iteráció, clickjacking elleni védelem
