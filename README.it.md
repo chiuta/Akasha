@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 1.1.4 · **Ultimo aggiornamento:** 2026-10-22
+**Versione:** 1.1.5 · **Ultimo aggiornamento:** 2026-10-22
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -32,6 +32,7 @@ Akasha è un registro personale di annotazioni (pensieri, eventi, conoscenze, ri
 
 ## Novità (v1.1.0)
 
+- 1.1.5 — 2026-10-22: fff-kit 1.1.2: PBKDF2 600.000 iterazioni, protezione anti-clickjacking
 - **Lettura ad alta voce** (sintesi vocale del browser, `speechSynthesis`, tramite `FFF.tts`): il pulsante nel piè di pagina del dettaglio di una registrazione pronuncia il titolo, poi il testo; un secondo clic lo ferma; chiudere il pannello ferma la voce. La lingua della voce segue la lingua dell'interfaccia. Se il browser non ha una voce per quella lingua (o non ha la sintesi vocale), compare un messaggio e non viene pronunciato nulla. La qualità e la disponibilità delle voci dipendono dal sistema.
 - **Codice QR per una registrazione**: dal dettaglio si genera un QR (prefisso `akasha1:` + JSON con titolo, categoria, risonanza, etichette e testo) di al massimo 1000 byte. Il testo più lungo viene **troncato, con un avviso** («X di 6300 caratteri»); non si simula una capacità che il codice non ha. Dal menu, «Leggi QR da un'immagine» aggiunge una **nuova registrazione** (non ne sovrascrive una); il contenuto è validato (categoria, risonanza, lunghezze), e un JSON corrotto o un QR estraneo vengono rifiutati.
 - **Accessibilità**: pannello con «Testo più grande» (zoom 1,2) e «Contrasto elevato» (anche nel tema chiaro); le preferenze sono conservate localmente e non sono incorporate nelle copie reincarnate.
