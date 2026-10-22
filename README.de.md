@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.1.3 · **Zuletzt aktualisiert:** 2026-10-22
+**Version:** 1.1.4 · **Zuletzt aktualisiert:** 2026-10-22
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -71,6 +71,10 @@ MIT-Lizenz für den Code und die Struktur der Anwendung — siehe Datei `LICENSE
 Audit: 2026-10-10 — geprüft mit Playwright und axe-core; im Code geprüft: kein `fetch`/CDN. Der Import nicht vertrauenswürdiger Einträge (JSON mit `</script>`, `<img onerror>`) wurde getestet: Der Text wird maskiert, und der Datenblock wird mit `<` → `<` serialisiert. Behoben: Auf schmalen Bildschirmen fehlten die seitlichen Ränder (20 px). Hinweis: Der Name „Akasha/Akasha-Chronik“ ist nur thematisch — die Anwendung ist ein Notizwerkzeug, ohne esoterischen Anspruch.
 
 ## Verlauf / Changelog
+
+### 1.1.4 — 2026-10-22
+
+echter Service Worker und Manifest (startet offline, wenn über https ausgeliefert; die gespeicherte Datei funktioniert weiterhin über `file://`); dauerhafte Anzeige „ungespeicherte Änderungen“ mit Schaltfläche „Reinkarnieren“ (vorher nur eine Warnung beim Schließen des Tabs); das Löschen eines Eintrags fragt in einem Inline-Dialog statt im blockierenden `confirm()` nach; das Versionsetikett „Transparenz“ hat ein ausreichend großes Touch-Ziel. Feinschliff für Mobilgeräte und Barrierefreiheit: Text mit mindestens 12 px und Touch-Ziele von mindestens 24 px.
 
 ### 1.1.3 — 2026-10-22
 - Der Seitentitel (document.title) folgt jetzt der Oberflächensprache (Akasha · Untertitel), statt rumänisch zu bleiben.

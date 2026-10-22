@@ -2,32 +2,35 @@
   "schema": 1,
   "slug": "akasha",
   "name": "Akasha · Registru akashic",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "updated": "2026-10-22",
   "description": "Akasha — registru akashic offline, un singur fișier HTML quine. Zero dependențe, zero telemetrie.",
   "egress": [],
   "permissions": [
     "clipboard",
+    "serviceWorker",
     "localStorage"
   ],
   "storageKeys": [
     "akasha:autosave:v1"
   ],
-  "sizeBytes": 635735,
-  "sha256": "349916a509cc87c4b120edb6eac72aa5dc86a864090c8bbb3049c7fe7e1e78fc",
+  "sizeBytes": 644146,
+  "sha256": "f15b0132a1c0dce793862df1a6a02a850074fe48e47de55c416e15e9b6392573",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "sha256×2",
+      "script-src": "sha256×3",
       "style-src": "'unsafe-inline'",
-      "img-src": "data: blob:",
+      "img-src": "'self' data: blob:",
       "font-src": "data:",
       "connect-src": "'none'",
       "base-uri": "'none'",
       "form-action": "'none'",
       "frame-src": "'none'",
-      "object-src": "'none'"
+      "object-src": "'none'",
+      "manifest-src": "'self'",
+      "worker-src": "'self'"
     },
     "scriptInline": "hash",
     "connect": "'none'"
@@ -46,8 +49,8 @@
       "de"
     ],
     "pwa": {
-      "manifest": false,
-      "serviceWorker": false
+      "manifest": true,
+      "serviceWorker": true
     },
     "modules": [
       "core",

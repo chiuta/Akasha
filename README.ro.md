@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.1.3 · **Ultima actualizare:** 2026-10-22
+**Versiune:** 1.1.4 · **Ultima actualizare:** 2026-10-22
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -71,6 +71,10 @@ Licență MIT pentru codul și structura aplicației — vezi fișierul `LICENSE
 Audit: 2026-10-10 — verificat cu Playwright și axe-core; verificat în cod: fără `fetch`/CDN. Importul de înregistrări neîncrezătoare (JSON cu `</script>`, `<img onerror>`) a fost testat: textul este escapat, iar blocul de date se serializează cu `<` → `\u003c`. Corectat: lipseau marginile laterale (20 px) pe ecran îngust. Notă: numele „Akasha/registru akashic" este doar tematic — aplicația este un utilitar de notițe, fără pretenții esoterice.
 
 ## Istoric / Changelog
+
+### 1.1.4 — 2026-10-22
+
+service worker și manifest reale (pornește offline când e servită prin https; fișierul salvat funcționează în continuare din `file://`); indicator persistent „modificări nesalvate” cu buton „Reîncarnează” (înainte exista doar avertismentul la închiderea filei); ștergerea unei înregistrări cere confirmarea într-un dialog inline, nu prin `confirm()` blocant; eticheta de versiune „Transparență” are ținta tactilă potrivită. finisaje pentru mobil și accesibilitate: text de cel puțin 12 px și ținte tactile de cel puțin 24 px.
 
 ### 1.1.3 — 2026-10-22
 - Titlul paginii (document.title) urmează acum limba interfeței (Akasha · slogan), nu mai rămâne în română.

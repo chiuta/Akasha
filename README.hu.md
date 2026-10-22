@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.1.3 · **Utolsó frissítés:** 2026-10-22
+**Verzió:** 1.1.4 · **Utolsó frissítés:** 2026-10-22
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -71,6 +71,10 @@ MIT licenc az alkalmazás kódjára és szerkezetére — lásd a `LICENSE` fáj
 Audit: 2026-10-10 — Playwrighttal és axe-core-ral ellenőrizve; a kódban ellenőrizve: nincs `fetch`/CDN. A nem megbízható bejegyzések importálását (JSON `</script>`, `<img onerror>` tartalommal) tesztelték: a szöveg escape-elt, az adatblokk szerializálása `<` → `<` cserével történik. Javítva: keskeny képernyőn hiányoztak az oldalsó margók (20 px). Megjegyzés: az „Akasha/akasha-krónika” név csak tematikus — az alkalmazás jegyzetelő segédprogram, ezoterikus igények nélkül.
 
 ## Előzmények / Changelog
+
+### 1.1.4 — 2026-10-22
+
+valódi service worker és manifest (https-en kiszolgálva offline is indul; a mentett fájl továbbra is működik `file://`-ról); állandó „nem mentett módosítások” jelzés „Reinkarnáció” gombbal (korábban csak a fül bezárásakor jelent meg figyelmeztetés); egy bejegyzés törlése soron belüli párbeszédablakban kér megerősítést a blokkoló `confirm()` helyett; a „Átláthatóság” verziócímke megfelelő érintési felületű. mobil és kisegítő finomítások: legalább 12 px-es szöveg és legalább 24 px-es érintési felületek.
 
 ### 1.1.3 — 2026-10-22
 - Az oldal címe (document.title) mostantól a felület nyelvét követi (Akasha · alcím), nem marad románul.

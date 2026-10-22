@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.1.3 · **Última atualização:** 2026-10-22
+**Versão:** 1.1.4 · **Última atualização:** 2026-10-22
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -71,6 +71,10 @@ Licença MIT para o código e a estrutura da aplicação — veja o ficheiro `LI
 Auditoria: 2026-10-10 — verificado com Playwright e axe-core; verificado no código: sem `fetch`/CDN. A importação de entradas não fiáveis (JSON com `</script>`, `<img onerror>`) foi testada: o texto é escapado e o bloco de dados é serializado com `<` → `<`. Corrigido: faltavam as margens laterais (20 px) em ecrã estreito. Nota: o nome «Akasha/registo akáshico» é apenas temático — a aplicação é um utilitário de notas, sem pretensões esotéricas.
 
 ## Histórico / Changelog
+
+### 1.1.4 — 2026-10-22
+
+service worker e manifesto reais (arranca offline quando servida por https; o ficheiro guardado continua a funcionar a partir de `file://`); indicador persistente de «alterações por guardar» com botão «Reencarnar» (antes havia apenas um aviso ao fechar o separador); eliminar um registo pede confirmação numa caixa de diálogo integrada em vez do `confirm()` bloqueante; a etiqueta de versão «Transparência» tem uma área tátil adequada. melhorias para telemóvel e acessibilidade: texto de pelo menos 12 px e áreas táteis de pelo menos 24 px.
 
 ### 1.1.3 — 2026-10-22
 - O título da página (document.title) acompanha agora o idioma da interface (Akasha · subtítulo), em vez de ficar em romeno.

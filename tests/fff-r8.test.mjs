@@ -62,7 +62,7 @@ console.log('Pornire și versiune');
   const {ctx, p, errs, net} = await open(1280, 800);
   t('0 pageerror/CSP', errs.length === 0, errs.join('|'));
   t('0 cereri de rețea', net() === 0);
-  t('versiune 1.1.3 (meta + #app-version + constantă)', await p.evaluate(() => document.querySelector('meta[name=application-version]').content === '1.1.3' && /v 1\.1\.3 · 2026-10-22/.test(document.getElementById('app-version').textContent)));
+  t('versiune 1.1.4 (meta + #app-version + constantă)', await p.evaluate(() => document.querySelector('meta[name=application-version]').content === '1.1.4' && /v 1\.1\.4 · 2026-10-22/.test(document.getElementById('app-version').textContent)));
   t('kit prezent', await p.evaluate(() => !!(window.FFF && FFF.label && FFF.bundle && FFF.qr && FFF.tts)));
   await ctx.close();
 }
@@ -180,7 +180,7 @@ console.log('Accesibilitate');
   const [dl] = await Promise.all([p.waitForEvent('download'), p.click('#dlBtn')]);
   const sp = '/tmp/akasha-r8-saved.html'; await dl.saveAs(sp);
   const html = fs.readFileSync(sp, 'utf8');
-  t('copia reîncarnată: un singur bloc kit, versiunea 1.1.3, înregistrarea nouă', (html.match(/<!--fff:kit:start/g) || []).length === 1 && /content="1\.1\.3"/.test(html) && /Persist/.test(html));
+  t('copia reîncarnată: un singur bloc kit, versiunea 1.1.4, înregistrarea nouă', (html.match(/<!--fff:kit:start/g) || []).length === 1 && /content="1\.1\.4"/.test(html) && /Persist/.test(html));
   t('copia reîncarnată nu are clase a11y încorporate', !/<html[^>]*a11y-/.test(html));
   const c2 = await open(1280, 800, null, 'file://' + sp);
   t('copia reîncarnată pornește fără erori și păstrează înregistrarea', c2.errs.length === 0 && (await c2.p.evaluate(() => window.__akasha.getState().records.some((r) => r.id === 'zz1'))), c2.errs.join('|'));
