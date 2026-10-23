@@ -1,4 +1,4 @@
-// Teste r10 pentru Akasha 1.1.8: restaurare sigură din autosave, import cu conținut ostil, versiune coerentă.
+// Teste r10 pentru Akasha 1.1.9: restaurare sigură din autosave, import cu conținut ostil, versiune coerentă.
 // Rulare: node tests/r10-audit.test.mjs   (Playwright din /opt/node-tools; rețea externă blocată)
 import {createRequire} from 'module';
 import fs from 'fs';
@@ -59,7 +59,7 @@ console.log('Import JSON ostil');
   const f = path.join(os.tmpdir(), 'akasha-r10-import.json');
   fs.writeFileSync(f, JSON.stringify({records: [
     {id: '__proto__', title: 'pp'}, {id: 'n1', title: XSS, body: '[[' + XSS + ']] [b](javascript:alert(1)) `' + XSS + '`', tags: [XSS], cat: 'zzz', res: '99'},
-    {id: 'n2', title: 'T'.repeat(200000), body: 'B'.repeat(1000000)}
+    {id: 'n2', title: 'T'.repeat(200000), body: 'B'.repeat(1000000), tags: ['g'.repeat(5000)]}
   ]}));
   await p.click('#menuBtn');
   const fc = p.waitForEvent('filechooser');
@@ -68,6 +68,7 @@ console.log('Import JSON ostil');
   const s = await p.evaluate(() => window.__akasha.getState());
   const n1 = s.records.find((r) => r.id === 'n1');
   t('import: cat necunoscută → gand, resonanță limitată la 5', n1 && n1.cat === 'gand' && n1.res === 5, n1 && [n1.cat, n1.res]);
+  t('import: etichetele sunt tăiate la 60 de caractere', s.records.every((r) => r.tags.every((g) => g.length <= 60)));
   t('import: titlul este tăiat la 500 de caractere', s.records.find((r) => r.id === 'n2').title.length === 500);
   await p.waitForTimeout(300);
   t('import: niciun cod nu rulează, fără pageerror', await p.evaluate(() => window.__x === undefined) && errs.length === 0, errs);
