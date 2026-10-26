@@ -5,7 +5,7 @@ import fs from 'fs';
 import http from 'http';
 import path from 'path';
 import {fileURLToPath} from 'url';
-const require = createRequire('/opt/node-tools/package.json');
+const require = createRequire(process.env.PW_ROOT || import.meta.url);
 const {chromium} = require('playwright');
 const here = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(here, '..');
@@ -20,7 +20,7 @@ const srv = http.createServer((req, res) => {
 });
 await new Promise((r) => srv.listen(0, '127.0.0.1', r));
 const BASE = 'http://127.0.0.1:' + srv.address().port + '/';
-const b = await chromium.launch({executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox']});
+const b = await chromium.launch({executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--no-sandbox']});
 
 for (const L of ['en', 'ro', 'de', 'hu']) {
   const ctx = await b.newContext({viewport: {width: 1000, height: 800}, serviceWorkers: 'block', locale: L, acceptDownloads: true});

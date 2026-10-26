@@ -1,16 +1,23 @@
 // Teste R8 pentru Akasha 1.1.0: citire cu voce tare, cod QR pentru înregistrări, accesibilitate.
+// [fff-portable] axe-core: FFF_AXE / AXE_PATH, apoi pachetul `axe-core` (npm i -D axe-core). Dacă lipsește: undefined (testele cu axe pică cu mesaj clar).
+import {createRequire as __fffCR} from 'node:module';
+const __fffAxe = () => { try { return __fffCR(import.meta.url).resolve('axe-core/axe.min.js'); } catch { return undefined; } };
+// [fff-portable] versiunea/data/kitul aplicației se citesc din app.json (nu mai sunt hard-codate în teste)
+import {readFileSync as __fffRF} from 'node:fs';
+const __FFF_APP = JSON.parse(__fffRF(new URL('../app.json', import.meta.url), 'utf8'));
+const __fffRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 import {createRequire} from 'module';
 import fs from 'fs';
 import path from 'path';
 import {fileURLToPath} from 'url';
-const require = createRequire('/opt/node-tools/package.json');
+const require = createRequire(process.env.PW_ROOT || import.meta.url);
 const {chromium} = require('playwright');
 const here = path.dirname(fileURLToPath(import.meta.url));
 const FILE = 'file://' + path.resolve(here, '..', 'index.html');
-const AXE = process.env.FFF_AXE || '/tmp/claude-0/-home-claude/78529928-3825-51c3-b9bd-0e81655ab6bc/scratchpad/sweep/node_modules/axe-core/axe.min.js';
+const AXE = process.env.FFF_AXE || __fffAxe();
 let ok = 0, bad = 0;
 function t(name, cond, extra) { if (cond) { ok++; console.log('  ok  ' + name); } else { bad++; console.log('  FAIL ' + name + (extra ? ' :: ' + extra : '')); } }
-const b = await chromium.launch({executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox']});
+const b = await chromium.launch({executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--no-sandbox']});
 async function open(w, h, init, file) {
   const ctx = await b.newContext({viewport: {width: w, height: h}, acceptDownloads: true});
   let net = 0; await ctx.route(/^https?:/, (r) => { net++; r.abort(); });
@@ -62,7 +69,7 @@ console.log('Pornire și versiune');
   const {ctx, p, errs, net} = await open(1280, 800);
   t('0 pageerror/CSP', errs.length === 0, errs.join('|'));
   t('0 cereri de rețea', net() === 0);
-  t('versiune 1.1.8 (meta + #app-version + constantă)', await p.evaluate(() => document.querySelector('meta[name=application-version]').content === '1.1.8' && /v 1\.1\.8 · 2026-10-26/.test(document.getElementById('app-version').textContent)));
+  t(`versiune ${__FFF_APP.version} (meta + #app-version + constantă)`, await p.evaluate((__FFF_APP)=> document.querySelector('meta[name=application-version]').content === __FFF_APP.version && new RegExp(String.raw`v ${__FFF_APP.versionRe} · ${__FFF_APP.updatedRe}`).test(document.getElementById('app-version').textContent), {...__FFF_APP, versionRe: __fffRe(__FFF_APP.version), updatedRe: __fffRe(__FFF_APP.updated)}));
   t('kit prezent', await p.evaluate(() => !!(window.FFF && FFF.label && FFF.bundle && FFF.qr && FFF.tts)));
   await ctx.close();
 }
@@ -180,7 +187,7 @@ console.log('Accesibilitate');
   const [dl] = await Promise.all([p.waitForEvent('download'), p.click('#dlBtn')]);
   const sp = '/tmp/akasha-r8-saved.html'; await dl.saveAs(sp);
   const html = fs.readFileSync(sp, 'utf8');
-  t('copia reîncarnată: un singur bloc kit, versiunea 1.1.8, înregistrarea nouă', (html.match(/<!--fff:kit:start/g) || []).length === 1 && /content="1\.1\.8"/.test(html) && /Persist/.test(html));
+  t(`copia reîncarnată: un singur bloc kit, versiunea ${__FFF_APP.version}, înregistrarea nouă`, (html.match(/<!--fff:kit:start/g) || []).length === 1 && new RegExp(String.raw`content="${__fffRe(__FFF_APP.version)}"`).test(html) && /Persist/.test(html));
   t('copia reîncarnată nu are clase a11y încorporate', !/<html[^>]*a11y-/.test(html));
   const c2 = await open(1280, 800, null, 'file://' + sp);
   t('copia reîncarnată pornește fără erori și păstrează înregistrarea', c2.errs.length === 0 && (await c2.p.evaluate(() => window.__akasha.getState().records.some((r) => r.id === 'zz1'))), c2.errs.join('|'));
