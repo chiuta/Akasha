@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.1.8 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -29,6 +29,11 @@ Akasha este un registru personal de înregistrări (gânduri, evenimente, cunoa�
 - Fundal cu stele, care poate fi pornit/oprit (în tema întunecată); tema luminoasă urmează preferința sistemului.
 - Salvare automată de siguranță în browser, cu banner „Restaurează / Ignoră" pentru modificări mai noi decât fișierul; avertisment la închidere dacă există modificări nesalvate.
 - Interfață în 58 de limbi (inclusiv română), cu suport pentru scriere de la dreapta la stânga (ar, he, fa, ur).
+
+## Funcții noi (v2.0.0)
+
+- **Graf de legături** (meniu → „Graf și conexiuni”): harta notelor legate prin `[[Titlu]]`, cu noduri colorate după categorie și mărime după număr de legături, căutare care evidențiază o notă, ascunderea notelor izolate, deschiderea unei note din nod (clic sau Enter) și un tabel accesibil cu legăturile pe notă. Aspectul se calculează local și este determinist; la peste 150 de note se arată cele mai conectate. Export SVG și JSON al legăturilor.
+- **Sugestii de conexiuni**: mențiuni ale unui titlu în alte note fără `[[…]]` și note cu cel puțin două etichete comune; „Leagă” modifică doar nota sursă (învelește mențiunea în `[[…]]` sau adaugă „Vezi și: [[Titlu]]”) și se poate anula. Sincronizarea p2p între dispozitive nu este inclusă (aplicația rămâne fără rețea); se mută datele prin export/import sau QR.
 
 ## Funcții noi (v1.1.0)
 
