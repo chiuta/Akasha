@@ -2,7 +2,11 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+
+**Stare:** stabil · **Offline:** complet
+
+> **Protecția datelor:** modificările sunt salvate automat și în `localStorage` (cheia `akasha:autosave:v1`) ca rezervă, cu banner de restaurare la următoarea vizită. Dacă există modificări încă nescrise într-un fișier, indicatorul „modificări nesalvate" rămâne vizibil, iar browserul cere confirmare la închiderea filei. Rezerva din browser nu înlocuiește fișierul: apăsați „Reîncarnează" (Ctrl/Cmd+S), păstrați `akasha.html` și exportați periodic JSON. Ștergerea datelor site-ului șterge și rezerva din browser.
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 

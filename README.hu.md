@@ -2,7 +2,11 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 2.0.0 · **Utolsó frissítés:** 2026-10-26
+**Verzió:** 2.0.1 · **Utolsó frissítés:** 2026-10-27
+
+**Állapot:** stabil · **Offline:** teljes
+
+> **Adatvédelem:** a módosítások tartalékként automatikusan a `localStorage`-ba is mentődnek (kulcs: `akasha:autosave:v1`), a következő látogatáskor visszaállítási sáv jelenik meg. Amíg vannak fájlba még nem írt módosítások, a „nem mentett módosítások" jelzés látható marad, és a böngésző megerősítést kér a lap bezárásakor. A böngészős tartalék nem helyettesíti a fájlt: nyomja meg az „Újjászületés" gombot (Ctrl/Cmd+S), őrizze meg az `akasha.html` fájlt, és időnként exportáljon JSON-t. A webhelyadatok törlése a böngészős tartalékot is törli.
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 

@@ -2,7 +2,11 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 2.0.0 · **Zuletzt aktualisiert:** 2026-10-26
+**Version:** 2.0.1 · **Zuletzt aktualisiert:** 2026-10-27
+
+**Status:** stabil · **Offline:** vollständig
+
+> **Datenschutz:** Änderungen werden zusätzlich als Sicherung in `localStorage` (Schlüssel `akasha:autosave:v1`) automatisch gespeichert; beim nächsten Besuch erscheint ein Wiederherstellungsbanner. Solange Änderungen noch nicht in eine Datei geschrieben sind, bleibt die Anzeige „nicht gespeicherte Änderungen" sichtbar, und der Browser fragt beim Schließen des Tabs nach. Die Browser-Sicherung ersetzt die Datei nicht: „Reinkarnieren" (Strg/Cmd+S) drücken, `akasha.html` aufbewahren und gelegentlich JSON exportieren. Das Löschen der Website-Daten löscht auch die Browser-Sicherung.
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
