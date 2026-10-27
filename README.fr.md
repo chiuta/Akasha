@@ -2,7 +2,11 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 2.0.0 · **Dernière mise à jour :** 2026-10-26
+**Version :** 2.0.1 · **Dernière mise à jour :** 2026-10-27
+
+**État :** stable · **Hors ligne :** complet
+
+> **Protection des données :** les modifications sont aussi enregistrées automatiquement dans `localStorage` (clé `akasha:autosave:v1`) comme sauvegarde, avec une bannière de restauration à la visite suivante. Tant que des modifications ne sont pas écrites dans un fichier, l'indicateur « modifications non enregistrées » reste visible et le navigateur demande confirmation à la fermeture de l'onglet. La sauvegarde du navigateur ne remplace pas le fichier : appuyez sur « Réincarner » (Ctrl/Cmd+S), conservez `akasha.html` et exportez le JSON de temps en temps. Effacer les données du site efface aussi la sauvegarde du navigateur.
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 

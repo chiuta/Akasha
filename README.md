@@ -2,7 +2,11 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.0.0 · **Last updated:** 2026-10-26
+**Version:** 2.0.1 · **Last updated:** 2026-10-27
+
+**Status:** stable · **Offline:** complete
+
+> **Data protection:** edits are also autosaved to `localStorage` (key `akasha:autosave:v1`) as a backup, with a restore banner on the next visit. If there are changes not yet written to a file, an "unsaved changes" indicator stays visible and the browser asks for confirmation when the tab is closed. The browser backup does not replace the file: press "Reincarnate" (Ctrl/Cmd+S) and keep `akasha.html`, and export JSON from time to time. Clearing site data erases the browser backup.
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 

@@ -2,7 +2,11 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 2.0.0 · **Ultimo aggiornamento:** 2026-10-26
+**Versione:** 2.0.1 · **Ultimo aggiornamento:** 2026-10-27
+
+**Stato:** stabile · **Offline:** completo
+
+> **Protezione dei dati:** le modifiche vengono salvate automaticamente anche in `localStorage` (chiave `akasha:autosave:v1`) come riserva, con un banner di ripristino alla visita successiva. Finché ci sono modifiche non ancora scritte in un file, l'indicatore «modifiche non salvate» resta visibile e il browser chiede conferma alla chiusura della scheda. La riserva del browser non sostituisce il file: premere «Reincarna» (Ctrl/Cmd+S), conservare `akasha.html` ed esportare il JSON ogni tanto. Cancellare i dati del sito cancella anche la riserva del browser.
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 

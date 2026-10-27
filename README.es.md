@@ -2,7 +2,11 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 2.0.0 · **Última actualización:** 2026-10-26
+**Versión:** 2.0.1 · **Última actualización:** 2026-10-27
+
+**Estado:** estable · **Sin conexión:** completo
+
+> **Protección de datos:** los cambios también se guardan automáticamente en `localStorage` (clave `akasha:autosave:v1`) como respaldo, con un aviso de restauración en la siguiente visita. Mientras haya cambios aún no escritos en un archivo, el indicador «cambios sin guardar» permanece visible y el navegador pide confirmación al cerrar la pestaña. El respaldo del navegador no sustituye al archivo: pulse «Reencarnar» (Ctrl/Cmd+S), conserve `akasha.html` y exporte JSON de vez en cuando. Borrar los datos del sitio borra también el respaldo del navegador.
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
