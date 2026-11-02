@@ -14,8 +14,8 @@
   "storageKeys": [
     "akasha:autosave:v1"
   ],
-  "sizeBytes": 744336,
-  "sha256": "8fa1331632770ef12d568e37aa4e942f7e43e8cb6d64439e15626b4335349dd4",
+  "sizeBytes": 744422,
+  "sha256": "4af2e6280258cc2e9b9007a454dc68030f423da8820bd4fcce4b3c40741e3d77",
   "csp": {
     "present": true,
     "directives": {
