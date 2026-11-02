@@ -14,8 +14,8 @@
   "storageKeys": [
     "akasha:autosave:v1"
   ],
-  "sizeBytes": 744422,
-  "sha256": "eaf55af7a25c330ad7287526b459e8fbc15970d7c56c4fe0876e23e3f9750e42",
+  "sizeBytes": 841070,
+  "sha256": "fd81aafe355e005951ac380a63e7c397743bc5eda06ad542eaf614ba77f7c3e1",
   "csp": {
     "present": true,
     "directives": {
@@ -59,6 +59,9 @@
       "label",
       "bundle",
       "qr",
+      "p2p",
+      "sync",
+      "history",
       "bridge",
       "tts"
     ]
@@ -72,6 +75,9 @@
       "label",
       "bundle",
       "qr",
+      "p2p",
+      "sync",
+      "history",
       "bridge",
       "tts"
     ]
