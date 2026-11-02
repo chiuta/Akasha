@@ -79,7 +79,7 @@ console.log('Citire cu voce tare');
   const {ctx, p, errs} = await open(1280, 800, mockTts);
   await detail(p, 'seed-1');
   const btns = await p.locator('.pfoot button').allTextContents();
-  t('butoane noi în subsolul detaliului (voce, QR) înaintea celor vechi', /Read aloud/.test(btns[0]) && /QR code/.test(btns[1]) && /Duplicate/.test(btns[2]), btns.join('|'));
+  t('butoane noi în subsolul detaliului (voce, QR) înaintea celor vechi', /Read aloud/.test(btns[0]) && /QR code/.test(btns[1]) && /Send to/.test(btns[2]) && /Duplicate/.test(btns[3]), btns.join('|'));
   await p.evaluate(() => { window.__hold = true; });
   await p.click('.pfoot button:has-text("Read aloud")');
   await p.waitForTimeout(500);
