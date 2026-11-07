@@ -2,8 +2,8 @@
   "schema": 1,
   "slug": "akasha",
   "name": "Akasha · Registru akashic",
-  "version": "2.1.1",
-  "updated": "2026-11-02",
+  "version": "2.1.2",
+  "updated": "2026-11-07",
   "description": "Akasha — registru akashic offline, un singur fișier HTML quine. Zero dependențe, zero telemetrie.",
   "egress": [],
   "permissions": [
@@ -14,8 +14,8 @@
   "storageKeys": [
     "akasha:autosave:v1"
   ],
-  "sizeBytes": 841927,
-  "sha256": "514143a1038a6a010646d3a6c2d4f50c3517b7503e6ff33cd6dc8508a2d3a47e",
+  "sizeBytes": 843533,
+  "sha256": "100bd3bf334fc6d6804c8e54d0958f636b8e2f9b5f0d0b10b88a1bc1b6c4235e",
   "csp": {
     "present": true,
     "directives": {
@@ -67,7 +67,7 @@
     ]
   },
   "kit": {
-    "version": "1.2.0",
+    "version": "1.2.1",
     "modules": [
       "core",
       "store",
