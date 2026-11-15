@@ -9,19 +9,20 @@
   "permissions": [
     "clipboard",
     "serviceWorker",
-    "localStorage"
+    "localStorage",
+    "WebGL"
   ],
   "storageKeys": [
     "akasha:autosave:v1",
     "akasha:lastreinc:v1"
   ],
-  "sizeBytes": 896883,
-  "sha256": "de370b1c3c23f1a3da9f5ad93a6245c72932e095380dc46461affa038fbbbcf3",
+  "sizeBytes": 948932,
+  "sha256": "d6d686695a72a660093c8f6a649edad9c42af86fa7970007d88343a1f03a1868",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "sha256×4",
+      "script-src": "sha256×5",
       "style-src": "'unsafe-inline'",
       "img-src": "'self' data: blob:",
       "font-src": "data:",
